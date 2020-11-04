@@ -121,7 +121,7 @@ function Meny() {
           )}
           {side && <Brødsmule label={side} onClick={() => null} />}
         </Brødsmuler>
-        <LoggInnKnapp>Logg inn</LoggInnKnapp>
+        <LoggInnKnapp onClick={() => dispatch({type: 'velgOmråde', område: menuData.områder.find(område => område.title.includes('Ditt NAV'))!})}>Logg inn</LoggInnKnapp>
       </Style>
       {open && (
         <PopDown>
