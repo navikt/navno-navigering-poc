@@ -9,6 +9,7 @@ import { useDemoContext } from "../../DemoControlls/demoContext";
 import { useAppContext } from "../appContext";
 import NavFrontendChevron from "nav-frontend-chevron";
 import MenyButton from "../../components/MenyButton";
+import Knapp from "nav-frontend-knapper/lib/knapp";
 
 const Style = styled.div`
   padding: 1rem;
@@ -17,7 +18,9 @@ const Style = styled.div`
   align-items: center;
 `;
 
-const Button = styled.button`
+const NavButton = styled.button`
+  display: inline-flex;
+  align-items: center;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -28,7 +31,7 @@ const Button = styled.button`
 `;
 
 const PopDown = styled.div`
-  padding: 1rem;
+  padding: 2rem 1rem 3rem;
   position: absolute;
   left: 0;
   background-color: white;
@@ -76,6 +79,11 @@ const BrødsmuleStyle = styled.button`
   }
 `;
 
+const LoggInnKnapp = styled(Knapp)`
+    text-transform: none;
+    padding: .5em 1.2em;
+`;
+
 function Brødsmule(props: { label: string; onClick: () => void }) {
   return (
     <BrødsmuleStyle className="lenke" onClick={props.onClick}>
@@ -97,11 +105,11 @@ function Meny() {
   return (
     <div ref={ref}>
       <Style>
-        <Button onClick={() => dispatch({ type: "clear" })}>
-          <NavLogo height={"2rem"} />
-        </Button>
+        <NavButton onClick={() => dispatch({ type: "clear" })}>
+          <NavLogo height={"2.5rem"} />
+        </NavButton>
         {demoContext.visMeny && (
-          <MenyButton onClick={() => setOpen(!open)} label={"Åpne meny"} />
+          <MenyButton isOpen={open} onClick={() => setOpen(!open)} label={"Meny"} />
         )}
         <Brødsmuler>
           <Brødsmule label={"nav.no"} onClick={() => dispatch({ type: "clear" })} />
@@ -113,6 +121,7 @@ function Meny() {
           )}
           {side && <Brødsmule label={side} onClick={() => null} />}
         </Brødsmuler>
+        <LoggInnKnapp>Logg inn</LoggInnKnapp>
       </Style>
       {open && (
         <PopDown>

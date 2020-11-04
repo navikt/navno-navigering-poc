@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components/macro";
+import { theme } from "../theme";
 
 const removeButtonStyle = css`
   background: none;
@@ -12,22 +13,25 @@ const removeButtonStyle = css`
 `;
 
 const IkonButtonStyle = styled.button`
+margin-left: 1rem;
   ${removeButtonStyle};
+  font-size: 1.1rem;
+  font-weight: 600;
   border-radius: 50%;
-  height: 2.2rem;
-  width: 2.2rem;
   opacity: 0.9;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${theme.colors.navBla};
   &:hover {
     opacity: 0.7;
   }
 `;
 
 const StyledSvg = styled.svg`
-  width: 50%;
-  stroke: black;
+  margin-right: .5rem;
+  height: 1.3em;
+  stroke: currentColor;
   stroke-width: 0.4;
   stroke-linecap: round;
 `;
@@ -43,14 +47,10 @@ function MenyButton(props: React.HTMLAttributes<HTMLButtonElement> & Props) {
   return (
     <IkonButtonStyle aria-expanded={isOpen} {...rest}>
       <InnholdIkon isOpen={isOpen} />
-      <span className="sr-only">{props.label}</span>
+      <span>{props.label}</span>
     </IkonButtonStyle>
   );
 }
-
-const getLine = (i: number) => (
-    <path d={`M 1 ${i} L 3.3 ${i}`} />
-);
 
 function InnholdIkon(props: { isOpen?: boolean }) {
   if (props.isOpen) {
@@ -64,9 +64,7 @@ function InnholdIkon(props: { isOpen?: boolean }) {
 
   return (
     <StyledSvg viewBox="0.5 0.5 3 3">
-      {getLine(1)}
-      {getLine(2)}
-      {getLine(3)}
+      {[1,2,3].map((i) => <path d={`M 1 ${i} L 3.3 ${i}`} />)}
     </StyledSvg>
   );
 }
