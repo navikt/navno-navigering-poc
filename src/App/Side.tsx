@@ -5,9 +5,18 @@ import { useAppContext } from "./appContext";
 
 const Style = styled.div`
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 2rem;
   padding: 1rem;
   max-width: 45rem;
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+  }
 `;
 
 function Side() {

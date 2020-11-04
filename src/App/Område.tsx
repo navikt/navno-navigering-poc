@@ -1,15 +1,16 @@
 import * as React from "react";
 import Meny from "./Meny/Meny";
-import styled from "styled-components";
 import { useAppContext } from "./appContext";
 import Lenkepanel from "nav-frontend-lenkepanel";
+import { Grid } from "../components/LenkepanelGrid";
+import styled from "styled-components";
 
-const Grid = styled.div`
-  margin-top: 5rem;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(2, minmax(10rem, 20rem));
-  grid-gap: 1rem;
+const Style = styled.div`
+      h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 function Område() {
@@ -18,8 +19,9 @@ function Område() {
   const område = state.område!;
 
   return (
-    <>
+    <Style>
       <Meny />
+      <h2>{område.title}</h2>
       <Grid>
         {område.sider.map((side) => (
           <Lenkepanel href="#" border tittelProps="normaltekst" onClick={() => dispatch({ type: "velgSide", side: side })}>
@@ -28,7 +30,7 @@ function Område() {
           </Lenkepanel>
         ))}
       </Grid>
-    </>
+    </Style>
   );
 }
 

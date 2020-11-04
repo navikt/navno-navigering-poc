@@ -8,6 +8,7 @@ import { useClickAway } from "react-use";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 import { useAppContext } from "../appContext";
 import NavFrontendChevron from "nav-frontend-chevron";
+import MenyButton from "../../components/MenyButton";
 
 const Style = styled.div`
   padding: 1rem;
@@ -16,7 +17,7 @@ const Style = styled.div`
   align-items: center;
 `;
 
-const MenyButton = styled.button`
+const Button = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
@@ -96,16 +97,14 @@ function Meny() {
   return (
     <div ref={ref}>
       <Style>
-        <MenyButton onClick={() => dispatch({ type: "clear" })}>
+        <Button onClick={() => dispatch({ type: "clear" })}>
           <NavLogo height={"2rem"} />
-        </MenyButton>
+        </Button>
         {demoContext.visMeny && (
-          <MenyButton onClick={() => setOpen(!open)}>🍔</MenyButton>
+          <MenyButton onClick={() => setOpen(!open)} label={"Åpne meny"} />
         )}
         <Brødsmuler>
-          {state === "forside" && (
-            <Brødsmule label={"nav.no"} onClick={() => null} />
-          )}
+            <Brødsmule label={"nav.no"} onClick={() => dispatch({type: 'clear'})} />
           {område && (
             <Brødsmule
               label={område.title}
