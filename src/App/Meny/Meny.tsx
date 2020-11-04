@@ -104,7 +104,7 @@ function Meny() {
           <MenyButton onClick={() => setOpen(!open)} label={"Åpne meny"} />
         )}
         <Brødsmuler>
-            <Brødsmule label={"nav.no"} onClick={() => dispatch({type: 'clear'})} />
+          <Brødsmule label={"nav.no"} onClick={() => dispatch({ type: "clear" })} />
           {område && (
             <Brødsmule
               label={område.title}
@@ -117,7 +117,10 @@ function Meny() {
       {open && (
         <PopDown>
           {menuData.områder.map((område) => (
-            <Område>{område.title}</Område>
+            <Område onClick={() => {
+              dispatch({ type: "velgOmråde", område: område });
+              setOpen(false);
+            }}>{område.title}</Område>
           ))}
         </PopDown>
       )}
