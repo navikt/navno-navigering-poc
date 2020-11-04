@@ -1,0 +1,19 @@
+@import-normalize;
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 115%;
+  line-height: 1.5;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
