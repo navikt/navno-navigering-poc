@@ -59,7 +59,7 @@ function DemoControlls() {
             {context.visMeny ? "Skjul" : "Vis"} meny
           </Knapp>
           <Knapp onClick={() => dispatch(context.visIkoner ? "skjulIkoner" : "visIkoner")}>
-            {context.visMeny ? "Skjul" : "Vis"} ikoner
+            {context.visIkoner ? "Skjul" : "Vis"} ikoner
           </Knapp>
         </Grid>
       </PopDown>}
