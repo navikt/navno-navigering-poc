@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface MenuData {
   title: string;
   områder: OmrådeI[];
@@ -6,5 +8,6 @@ export interface MenuData {
 export interface OmrådeI {
   title: string;
   beskrivelse: string;
+  ikon?: ReactNode,
   sider: string[];
 }

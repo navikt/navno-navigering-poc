@@ -33,7 +33,7 @@ const MenuButton = styled.button`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, auto);
   grid-gap: 1rem;
 `;
 
@@ -57,6 +57,9 @@ function DemoControlls() {
         <Grid>
           <Knapp onClick={() => dispatch(context.visMeny ? "ingenMeny" : "meny")}>
             {context.visMeny ? "Skjul" : "Vis"} meny
+          </Knapp>
+          <Knapp onClick={() => dispatch(context.visIkoner ? "skjulIkoner" : "visIkoner")}>
+            {context.visMeny ? "Skjul" : "Vis"} ikoner
           </Knapp>
         </Grid>
       </PopDown>}
