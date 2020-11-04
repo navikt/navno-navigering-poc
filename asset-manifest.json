@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/navno-navigering-poc/static/css/main.2e7e6113.chunk.css",
-    "main.js": "/navno-navigering-poc/static/js/main.86d3237d.chunk.js",
-    "main.js.map": "/navno-navigering-poc/static/js/main.86d3237d.chunk.js.map",
+    "main.js": "/navno-navigering-poc/static/js/main.81e6880a.chunk.js",
+    "main.js.map": "/navno-navigering-poc/static/js/main.81e6880a.chunk.js.map",
     "runtime-main.js": "/navno-navigering-poc/static/js/runtime-main.46cddf28.js",
     "runtime-main.js.map": "/navno-navigering-poc/static/js/runtime-main.46cddf28.js.map",
-    "static/css/2.9371a1a6.chunk.css": "/navno-navigering-poc/static/css/2.9371a1a6.chunk.css",
-    "static/js/2.15cac423.chunk.js": "/navno-navigering-poc/static/js/2.15cac423.chunk.js",
-    "static/js/2.15cac423.chunk.js.map": "/navno-navigering-poc/static/js/2.15cac423.chunk.js.map",
+    "static/css/2.bbf60f6a.chunk.css": "/navno-navigering-poc/static/css/2.bbf60f6a.chunk.css",
+    "static/js/2.2e45b647.chunk.js": "/navno-navigering-poc/static/js/2.2e45b647.chunk.js",
+    "static/js/2.2e45b647.chunk.js.map": "/navno-navigering-poc/static/js/2.2e45b647.chunk.js.map",
     "index.html": "/navno-navigering-poc/index.html",
-    "precache-manifest.26e6b88a7af18302a171ff9cf89d2bc4.js": "/navno-navigering-poc/precache-manifest.26e6b88a7af18302a171ff9cf89d2bc4.js",
+    "precache-manifest.451e9a688412e5af40183adbda1aa115.js": "/navno-navigering-poc/precache-manifest.451e9a688412e5af40183adbda1aa115.js",
     "service-worker.js": "/navno-navigering-poc/service-worker.js",
-    "static/css/2.9371a1a6.chunk.css.map": "/navno-navigering-poc/static/css/2.9371a1a6.chunk.css.map",
+    "static/css/2.bbf60f6a.chunk.css.map": "/navno-navigering-poc/static/css/2.bbf60f6a.chunk.css.map",
     "static/css/main.2e7e6113.chunk.css.map": "/navno-navigering-poc/static/css/main.2e7e6113.chunk.css.map",
-    "static/js/2.15cac423.chunk.js.LICENSE.txt": "/navno-navigering-poc/static/js/2.15cac423.chunk.js.LICENSE.txt"
+    "static/js/2.2e45b647.chunk.js.LICENSE.txt": "/navno-navigering-poc/static/js/2.2e45b647.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.46cddf28.js",
-    "static/css/2.9371a1a6.chunk.css",
-    "static/js/2.15cac423.chunk.js",
+    "static/css/2.bbf60f6a.chunk.css",
+    "static/js/2.2e45b647.chunk.js",
     "static/css/main.2e7e6113.chunk.css",
-    "static/js/main.86d3237d.chunk.js"
+    "static/js/main.81e6880a.chunk.js"
   ]
 }
