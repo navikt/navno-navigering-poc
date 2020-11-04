@@ -7,9 +7,9 @@ import { menuData } from "../../data/menuData";
 import { useClickAway } from "react-use";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 import { useAppContext } from "../appContext";
-import NavFrontendChevron from "nav-frontend-chevron";
 import MenyButton from "../../components/MenyButton";
 import Knapp from "nav-frontend-knapper/lib/knapp";
+import Brodsmuler from "./Brodsmuler";
 
 const Style = styled.div`
   padding: 1rem;
@@ -53,54 +53,33 @@ const Område = styled.button`
   text-align: left;
 `;
 
-const Brødsmuler = styled.div`
-  flex-grow: 1;
-  text-align: center;
-`;
-
-const BrødsmuleStyle = styled.button`
-  background-color: transparent;
-  border: none;
-  font-weight: 600;
-  font-size: 1.5rem;
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  &:not(:last-child) {
-    > * {
-      margin-right: 1rem;
-    }
-  }
-  &:last-child {
-    > *:nth-child(2) {
-      display: none;
-    }
-  }
-`;
-
 const LoggInnKnapp = styled(Knapp)`
     text-transform: none;
     padding: .5em 1.2em;
 `;
 
-function Brødsmule(props: { label: string; onClick: () => void }) {
-  return (
-    <BrødsmuleStyle className="lenke" onClick={props.onClick}>
-      <span>{props.label}</span>
-      <NavFrontendChevron type="høyre" />
-    </BrødsmuleStyle>
-  );
-}
+const ShowOnSmallScreen = styled.div`
+padding: 1rem 0;
+    @media (min-width: 1200px) {
+      display: none;
+    }
+`;
+
+const ShowOnBigScreen = styled.div`
+    flex-grow: 1;
+    > * {
+    @media not all and (min-width: 1200px) {
+      display: none;
+    }
+    }
+`;
 
 function Meny() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const [demoContext] = useDemoContext();
-  const [appContext, dispatch] = useAppContext();
+  const [, dispatch] = useAppContext();
   useClickAway(ref, () => setOpen(false));
-
-  const { område, side, state } = appContext;
 
   return (
     <div ref={ref}>
@@ -111,17 +90,13 @@ function Meny() {
         {demoContext.visMeny && (
           <MenyButton isOpen={open} onClick={() => setOpen(!open)} label={"Meny"} />
         )}
-        <Brødsmuler>
-          <Brødsmule label={"nav.no"} onClick={() => dispatch({ type: "clear" })} />
-          {område && (
-            <Brødsmule
-              label={område.title}
-              onClick={() => dispatch({ type: "velgOmråde", område: område })}
-            />
-          )}
-          {side && <Brødsmule label={side} onClick={() => null} />}
-        </Brødsmuler>
-        <LoggInnKnapp onClick={() => dispatch({type: 'velgOmråde', område: menuData.områder.find(område => område.title.includes('Ditt NAV'))!})}>Logg inn</LoggInnKnapp>
+        <ShowOnBigScreen>
+          <Brodsmuler />
+        </ShowOnBigScreen>
+        <LoggInnKnapp onClick={() => dispatch({
+          type: "velgOmråde",
+          område: menuData.områder.find(område => område.title.includes("Ditt NAV"))!
+        })}>Logg inn</LoggInnKnapp>
       </Style>
       {open && (
         <PopDown>
@@ -133,6 +108,9 @@ function Meny() {
           ))}
         </PopDown>
       )}
+      <ShowOnSmallScreen>
+        <Brodsmuler />
+      </ShowOnSmallScreen>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Grid = styled.div`
-  padding: 1.5rem;
+padding: .5rem;
   margin: auto;
-  margin-top: 3rem;
-  max-width: 50rem;
+  margin-top: 1rem;
+  max-width: 60rem;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 20rem));
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 24rem));
   grid-gap: 1.5rem;
   .lenkepanel {
     margin-bottom: 0;
