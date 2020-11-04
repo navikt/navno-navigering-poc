@@ -26,7 +26,6 @@ function Side() {
 
   return (
     <>
-      <Meny />
       <Style>
         <h2>{side}</h2>
         {[...new Array(10)].map(() => (

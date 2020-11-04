@@ -1,5 +1,4 @@
 import * as React from "react";
-import Meny from "./Meny/Meny";
 import { menuData } from "../data/menuData";
 import { useAppContext } from "./appContext";
 import Lenkepanel from "nav-frontend-lenkepanel";
@@ -9,22 +8,19 @@ function Forside() {
   const [, dispatch] = useAppContext();
 
   return (
-    <>
-      <Meny />
-      <Grid>
-        {menuData.områder.map((område) => (
-          <Lenkepanel
-            href="#"
-            tittelProps="normaltekst"
-            border
-            onClick={() => dispatch({ type: "velgOmråde", område: område })}
-          >
-            <h3>{område.title}</h3>
-            <p>{område.beskrivelse}</p>
-          </Lenkepanel>
-        ))}
-      </Grid>
-    </>
+    <Grid>
+      {menuData.områder.map((område) => (
+        <Lenkepanel
+          href="#"
+          tittelProps="normaltekst"
+          border
+          onClick={() => dispatch({ type: "velgOmråde", område: område })}
+        >
+          <h3>{område.title}</h3>
+          <p>{område.beskrivelse}</p>
+        </Lenkepanel>
+      ))}
+    </Grid>
   );
 }
 

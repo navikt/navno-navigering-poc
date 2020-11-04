@@ -13,7 +13,7 @@ import Knapp from "nav-frontend-knapper/lib/knapp";
 
 const Style = styled.div`
   padding: 1rem;
-  border: 0.15rem solid ${theme.colors.navLysBla};
+  border-bottom: 0.2rem solid ${theme.colors.navLysBla};
   display: flex;
   align-items: center;
 `;

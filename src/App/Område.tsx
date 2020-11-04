@@ -20,7 +20,6 @@ function Område() {
 
   return (
     <Style>
-      <Meny />
       <h2>{område.title}</h2>
       <Grid>
         {område.sider.map((side) => (
