@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/navno-navigering-poc/static/css/main.2e7e6113.chunk.css",
+    "main.js": "/navno-navigering-poc/static/js/main.954cd065.chunk.js",
+    "main.js.map": "/navno-navigering-poc/static/js/main.954cd065.chunk.js.map",
+    "runtime-main.js": "/navno-navigering-poc/static/js/runtime-main.46cddf28.js",
+    "runtime-main.js.map": "/navno-navigering-poc/static/js/runtime-main.46cddf28.js.map",
+    "static/css/2.9371a1a6.chunk.css": "/navno-navigering-poc/static/css/2.9371a1a6.chunk.css",
+    "static/js/2.463f4129.chunk.js": "/navno-navigering-poc/static/js/2.463f4129.chunk.js",
+    "static/js/2.463f4129.chunk.js.map": "/navno-navigering-poc/static/js/2.463f4129.chunk.js.map",
+    "index.html": "/navno-navigering-poc/index.html",
+    "precache-manifest.79dbd12724069c411c64434b7c3a49c1.js": "/navno-navigering-poc/precache-manifest.79dbd12724069c411c64434b7c3a49c1.js",
+    "service-worker.js": "/navno-navigering-poc/service-worker.js",
+    "static/css/2.9371a1a6.chunk.css.map": "/navno-navigering-poc/static/css/2.9371a1a6.chunk.css.map",
+    "static/css/main.2e7e6113.chunk.css.map": "/navno-navigering-poc/static/css/main.2e7e6113.chunk.css.map",
+    "static/js/2.463f4129.chunk.js.LICENSE.txt": "/navno-navigering-poc/static/js/2.463f4129.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.46cddf28.js",
+    "static/css/2.9371a1a6.chunk.css",
+    "static/js/2.463f4129.chunk.js",
+    "static/css/main.2e7e6113.chunk.css",
+    "static/js/main.954cd065.chunk.js"
+  ]
+}
