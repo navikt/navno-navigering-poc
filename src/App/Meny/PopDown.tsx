@@ -1,11 +1,11 @@
 import * as React from "react";
 import { menuData } from "../../data/menuData";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { OmrådeI } from "../../data/types";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 
-const Style = styled.div`
+const Style = styled.div<{ kortMeny: boolean }>`
   padding: 2rem 1rem 3rem;
   position: absolute;
   left: 0;
@@ -18,17 +18,21 @@ const Style = styled.div`
   @media (max-width: 40em) {
     grid-template-columns: 1fr;
   }
-  grid-auto-rows: 4rem;
+  ${(props) =>
+    props.kortMeny &&
+    css`
+      grid-auto-rows: 4rem;
+    `};
   z-index: 10;
 `;
 
-const Område = styled.button`
+const Knapp = styled.button<{ small?: boolean }>`
   display: flex;
   align-items: center;
   background: transparent;
   border: none;
   color: ${theme.colors.navBla};
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.small ? "1rem" : "1.2rem")};
   text-align: left;
   cursor: pointer;
   &:hover {
@@ -43,6 +47,13 @@ const Område = styled.button`
   }
 `;
 
+const Område = styled.div``;
+
+const Undersider = styled.div`
+  padding-left: 5rem;
+  margin-bottom: 1rem;
+`;
+
 interface Props {
   setOmråde: (område: OmrådeI) => void;
 }
@@ -51,11 +62,21 @@ function PopDown(props: Props) {
   const [context] = useDemoContext();
 
   return (
-    <Style>
+    <Style kortMeny={!context.langMeny}>
       {menuData.områder.map((område) => (
-        <Område onClick={() => props.setOmråde(område)}>
-          {context.visIkoner && område.ikon}
-          {område.title}
+        <Område>
+          <Knapp onClick={() => props.setOmråde(område)}>
+            {context.visIkoner && område.ikon}
+            {område.title}
+          </Knapp>
+          {context.langMeny && (
+            <Undersider>
+              {område.sider.slice(0, 3).map((side) => (
+                <Knapp small={true}>{side}</Knapp>
+              ))}
+              <Knapp small={true}>Mer..</Knapp>
+            </Undersider>
+          )}
         </Område>
       ))}
     </Style>

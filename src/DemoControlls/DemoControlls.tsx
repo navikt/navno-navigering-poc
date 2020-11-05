@@ -69,6 +69,13 @@ function DemoControlls() {
             >
               {context.visIkoner ? "Skjul" : "Vis"} ikoner
             </Knapp>
+            <Knapp
+              onClick={() =>
+                dispatch(context.langMeny ? "kortMeny" : "langMeny")
+              }
+            >
+              {context.langMeny ? "Skjul" : "Vis"} underpunkter i meny
+            </Knapp>
           </Grid>
         </PopDown>
       )}
