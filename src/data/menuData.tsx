@@ -8,6 +8,8 @@ import DittNavIkon from "../Ikoner/DittNavIkon";
 import SykdomIkon from "../Ikoner/SykdomIkon";
 import ArbeidsgiverIkon from "../Ikoner/Arbeidsgiver";
 import SammarbeidspartnerIkon from "../Ikoner/SammarbeidspartnerIkon";
+import NyhetsIkon from "../Ikoner/NyhetsIkon";
+import StatistikkIkon from "../Ikoner/StatistikkIkon";
 
 export const menuData: MenuData = {
   title: "nav.no",
@@ -83,6 +85,26 @@ export const menuData: MenuData = {
         "Bostyrer",
         "Tiltaksarrangør eller leverandør",
         "Jobber med hjelpemidler i kommune/leverandør",
+      ],
+    },
+    {
+      title: "Nyheter",
+      ikon: <NyhetsIkon />,
+      beskrivelse: "Nyheter, endringer, for journalister, EØS-saken",
+      sider: [
+        "Grunnbelløpet endres i dag",
+        "Ny NAV-direktør",
+        "Koronasituasjonen fortsetter",
+      ],
+    },
+    {
+      title: "Statistikk",
+      ikon: <StatistikkIkon />,
+      beskrivelse: "Nyheter, tall",
+      sider: [
+        "Ny undersøkelse",
+        "Flere er arbeidsledige",
+        "Rekkordstor pågang",
       ],
     },
   ],
