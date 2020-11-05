@@ -10,6 +10,7 @@ import { useAppContext } from "../appContext";
 import MenyButton from "../../components/MenyButton";
 import Knapp from "nav-frontend-knapper/lib/knapp";
 import Brodsmuler from "./Brodsmuler";
+import PopDown from "./PopDown";
 
 const Style = styled.div`
   padding: 1rem;
@@ -28,29 +29,6 @@ const NavButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
-`;
-
-const PopDown = styled.div`
-  padding: 2rem 1rem 3rem;
-  position: absolute;
-  left: 0;
-  background-color: white;
-  width: 100vw;
-  border: 0.15rem solid ${theme.colors.navLysBla};
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(2, minmax(10rem, 20rem));
-  grid-auto-rows: 4rem;
-  z-index: 10;
-`;
-
-const Område = styled.button`
-  background: transparent;
-  border: none;
-  color: ${theme.colors.navBla};
-  text-decoration: underline;
-  font-size: 1.2rem;
-  text-align: left;
 `;
 
 const LoggInnKnapp = styled(Knapp)`
@@ -111,18 +89,12 @@ function Meny() {
         </LoggInnKnapp>
       </Style>
       {open && (
-        <PopDown>
-          {menuData.områder.map((område) => (
-            <Område
-              onClick={() => {
-                dispatch({ type: "velgOmråde", område: område });
-                setOpen(false);
-              }}
-            >
-              {område.title}
-            </Område>
-          ))}
-        </PopDown>
+        <PopDown
+          setOmråde={(område) => {
+            dispatch({ type: "velgOmråde", område: område });
+            setOpen(false);
+          }}
+        />
       )}
       <ShowOnSmallScreen>
         <Brodsmuler />
