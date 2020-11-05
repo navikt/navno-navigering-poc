@@ -13,7 +13,7 @@ const removeButtonStyle = css`
 `;
 
 const IkonButtonStyle = styled.button`
-margin-left: 1rem;
+  margin-left: 1rem;
   ${removeButtonStyle};
   font-size: 1.1rem;
   font-weight: 600;
@@ -29,7 +29,7 @@ margin-left: 1rem;
 `;
 
 const StyledSvg = styled.svg`
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   height: 1.3em;
   stroke: currentColor;
   stroke-width: 0.4;
@@ -64,7 +64,9 @@ function InnholdIkon(props: { isOpen?: boolean }) {
 
   return (
     <StyledSvg viewBox="0.5 0.5 3 3">
-      {[1,2,3].map((i) => <path d={`M 1 ${i} L 3.3 ${i}`} />)}
+      {[1, 2, 3].map((i) => (
+        <path d={`M 1 ${i} L 3.3 ${i}`} />
+      ))}
     </StyledSvg>
   );
 }

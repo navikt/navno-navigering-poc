@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function ArbeidIkon(props: any) {
   return (
@@ -23,7 +23,7 @@ function ArbeidIkon(props: any) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default ArbeidIkon
+export default ArbeidIkon;

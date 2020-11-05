@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function Arbeidsgiver(props: any) {
   return (
@@ -10,7 +10,7 @@ function Arbeidsgiver(props: any) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default Arbeidsgiver
+export default Arbeidsgiver;

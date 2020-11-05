@@ -3,16 +3,12 @@ import styled from "styled-components";
 import { theme } from "../theme";
 
 const Style = styled.div`
-    min-height: 6rem;
-    border-top: .2rem solid ${theme.colors.navLysBla};
+  min-height: 6rem;
+  border-top: 0.2rem solid ${theme.colors.navLysBla};
 `;
 
 function Footer() {
-  return (
-    <Style>
-
-      </Style>
-  );
+  return <Style></Style>;
 }
 
 export default Footer;

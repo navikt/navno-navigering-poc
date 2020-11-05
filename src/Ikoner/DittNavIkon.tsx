@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function DittNavIkon(props: any) {
   return (
@@ -24,7 +24,7 @@ function DittNavIkon(props: any) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default DittNavIkon
+export default DittNavIkon;

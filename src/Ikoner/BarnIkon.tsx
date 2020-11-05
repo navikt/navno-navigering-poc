@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function BarnIkon(props: any) {
   return (
@@ -10,7 +10,7 @@ function BarnIkon(props: any) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default BarnIkon
+export default BarnIkon;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import { MenuData } from "./types";
 import PensjonIkon from "../Ikoner/Pensjon";
 import ØkonomiIkon from "../Ikoner/Økonomi";
@@ -16,17 +16,29 @@ export const menuData: MenuData = {
       title: "Arbeidssøker eller permittert",
       ikon: <ArbeidIkon />,
       beskrivelse: "Om jobb, registrering, CV og dagpenger",
-      sider: ["Arbeidsledig", "Permittert", "Har søkt dagpenger", "Utenfor arbeidslivet lenge", "Jeg er ung", "Ledige stillinger"],
+      sider: [
+        "Arbeidsledig",
+        "Permittert",
+        "Har søkt dagpenger",
+        "Utenfor arbeidslivet lenge",
+        "Jeg er ung",
+        "Ledige stillinger",
+      ],
     },
     {
       title: "Sykdom",
       ikon: <SykdomIkon />,
       beskrivelse: "Om sykepenger, sykmelding og hvordan komme tilbake i jobb",
-      sider: ["I fare for å bli syk", "Syk hva nå", "Yrkesskade", "Har vært syk lenge"],
+      sider: [
+        "I fare for å bli syk",
+        "Syk hva nå",
+        "Yrkesskade",
+        "Har vært syk lenge",
+      ],
     },
     {
       title: "Pensjon",
-      ikon: <PensjonIkon/>,
+      ikon: <PensjonIkon />,
       beskrivelse:
         "Om alderspensjon, beregne og søke pensjon, AFP, utland og pensjon",
       sider: ["Snart pensjonist", "Blir pensjonist", "Er pensjonert"],
@@ -41,8 +53,7 @@ export const menuData: MenuData = {
     {
       title: "Økonomisk hjelp",
       ikon: <ØkonomiIkon />,
-      beskrivelse:
-        "Nødhjelp, bostøtte",
+      beskrivelse: "Nødhjelp, bostøtte",
       sider: ["Jeg har ikke penger", "Trenger sted å bo", "Trenger hjelp"],
     },
     {
@@ -57,14 +68,22 @@ export const menuData: MenuData = {
       ikon: <ArbeidsgiverIkon />,
       beskrivelse:
         "Permittere ansatte, ansatt er syk, tilrettelegge, kontakt med NAV",
-      sider: ["Ansatt er sykemeldt", "Tilrettelegge for ansatt", "Permittere ansatte"],
+      sider: [
+        "Ansatt er sykemeldt",
+        "Tilrettelegge for ansatt",
+        "Permittere ansatte",
+      ],
     },
     {
       title: "Sammarbeidspartnere",
       ikon: <SammarbeidspartnerIkon />,
-      beskrivelse:
-        "Leger, bostyrer, tiltaksarrangør, kommune, aldershjem",
-      sider: ["Lege eller annen behandler", "Bostyrer", "Tiltaksarrangør eller leverandør", "Jobber med hjelpemidler i kommune/leverandør"],
+      beskrivelse: "Leger, bostyrer, tiltaksarrangør, kommune, aldershjem",
+      sider: [
+        "Lege eller annen behandler",
+        "Bostyrer",
+        "Tiltaksarrangør eller leverandør",
+        "Jobber med hjelpemidler i kommune/leverandør",
+      ],
     },
   ],
 };

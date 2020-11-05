@@ -4,7 +4,7 @@ type Action = "ingenMeny" | "meny" | "visIkoner" | "skjulIkoner";
 
 const initialState = {
   visMeny: true,
-  visIkoner: true
+  visIkoner: true,
 };
 
 type State = typeof initialState;
@@ -22,15 +22,15 @@ const reducer = (state: State, action: Action) => {
         visMeny: true,
       };
     case "skjulIkoner":
-      return  {
+      return {
         ...state,
-        visIkoner: false
-      }
+        visIkoner: false,
+      };
     case "visIkoner":
-      return  {
+      return {
         ...state,
-        visIkoner: true
-      }
+        visIkoner: true,
+      };
     default:
       console.error("unhandled action:", action);
       return state;

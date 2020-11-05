@@ -8,6 +8,6 @@ export interface MenuData {
 export interface OmrådeI {
   title: string;
   beskrivelse: string;
-  ikon?: ReactNode,
+  ikon?: ReactNode;
   sider: string[];
 }

@@ -54,24 +54,24 @@ const Område = styled.button`
 `;
 
 const LoggInnKnapp = styled(Knapp)`
-    text-transform: none;
-    padding: .5em 1.2em;
+  text-transform: none;
+  padding: 0.5em 1.2em;
 `;
 
 const ShowOnSmallScreen = styled.div`
-padding: 1rem 0;
-    @media (min-width: 1200px) {
-      display: none;
-    }
+  padding: 1rem 0;
+  @media (min-width: 1200px) {
+    display: none;
+  }
 `;
 
 const ShowOnBigScreen = styled.div`
-    flex-grow: 1;
-    > * {
+  flex-grow: 1;
+  > * {
     @media not all and (min-width: 1200px) {
       display: none;
     }
-    }
+  }
 `;
 
 function Meny() {
@@ -88,23 +88,39 @@ function Meny() {
           <NavLogo height={"2.5rem"} />
         </NavButton>
         {demoContext.visMeny && (
-          <MenyButton isOpen={open} onClick={() => setOpen(!open)} label={"Meny"} />
+          <MenyButton
+            isOpen={open}
+            onClick={() => setOpen(!open)}
+            label={"Meny"}
+          />
         )}
         <ShowOnBigScreen>
           <Brodsmuler />
         </ShowOnBigScreen>
-        <LoggInnKnapp onClick={() => dispatch({
-          type: "velgOmråde",
-          område: menuData.områder.find(område => område.title.includes("Ditt NAV"))!
-        })}>Logg inn</LoggInnKnapp>
+        <LoggInnKnapp
+          onClick={() =>
+            dispatch({
+              type: "velgOmråde",
+              område: menuData.områder.find((område) =>
+                område.title.includes("Ditt NAV")
+              )!,
+            })
+          }
+        >
+          Logg inn
+        </LoggInnKnapp>
       </Style>
       {open && (
         <PopDown>
           {menuData.områder.map((område) => (
-            <Område onClick={() => {
-              dispatch({ type: "velgOmråde", område: område });
-              setOpen(false);
-            }}>{område.title}</Område>
+            <Område
+              onClick={() => {
+                dispatch({ type: "velgOmråde", område: område });
+                setOpen(false);
+              }}
+            >
+              {område.title}
+            </Område>
           ))}
         </PopDown>
       )}

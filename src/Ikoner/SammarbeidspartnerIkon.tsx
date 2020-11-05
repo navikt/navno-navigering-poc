@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function SammarbeidspartnerIkon(props: any) {
   return (
@@ -21,7 +21,7 @@ function SammarbeidspartnerIkon(props: any) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default SammarbeidspartnerIkon
+export default SammarbeidspartnerIkon;

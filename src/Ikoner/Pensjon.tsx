@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function PensjonIkon(props: any) {
   return (
@@ -36,7 +36,7 @@ function PensjonIkon(props: any) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default PensjonIkon
+export default PensjonIkon;

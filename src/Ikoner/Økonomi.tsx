@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function Økonomi(props: any) {
   return (
@@ -54,7 +54,7 @@ function Økonomi(props: any) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default Økonomi
+export default Økonomi;
