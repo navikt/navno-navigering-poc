@@ -88,14 +88,7 @@ function Meny() {
           Logg inn
         </LoggInnKnapp>
       </Style>
-      {open && (
-        <PopDown
-          setOmråde={(område) => {
-            dispatch({ type: "velgOmråde", område: område });
-            setOpen(false);
-          }}
-        />
-      )}
+      {open && <PopDown lukkMeny={() => setOpen(false)} />}
       <ShowOnSmallScreen>
         <Brodsmuler />
       </ShowOnSmallScreen>

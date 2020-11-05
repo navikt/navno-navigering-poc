@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { OmrådeI } from "../../data/types";
 import { useDemoContext } from "../../DemoControlls/demoContext";
+import { useAppContext } from "../appContext";
 
 const Style = styled.div<{ kortMeny: boolean }>`
   padding: 2rem 1rem 3rem;
@@ -55,26 +56,49 @@ const Undersider = styled.div`
 `;
 
 interface Props {
-  setOmråde: (område: OmrådeI) => void;
+  lukkMeny: () => void;
 }
 
 function PopDown(props: Props) {
   const [context] = useDemoContext();
+  const [, dispatch] = useAppContext();
 
   return (
     <Style kortMeny={!context.langMeny}>
       {menuData.områder.map((område) => (
         <Område>
-          <Knapp onClick={() => props.setOmråde(område)}>
+          <Knapp
+            onClick={() => {
+              dispatch({ type: "velgOmråde", område: område });
+              props.lukkMeny();
+            }}
+          >
             {context.visIkoner && område.ikon}
             {område.title}
           </Knapp>
           {context.langMeny && (
             <Undersider>
               {område.sider.slice(0, 3).map((side) => (
-                <Knapp small={true}>{side}</Knapp>
+                <Knapp
+                  small={true}
+                  onClick={() => {
+                    dispatch({ type: "velgOmråde", område: område });
+                    dispatch({ type: "velgSide", side: side });
+                    props.lukkMeny();
+                  }}
+                >
+                  {side}
+                </Knapp>
               ))}
-              <Knapp small={true}>Mer..</Knapp>
+              <Knapp
+                small={true}
+                onClick={() => {
+                  dispatch({ type: "velgOmråde", område: område });
+                  props.lukkMeny();
+                }}
+              >
+                Mer..
+              </Knapp>
             </Undersider>
           )}
         </Område>
