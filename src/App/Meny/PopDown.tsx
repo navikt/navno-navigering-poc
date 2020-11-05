@@ -63,40 +63,28 @@ function PopDown(props: Props) {
   const [context] = useDemoContext();
   const [, dispatch] = useAppContext();
 
+  const naviger = (område: OmrådeI, side?: string) => {
+    dispatch({ type: "velgOmråde", område: område });
+    side && dispatch({ type: "velgSide", side: side });
+    props.lukkMeny();
+  };
+
   return (
     <Style kortMeny={!context.langMeny}>
       {menuData.områder.map((område) => (
         <Område>
-          <Knapp
-            onClick={() => {
-              dispatch({ type: "velgOmråde", område: område });
-              props.lukkMeny();
-            }}
-          >
+          <Knapp onClick={() => naviger(område)}>
             {context.visIkoner && område.ikon}
             {område.title}
           </Knapp>
           {context.langMeny && (
             <Undersider>
               {område.sider.slice(0, 3).map((side) => (
-                <Knapp
-                  small={true}
-                  onClick={() => {
-                    dispatch({ type: "velgOmråde", område: område });
-                    dispatch({ type: "velgSide", side: side });
-                    props.lukkMeny();
-                  }}
-                >
+                <Knapp small={true} onClick={() => naviger(område, side)}>
                   {side}
                 </Knapp>
               ))}
-              <Knapp
-                small={true}
-                onClick={() => {
-                  dispatch({ type: "velgOmråde", område: område });
-                  props.lukkMeny();
-                }}
-              >
+              <Knapp small={true} onClick={() => naviger(område)}>
                 Mer..
               </Knapp>
             </Undersider>
