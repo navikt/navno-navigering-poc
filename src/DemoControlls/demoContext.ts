@@ -6,12 +6,15 @@ type Action =
   | "visIkoner"
   | "skjulIkoner"
   | "kortMeny"
-  | "langMeny";
+  | "langMeny"
+  | "visBrødsmuler"
+  | "skjulBrødsmuler";
 
 const initialState = {
   visMeny: true,
   visIkoner: true,
   langMeny: true,
+  visBrødsmuler: true,
 };
 
 type State = typeof initialState;
@@ -49,6 +52,16 @@ const reducer = (state: State, action: Action) => {
         ...state,
         visMeny: true,
         langMeny: true,
+      };
+    case "visBrødsmuler":
+      return {
+        ...state,
+        visBrødsmuler: true,
+      };
+    case "skjulBrødsmuler":
+      return {
+        ...state,
+        visBrødsmuler: false,
       };
     default:
       console.error("unhandled action:", action);

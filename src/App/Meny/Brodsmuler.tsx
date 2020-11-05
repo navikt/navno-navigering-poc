@@ -2,6 +2,7 @@ import * as React from "react";
 import { useAppContext } from "../appContext";
 import NavFrontendChevron from "nav-frontend-chevron";
 import styled from "styled-components";
+import { useDemoContext } from "../../DemoControlls/demoContext";
 
 const Style = styled.div`
   text-align: center;
@@ -39,7 +40,12 @@ function Brødsmule(props: { label: string; onClick: () => void }) {
 
 function Brodsmuler() {
   const [appContext, dispatch] = useAppContext();
+  const [demoContext] = useDemoContext();
   const { område, side } = appContext;
+
+  if (!demoContext.visBrødsmuler) {
+    return null;
+  }
 
   return (
     <Style>
