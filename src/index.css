@@ -9,9 +9,15 @@ html {
 }
 
 html {
-  font-size: 115%;
+  font-size: 112.5%;
   line-height: 1.5;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 125%;
+  }
 }
 
 * {

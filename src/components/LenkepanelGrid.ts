@@ -1,21 +1,22 @@
 import styled from "styled-components";
 
-export const Grid = styled.div`
-padding: .5rem;
-  margin: auto;
-  margin-top: 1rem;
+export const LenkepanelGrid = styled.div`
+  padding: 1rem 0.5rem 2rem;
+  margin: 1rem auto auto;
   max-width: 60rem;
   display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 24rem));
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 60em) {
+    grid-template-columns: 1fr;
+  }
   grid-gap: 1.5rem;
   .lenkepanel {
     margin-bottom: 0;
     h3 {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
     }
     p {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
   }
 `;

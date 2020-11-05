@@ -9,25 +9,27 @@ import Meny from "./Meny/Meny";
 import Footer from "./Footer";
 
 const Style = styled.div`
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 1fr;
-    min-height: 100vh;
-    justify-content: space-between;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  justify-content: space-between;
 `;
 
 function App() {
   const [state] = useAppContext();
 
   return (
-    <Style>
+    <>
       <DemoControlls />
-      <Meny />
+      <Style>
+        <Meny />
         {state.state === "forside" && <Forside />}
         {state.state === "område" && <Område />}
         {state.state === "side" && <Side />}
-      <Footer />
-    </Style>
+        <Footer />
+      </Style>
+    </>
   );
 }
 

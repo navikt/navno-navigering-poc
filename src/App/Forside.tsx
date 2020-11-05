@@ -2,22 +2,22 @@ import * as React from "react";
 import { menuData } from "../data/menuData";
 import { useAppContext } from "./appContext";
 import Lenkepanel from "nav-frontend-lenkepanel";
-import { Grid } from "../components/LenkepanelGrid";
+import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components";
 import { useDemoContext } from "../DemoControlls/demoContext";
 
 const StyledLenkepanel = styled(Lenkepanel)`
-.lenkepanel__heading {
-display: flex;
-align-items: center;
-}
-    svg {
-      width: 2.5rem;
-      max-height: 2.5rem;
-      margin-right: 1.5rem;
-      stroke-width: 1.2;
-      flex-shrink: 0;
-    }
+  .lenkepanel__heading {
+    display: flex;
+    align-items: center;
+  }
+  svg {
+    width: 2.5rem;
+    max-height: 2.5rem;
+    margin-right: 1.5rem;
+    stroke-width: 1.2;
+    flex-shrink: 0;
+  }
 `;
 
 function Forside() {
@@ -25,7 +25,7 @@ function Forside() {
   const [demoContext, dispatchDemoContext] = useDemoContext();
 
   return (
-    <Grid>
+    <LenkepanelGrid>
       {menuData.områder.map((område) => (
         <StyledLenkepanel
           href="#"
@@ -40,7 +40,7 @@ function Forside() {
           </div>
         </StyledLenkepanel>
       ))}
-    </Grid>
+    </LenkepanelGrid>
   );
 }
 
