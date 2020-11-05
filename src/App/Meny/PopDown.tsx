@@ -12,7 +12,7 @@ const Style = styled.div<{ kortMeny: boolean }>`
   left: 0;
   background-color: white;
   width: 100vw;
-  border: 0.15rem solid ${theme.colors.navLysBla};
+  border: 0.2rem solid ${theme.colors.navLysBla};
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, minmax(10rem, 20rem));
