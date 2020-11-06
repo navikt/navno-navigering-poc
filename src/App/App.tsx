@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DemoControlls from "../DemoControlls/DemoControlls";
 import Forside from "./Forside";
-import { useAppContext } from "./appContext";
+import { useNavigasjon } from "./appContext";
 import Område from "./Område";
 import Side from "./Side";
 import Meny from "./Meny/Meny";
@@ -17,16 +17,16 @@ const Style = styled.div`
 `;
 
 function App() {
-  const [state] = useAppContext();
+  const { state } = useNavigasjon();
 
   return (
     <>
       <DemoControlls />
       <Style>
         <Meny />
-        {state.state === "forside" && <Forside />}
-        {state.state === "område" && <Område />}
-        {state.state === "side" && <Side />}
+        {state === "forside" && <Forside />}
+        {state === "område" && <Område />}
+        {state === "side" && <Side />}
         <Footer />
       </Style>
     </>

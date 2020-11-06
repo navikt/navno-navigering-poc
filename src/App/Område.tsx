@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useAppContext } from "./appContext";
+import { useNavigasjon } from "./appContext";
 import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components";
@@ -22,24 +22,22 @@ const Style = styled.div`
 `;
 
 function Område() {
-  const [state, dispatch] = useAppContext();
+  const { område, navigerTil } = useNavigasjon();
   const [demoContext] = useDemoContext();
-
-  const område = state.område!;
 
   return (
     <Style>
       <h2>
-        {demoContext.visIkoner && område.ikon}
-        {område.title}
+        {demoContext.visIkoner && område!.ikon}
+        {område!.title}
       </h2>
       <LenkepanelGrid>
-        {område.sider.map((side) => (
+        {område!.sider.map((side) => (
           <Lenkepanel
             href="#"
             border
             tittelProps="normaltekst"
-            onClick={() => dispatch({ type: "velgSide", side: side })}
+            onClick={() => navigerTil(område, side)}
           >
             <h3>{side}</h3>
             <p>

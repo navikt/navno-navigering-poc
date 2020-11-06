@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App/App";
 import "./index.css";
-import { AppContextProvider } from "./App/appContext";
 import { DemoProvider } from "./DemoControlls/demoContext";
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
+import { BrowserRouter, Route } from "react-router-dom";
 
 const GlobalStyling = createGlobalStyle`
     *:focus {
@@ -17,12 +17,12 @@ const GlobalStyling = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppContextProvider>
-      <DemoProvider>
-        <GlobalStyling />
-        <App />
-      </DemoProvider>
-    </AppContextProvider>
+    <DemoProvider>
+      <GlobalStyling />
+      <BrowserRouter>
+        <Route path="/:omrade?/:side?" children={<App />} />
+      </BrowserRouter>
+    </DemoProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

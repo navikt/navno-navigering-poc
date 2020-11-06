@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useAppContext } from "./appContext";
+import { useNavigasjon } from "./appContext";
 
 const Style = styled.div`
   margin: auto;
@@ -19,9 +19,7 @@ const Style = styled.div`
 `;
 
 function Side() {
-  const [state] = useAppContext();
-
-  const side = state.side!;
+  const { side } = useNavigasjon();
 
   return (
     <>

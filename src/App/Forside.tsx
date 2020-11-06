@@ -1,6 +1,6 @@
 import * as React from "react";
 import { menuData } from "../data/menuData";
-import { useAppContext } from "./appContext";
+import { useNavigasjon } from "./appContext";
 import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components";
@@ -21,8 +21,8 @@ const StyledLenkepanel = styled(Lenkepanel)`
 `;
 
 function Forside() {
-  const [, dispatch] = useAppContext();
   const [demoContext] = useDemoContext();
+  const { navigerTil } = useNavigasjon();
 
   return (
     <LenkepanelGrid>
@@ -32,7 +32,7 @@ function Forside() {
           href="#"
           tittelProps="normaltekst"
           border
-          onClick={() => dispatch({ type: "velgOmråde", område: område })}
+          onClick={() => navigerTil(område)}
         >
           {demoContext.visIkoner && område.ikon}
           <div>

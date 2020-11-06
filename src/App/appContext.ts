@@ -1,49 +1,29 @@
-import { createReducerContext } from "react-use";
+import { useHistory, useParams } from "react-router-dom";
 import { OmrådeI } from "../data/types";
+import { menuData } from "../data/menuData";
 
-type Action =
-  | { type: "velgOmråde"; område: OmrådeI }
-  | { type: "velgSide"; side: string }
-  | { type: "clear" };
+type Route = "forside" | "område" | "side";
 
-interface State {
-  område?: OmrådeI;
-  side?: string;
-  state: "forside" | "område" | "side";
+function getState(område?: string, side?: string): Route {
+  if (område && side) return "side";
+  else if (område) return "område";
+  else return "forside";
 }
 
-const initialState: State = {
-  område: undefined,
-  side: undefined,
-  state: "forside",
-};
+export const useNavigasjon = () => {
+  const params = useParams<{ omrade?: string; side?: string }>();
+  const history = useHistory();
 
-const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "velgOmråde":
-      return {
-        ...state,
-        område: action.område,
-        side: undefined,
-        state: "område",
-      };
-    case "velgSide":
-      return {
-        ...state,
-        side: action.side,
-        state: "side",
-      };
-    case "clear":
-      return {
-        ...initialState,
-      };
-    default:
-      console.error("unhandled action:", action);
-      return state;
-  }
-};
+  const navigerTil = (område?: OmrådeI, side?: string) => {
+    if (område && side) history.push(`/${område.title}/${side}`);
+    else if (område) history.push(`/${område.title}`);
+    else history.push("/");
+  };
 
-export const [useAppContext, AppContextProvider] = createReducerContext(
-  reducer,
-  initialState
-);
+  return {
+    område: menuData.områder.find((it) => it.title === params.omrade),
+    side: params.side,
+    state: getState(params.omrade, params.side),
+    navigerTil,
+  };
+};

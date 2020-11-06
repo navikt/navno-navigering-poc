@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useAppContext } from "../appContext";
+import { useNavigasjon } from "../appContext";
 import NavFrontendChevron from "nav-frontend-chevron";
 import styled from "styled-components";
 import { useDemoContext } from "../../DemoControlls/demoContext";
@@ -39,9 +39,8 @@ function Brødsmule(props: { label: string; onClick: () => void }) {
 }
 
 function Brodsmuler() {
-  const [appContext, dispatch] = useAppContext();
+  const { område, side, navigerTil } = useNavigasjon();
   const [demoContext] = useDemoContext();
-  const { område, side } = appContext;
 
   if (!demoContext.visBrødsmuler) {
     return null;
@@ -49,12 +48,9 @@ function Brodsmuler() {
 
   return (
     <Style>
-      <Brødsmule label={"nav.no"} onClick={() => dispatch({ type: "clear" })} />
+      <Brødsmule label={"nav.no"} onClick={() => navigerTil()} />
       {område && (
-        <Brødsmule
-          label={område.title}
-          onClick={() => dispatch({ type: "velgOmråde", område: område })}
-        />
+        <Brødsmule label={område.title} onClick={() => navigerTil(område)} />
       )}
       {side && <Brødsmule label={side} onClick={() => null} />}
     </Style>

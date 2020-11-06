@@ -6,11 +6,11 @@ import NavLogo from "./NavLogo";
 import { menuData } from "../../data/menuData";
 import { useClickAway } from "react-use";
 import { useDemoContext } from "../../DemoControlls/demoContext";
-import { useAppContext } from "../appContext";
 import MenyButton from "../../components/MenyButton";
 import Knapp from "nav-frontend-knapper/lib/knapp";
 import Brodsmuler from "./Brodsmuler";
 import PopDown from "./PopDown";
+import { useNavigasjon } from "../appContext";
 
 const Style = styled.div`
   padding: 1rem;
@@ -56,13 +56,13 @@ function Meny() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const [demoContext] = useDemoContext();
-  const [, dispatch] = useAppContext();
+  const { navigerTil } = useNavigasjon();
   useClickAway(ref, () => setOpen(false));
 
   return (
     <div ref={ref}>
       <Style>
-        <NavButton onClick={() => dispatch({ type: "clear" })}>
+        <NavButton onClick={() => navigerTil()}>
           <NavLogo height={"2.5rem"} />
         </NavButton>
         {demoContext.visMeny && (
@@ -77,12 +77,11 @@ function Meny() {
         </ShowOnBigScreen>
         <LoggInnKnapp
           onClick={() =>
-            dispatch({
-              type: "velgOmråde",
-              område: menuData.områder.find((område) =>
+            navigerTil(
+              menuData.områder.find((område) =>
                 område.title.includes("Ditt NAV")
-              )!,
-            })
+              )!
+            )
           }
         >
           Logg inn
