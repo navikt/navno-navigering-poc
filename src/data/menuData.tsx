@@ -20,13 +20,13 @@ export const menuData: MenuData = {
       title: "Koronavirus",
       ikon: <Korona />,
       beskrivelse: "Hva gjelder i min situasjon?",
-      sider: [],
+      sider: ["Jeg har blitt syk", "Jeg har blitt permittert"],
     },
     {
       title: "EØS-saken",
       ikon: <Eøs />,
       beskrivelse: "Informasjon og status",
-      sider: [],
+      sider: ["Jeg har mistet rettighetene mine"],
     },
     {
       title: "Arbeidssøker eller permittert",
