@@ -47,7 +47,7 @@ const Knapp = styled.button`
 
 function DemoControlls() {
   const [context, dispatch] = useDemoContext();
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const ref = useRef(null);
   useClickAway(ref, () => setShow(false));
 
