@@ -10,10 +10,24 @@ import ArbeidsgiverIkon from "../Ikoner/Arbeidsgiver";
 import SammarbeidspartnerIkon from "../Ikoner/SammarbeidspartnerIkon";
 import NyhetsIkon from "../Ikoner/NyhetsIkon";
 import StatistikkIkon from "../Ikoner/StatistikkIkon";
+import Korona from "../Ikoner/Korona";
+import Eøs from "../Ikoner/EØS";
 
 export const menuData: MenuData = {
   title: "nav.no",
   områder: [
+    {
+      title: "Koronavirus",
+      ikon: <Korona />,
+      beskrivelse: "Hva gjelder i min situasjon?",
+      sider: [],
+    },
+    {
+      title: "EØS-saken",
+      ikon: <Eøs />,
+      beskrivelse: "Informasjon og status",
+      sider: [],
+    },
     {
       title: "Arbeidssøker eller permittert",
       ikon: <ArbeidIkon />,
