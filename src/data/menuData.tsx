@@ -12,6 +12,7 @@ import NyhetsIkon from "../Ikoner/NyhetsIkon";
 import StatistikkIkon from "../Ikoner/StatistikkIkon";
 import Korona from "../Ikoner/Korona";
 import Eøs from "../Ikoner/EØS";
+import KlageIkon from "../Ikoner/KlageIkon";
 
 export const menuData: MenuData = {
   title: "nav.no",
@@ -100,6 +101,12 @@ export const menuData: MenuData = {
         "Tiltaksarrangør eller leverandør",
         "Jobber med hjelpemidler i kommune/leverandør",
       ],
+    },
+    {
+      title: "Klage",
+      ikon: <KlageIkon />,
+      beskrivelse: "Klage, feil, hjelp, har blitt behandlet dårlig",
+      sider: ["Jeg har blitt behandlet dårlig", "Jeg vil klage på vedtak"],
     },
     {
       title: "Nyheter",
