@@ -8,12 +8,15 @@ type Action =
   | "kortMeny"
   | "langMeny"
   | "visBrødsmuler"
-  | "skjulBrødsmuler";
+  | "skjulBrødsmuler"
+  | "visUndersiderPaForside"
+  | "skjulUndersiderPaForside";
 
 const initialState = {
   visMeny: true,
   visIkoner: true,
   langMeny: true,
+  undersiderPaForside: false,
   visBrødsmuler: true,
 };
 
@@ -62,6 +65,16 @@ const reducer = (state: State, action: Action) => {
       return {
         ...state,
         visBrødsmuler: false,
+      };
+    case "skjulUndersiderPaForside":
+      return {
+        ...state,
+        undersiderPaForside: false,
+      };
+    case "visUndersiderPaForside":
+      return {
+        ...state,
+        undersiderPaForside: true,
       };
     default:
       console.error("unhandled action:", action);

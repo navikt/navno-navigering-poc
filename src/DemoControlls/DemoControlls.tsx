@@ -85,6 +85,18 @@ function DemoControlls() {
             >
               {context.visBrødsmuler ? "Skjul" : "Vis"} brødsmuler
             </Knapp>
+            <Knapp
+              onClick={() =>
+                dispatch(
+                  context.undersiderPaForside
+                    ? "skjulUndersiderPaForside"
+                    : "visUndersiderPaForside"
+                )
+              }
+            >
+              {context.undersiderPaForside ? "Skjul" : "Vis"} undersider på
+              forside
+            </Knapp>
           </Grid>
         </PopDown>
       )}

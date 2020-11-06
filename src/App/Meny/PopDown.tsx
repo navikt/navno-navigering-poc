@@ -5,6 +5,7 @@ import { theme } from "../../theme";
 import { OmrådeI } from "../../data/types";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 import { useNavigasjon } from "../appContext";
+import { HoyreChevron } from "nav-frontend-chevron";
 
 const Style = styled.div<{ kortMeny: boolean }>`
   padding: 2rem 1rem 3rem;
@@ -48,6 +49,16 @@ const MenyKnapp = styled.button<{ small?: boolean }>`
   }
 `;
 
+const ChevronKnapp = styled(MenyKnapp)`
+  transition: 0.3s;
+  > * {
+    margin-right: 0.5rem;
+  }
+  &:hover {
+    margin-left: 0.5rem;
+  }
+`;
+
 const UndersiderStyle = styled.div`
   padding-left: 5rem;
   margin-bottom: 1rem;
@@ -64,12 +75,12 @@ export function Undersider(props: {
   return (
     <UndersiderStyle>
       {props.område.sider.slice(0, 3).map((side) => (
-        <MenyKnapp
+        <ChevronKnapp
           small={true}
           onClick={() => props.hanldeNaviger(props.område, side)}
         >
-          {side}
-        </MenyKnapp>
+          <HoyreChevron /> {side}
+        </ChevronKnapp>
       ))}
       <MenyKnapp small={true} onClick={() => props.hanldeNaviger(props.område)}>
         Mer..

@@ -5,6 +5,10 @@ import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components";
 import { useDemoContext } from "../DemoControlls/demoContext";
+import { Undersider } from "./Meny/PopDown";
+import { useRef } from "react";
+import { runIfEventIsNotInsideRef } from "../utils/reactRef-utils";
+import { OmrådeI } from "../data/types";
 
 const StyledLenkepanel = styled(Lenkepanel)`
   .lenkepanel__heading {
@@ -20,26 +24,38 @@ const StyledLenkepanel = styled(Lenkepanel)`
   }
 `;
 
-function Forside() {
+function Område(props: { område: OmrådeI }) {
   const [demoContext] = useDemoContext();
   const { navigerTil } = useNavigasjon();
+  const ref = useRef(null);
 
+  return (
+    <StyledLenkepanel
+      key={props.område.title}
+      href="#"
+      tittelProps="normaltekst"
+      border
+      onClick={runIfEventIsNotInsideRef(ref, () => navigerTil(props.område))}
+    >
+      {demoContext.visIkoner && props.område.ikon}
+      <div>
+        <h3>{props.område.title}</h3>
+        {!demoContext.undersiderPaForside && <p>{props.område.beskrivelse}</p>}
+        {demoContext.undersiderPaForside && (
+          <div ref={ref}>
+            <Undersider område={props.område} hanldeNaviger={navigerTil} />
+          </div>
+        )}
+      </div>
+    </StyledLenkepanel>
+  );
+}
+
+function Forside() {
   return (
     <LenkepanelGrid>
       {menuData.områder.map((område) => (
-        <StyledLenkepanel
-          key={område.title}
-          href="#"
-          tittelProps="normaltekst"
-          border
-          onClick={() => navigerTil(område)}
-        >
-          {demoContext.visIkoner && område.ikon}
-          <div>
-            <h3>{område.title}</h3>
-            <p>{område.beskrivelse}</p>
-          </div>
-        </StyledLenkepanel>
+        <Område område={område} />
       ))}
     </LenkepanelGrid>
   );
