@@ -22,12 +22,13 @@ const StyledLenkepanel = styled(Lenkepanel)`
 
 function Forside() {
   const [, dispatch] = useAppContext();
-  const [demoContext, dispatchDemoContext] = useDemoContext();
+  const [demoContext] = useDemoContext();
 
   return (
     <LenkepanelGrid>
       {menuData.områder.map((område) => (
         <StyledLenkepanel
+          key={område.title}
           href="#"
           tittelProps="normaltekst"
           border

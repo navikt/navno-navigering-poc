@@ -65,7 +65,7 @@ function InnholdIkon(props: { isOpen?: boolean }) {
   return (
     <StyledSvg viewBox="0.5 0.5 3 3">
       {[1, 2, 3].map((i) => (
-        <path d={`M 1 ${i} L 3.3 ${i}`} />
+        <path key={i} d={`M 1 ${i} L 3.3 ${i}`} />
       ))}
     </StyledSvg>
   );

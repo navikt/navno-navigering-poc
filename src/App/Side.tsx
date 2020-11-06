@@ -1,5 +1,4 @@
 import * as React from "react";
-import Meny from "./Meny/Meny";
 import styled from "styled-components";
 import { useAppContext } from "./appContext";
 
@@ -20,7 +19,7 @@ const Style = styled.div`
 `;
 
 function Side() {
-  const [state, dispatch] = useAppContext();
+  const [state] = useAppContext();
 
   const side = state.side!;
 
