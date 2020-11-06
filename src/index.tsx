@@ -20,7 +20,7 @@ ReactDOM.render(
     <DemoProvider>
       <GlobalStyling />
       <BrowserRouter>
-        <Route path="/:omrade?/:side?" children={<App />} />
+        <Route path="/:domain?/:omrade?/:side?" children={<App />} />
       </BrowserRouter>
     </DemoProvider>
   </React.StrictMode>,

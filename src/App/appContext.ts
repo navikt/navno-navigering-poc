@@ -15,9 +15,10 @@ export const useNavigasjon = () => {
   const history = useHistory();
 
   const navigerTil = (område?: OmrådeI, side?: string) => {
-    if (område && side) history.push(`/${område.title}/${side}`);
-    else if (område) history.push(`/${område.title}`);
-    else history.push("/");
+    if (område && side)
+      history.push(`/navno-navigering-poc/${område.title}/${side}`);
+    else if (område) history.push(`/navno-navigering-poc/${område.title}`);
+    else history.push("/navno-navigering-poc");
   };
 
   return {
