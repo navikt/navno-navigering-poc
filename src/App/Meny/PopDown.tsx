@@ -27,7 +27,7 @@ const Style = styled.div<{ kortMeny: boolean }>`
   z-index: 10;
 `;
 
-const Knapp = styled.button<{ small?: boolean }>`
+const MenyKnapp = styled.button<{ small?: boolean }>`
   display: flex;
   align-items: center;
   background: transparent;
@@ -48,15 +48,34 @@ const Knapp = styled.button<{ small?: boolean }>`
   }
 `;
 
-const Område = styled.div``;
-
-const Undersider = styled.div`
+const UndersiderStyle = styled.div`
   padding-left: 5rem;
   margin-bottom: 1rem;
 `;
 
 interface Props {
   lukkMeny: () => void;
+}
+
+export function Undersider(props: {
+  område: OmrådeI;
+  hanldeNaviger: (område: OmrådeI, side?: string) => void;
+}) {
+  return (
+    <UndersiderStyle>
+      {props.område.sider.slice(0, 3).map((side) => (
+        <MenyKnapp
+          small={true}
+          onClick={() => props.hanldeNaviger(props.område, side)}
+        >
+          {side}
+        </MenyKnapp>
+      ))}
+      <MenyKnapp small={true} onClick={() => props.hanldeNaviger(props.område)}>
+        Mer..
+      </MenyKnapp>
+    </UndersiderStyle>
+  );
 }
 
 function PopDown(props: Props) {
@@ -71,24 +90,15 @@ function PopDown(props: Props) {
   return (
     <Style kortMeny={!context.langMeny}>
       {menuData.områder.map((område) => (
-        <Område>
-          <Knapp onClick={() => handleNaviger(område)}>
+        <div>
+          <MenyKnapp onClick={() => handleNaviger(område)}>
             {context.visIkoner && område.ikon}
             {område.title}
-          </Knapp>
+          </MenyKnapp>
           {context.langMeny && (
-            <Undersider>
-              {område.sider.slice(0, 3).map((side) => (
-                <Knapp small={true} onClick={() => handleNaviger(område, side)}>
-                  {side}
-                </Knapp>
-              ))}
-              <Knapp small={true} onClick={() => handleNaviger(område)}>
-                Mer..
-              </Knapp>
-            </Undersider>
+            <Undersider område={område} hanldeNaviger={handleNaviger} />
           )}
-        </Område>
+        </div>
       ))}
     </Style>
   );
