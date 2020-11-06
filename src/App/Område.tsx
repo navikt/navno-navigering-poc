@@ -19,6 +19,9 @@ const Style = styled.div`
     margin-right: 1.5rem;
     stroke-width: 1.2;
   }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 function Område() {
@@ -34,6 +37,7 @@ function Område() {
       <LenkepanelGrid>
         {område!.sider.map((side) => (
           <Lenkepanel
+            key={side}
             href="#"
             border
             tittelProps="normaltekst"

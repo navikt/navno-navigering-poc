@@ -60,8 +60,7 @@ const ChevronKnapp = styled(MenyKnapp)`
 `;
 
 const UndersiderStyle = styled.div`
-  padding-left: 5rem;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0 0.5rem 5rem;
 `;
 
 interface Props {
@@ -71,21 +70,22 @@ interface Props {
 export function Undersider(props: {
   område: OmrådeI;
   hanldeNaviger: (område: OmrådeI, side?: string) => void;
+  chevron?: boolean;
 }) {
   return (
-    <UndersiderStyle>
+    <div>
       {props.område.sider.slice(0, 3).map((side) => (
         <ChevronKnapp
           small={true}
           onClick={() => props.hanldeNaviger(props.område, side)}
         >
-          <HoyreChevron /> {side}
+          {props.chevron && <HoyreChevron />} {side}
         </ChevronKnapp>
       ))}
       <MenyKnapp small={true} onClick={() => props.hanldeNaviger(props.område)}>
         Mer..
       </MenyKnapp>
-    </UndersiderStyle>
+    </div>
   );
 }
 
@@ -107,7 +107,9 @@ function PopDown(props: Props) {
             {område.title}
           </MenyKnapp>
           {context.langMeny && (
-            <Undersider område={område} hanldeNaviger={handleNaviger} />
+            <UndersiderStyle>
+              <Undersider område={område} hanldeNaviger={handleNaviger} />
+            </UndersiderStyle>
           )}
         </div>
       ))}

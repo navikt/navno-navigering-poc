@@ -13,7 +13,6 @@ const Style = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   min-height: 100vh;
-  justify-content: space-between;
 `;
 
 function App() {

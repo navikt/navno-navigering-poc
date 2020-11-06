@@ -43,7 +43,11 @@ function Område(props: { område: OmrådeI }) {
         {!demoContext.undersiderPaForside && <p>{props.område.beskrivelse}</p>}
         {demoContext.undersiderPaForside && (
           <div ref={ref}>
-            <Undersider område={props.område} hanldeNaviger={navigerTil} />
+            <Undersider
+              område={props.område}
+              hanldeNaviger={navigerTil}
+              chevron={true}
+            />
           </div>
         )}
       </div>
@@ -55,7 +59,7 @@ function Forside() {
   return (
     <LenkepanelGrid>
       {menuData.områder.map((område) => (
-        <Område område={område} />
+        <Område key={område.title} område={område} />
       ))}
     </LenkepanelGrid>
   );
