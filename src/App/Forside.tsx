@@ -22,6 +22,10 @@ const StyledLenkepanel = styled(Lenkepanel)`
     stroke-width: 1.2;
     flex-shrink: 0;
   }
+  h3,
+  p {
+    margin: 0 0 0.5rem;
+  }
 `;
 
 function Område(props: { område: OmrådeI }) {

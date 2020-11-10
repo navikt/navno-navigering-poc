@@ -74,7 +74,7 @@ export function Undersider(props: {
 }) {
   return (
     <div>
-      {props.område.sider.slice(0, 3).map((side) => (
+      {props.område.sider.slice(0, 2).map((side) => (
         <ChevronKnapp
           small={true}
           onClick={() => props.hanldeNaviger(props.område, side)}
