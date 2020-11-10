@@ -99,14 +99,14 @@ function PopDown(props: Props) {
   };
 
   return (
-    <Style kortMeny={!context.langMeny}>
+    <Style kortMeny={!context.undersiderIMeny}>
       {menuData.områder.map((område) => (
         <div>
           <MenyKnapp onClick={() => handleNaviger(område)}>
             {context.visIkoner && område.ikon}
             {område.title}
           </MenyKnapp>
-          {context.langMeny && (
+          {context.undersiderIMeny && (
             <UndersiderStyle>
               <Undersider område={område} hanldeNaviger={handleNaviger} />
             </UndersiderStyle>

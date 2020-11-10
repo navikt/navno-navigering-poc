@@ -1,12 +1,12 @@
 import { createReducerContext } from "react-use";
 
 type Action =
-  | "ingenMeny"
-  | "meny"
+  | "skjulMeny"
+  | "visMeny"
   | "visIkoner"
   | "skjulIkoner"
-  | "kortMeny"
-  | "langMeny"
+  | "ikkeVisUndersiderIMeny"
+  | "visUndersiderIMeny"
   | "visBrødsmuler"
   | "skjulBrødsmuler"
   | "visUndersiderPaForside"
@@ -17,7 +17,7 @@ type Action =
 const initialState = {
   visMeny: true,
   visIkoner: true,
-  langMeny: true,
+  undersiderIMeny: true,
   undersiderPaForside: false,
   visBrødsmuler: true,
   featuredContent: false,
@@ -27,12 +27,12 @@ type State = typeof initialState;
 
 const reducer = (state: State, action: Action) => {
   switch (action) {
-    case "ingenMeny":
+    case "skjulMeny":
       return {
         ...state,
         visMeny: false,
       };
-    case "meny":
+    case "visMeny":
       return {
         ...state,
         visMeny: true,
@@ -47,17 +47,17 @@ const reducer = (state: State, action: Action) => {
         ...state,
         visIkoner: true,
       };
-    case "kortMeny":
+    case "ikkeVisUndersiderIMeny":
       return {
         ...state,
         visMeny: true,
-        langMeny: false,
+        undersiderIMeny: false,
       };
-    case "langMeny":
+    case "visUndersiderIMeny":
       return {
         ...state,
         visMeny: true,
-        langMeny: true,
+        undersiderIMeny: true,
       };
     case "visBrødsmuler":
       return {

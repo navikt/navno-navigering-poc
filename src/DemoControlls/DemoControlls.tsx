@@ -85,7 +85,9 @@ function DemoControlls() {
           <h2>Demo-controlls:</h2>
           <Grid>
             <CheckBox
-              onClick={() => dispatch(context.visMeny ? "ingenMeny" : "meny")}
+              onClick={() =>
+                dispatch(context.visMeny ? "skjulMeny" : "visMeny")
+              }
               label="Vis meny"
               checked={context.visMeny}
             />
@@ -98,10 +100,14 @@ function DemoControlls() {
             />
             <CheckBox
               onClick={() => {
-                dispatch(context.langMeny ? "kortMeny" : "langMeny");
+                dispatch(
+                  context.undersiderIMeny
+                    ? "ikkeVisUndersiderIMeny"
+                    : "visUndersiderIMeny"
+                );
               }}
               label="Vis underpunkter i meny"
-              checked={context.langMeny}
+              checked={context.undersiderIMeny}
             />
             <CheckBox
               onClick={() =>
