@@ -10,7 +10,7 @@ import MenyButton from "../../components/MenyButton";
 import Knapp from "nav-frontend-knapper/lib/knapp";
 import Brodsmuler from "./Brodsmuler";
 import PopDown from "./PopDown";
-import { useNavigasjon } from "../appContext";
+import { useNavigasjon } from "../useNavigasjon";
 
 const Style = styled.div`
   padding: 1rem;

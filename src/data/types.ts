@@ -10,4 +10,5 @@ export interface OmrådeI {
   beskrivelse: string;
   ikon?: ReactNode;
   sider: string[];
+  featured?: boolean;
 }

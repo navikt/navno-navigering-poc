@@ -31,7 +31,6 @@ const IkonButtonStyle = styled.button`
 const StyledSvg = styled.svg`
   margin-right: 0.5rem;
   height: 1.3em;
-  stroke: currentColor;
   stroke-width: 0.4;
   stroke-linecap: round;
 `;

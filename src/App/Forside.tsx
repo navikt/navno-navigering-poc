@@ -1,6 +1,6 @@
 import * as React from "react";
 import { menuData } from "../data/menuData";
-import { useNavigasjon } from "./appContext";
+import { useNavigasjon } from "./useNavigasjon";
 import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components";
@@ -9,6 +9,7 @@ import { Undersider } from "./Meny/PopDown";
 import { useRef } from "react";
 import { runIfEventIsNotInsideRef } from "../utils/reactRef-utils";
 import { OmrådeI } from "../data/types";
+import ToppTrePanel from "../components/ToppTrePanel";
 
 const StyledLenkepanel = styled(Lenkepanel)`
   .lenkepanel__heading {
@@ -56,12 +57,22 @@ function Område(props: { område: OmrådeI }) {
 }
 
 function Forside() {
+  const [demoContext] = useDemoContext();
+  const områder = menuData.områder;
+
+  const featured = områder.filter((område) => område.featured);
+  const notFeatured = områder.filter((område) => !område.featured);
+  const lenkeListe = demoContext.featuredContent ? notFeatured : områder;
+
   return (
-    <LenkepanelGrid>
-      {menuData.områder.map((område) => (
-        <Område key={område.title} område={område} />
-      ))}
-    </LenkepanelGrid>
+    <>
+      {demoContext.featuredContent && <ToppTrePanel områder={featured} />}
+      <LenkepanelGrid>
+        {lenkeListe.map((område) => (
+          <Område key={område.title} område={område} />
+        ))}
+      </LenkepanelGrid>
+    </>
   );
 }
 

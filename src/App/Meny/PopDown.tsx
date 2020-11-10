@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { OmrådeI } from "../../data/types";
 import { useDemoContext } from "../../DemoControlls/demoContext";
-import { useNavigasjon } from "../appContext";
+import { useNavigasjon } from "../useNavigasjon";
 import { HoyreChevron } from "nav-frontend-chevron";
 
 const Style = styled.div<{ kortMeny: boolean }>`

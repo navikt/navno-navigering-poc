@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigasjon } from "./appContext";
+import { useNavigasjon } from "./useNavigasjon";
 import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components";

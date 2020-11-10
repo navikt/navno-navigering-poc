@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DemoControlls from "../DemoControlls/DemoControlls";
 import Forside from "./Forside";
-import { useNavigasjon } from "./appContext";
+import { useNavigasjon } from "./useNavigasjon";
 import Område from "./Område";
 import Side from "./Side";
 import Meny from "./Meny/Meny";
@@ -13,6 +13,9 @@ const Style = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   min-height: 100vh;
+  svg {
+    stroke: currentColor;
+  }
 `;
 
 function App() {

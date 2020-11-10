@@ -10,7 +10,9 @@ type Action =
   | "visBrødsmuler"
   | "skjulBrødsmuler"
   | "visUndersiderPaForside"
-  | "skjulUndersiderPaForside";
+  | "skjulUndersiderPaForside"
+  | "visFeatured"
+  | "skjulFeatured";
 
 const initialState = {
   visMeny: true,
@@ -18,6 +20,7 @@ const initialState = {
   langMeny: true,
   undersiderPaForside: false,
   visBrødsmuler: true,
+  featuredContent: false,
 };
 
 type State = typeof initialState;
@@ -76,9 +79,16 @@ const reducer = (state: State, action: Action) => {
         ...state,
         undersiderPaForside: true,
       };
-    default:
-      console.error("unhandled action:", action);
-      return state;
+    case "visFeatured":
+      return {
+        ...state,
+        featuredContent: true,
+      };
+    case "skjulFeatured":
+      return {
+        ...state,
+        featuredContent: false,
+      };
   }
 };
 

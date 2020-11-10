@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigasjon } from "../appContext";
+import { useNavigasjon } from "../useNavigasjon";
 import NavFrontendChevron from "nav-frontend-chevron";
 import styled from "styled-components";
 import { useDemoContext } from "../../DemoControlls/demoContext";

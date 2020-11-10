@@ -25,12 +25,14 @@ export const menuData: MenuData = {
       ikon: <Korona />,
       beskrivelse: "Hva gjelder i min situasjon?",
       sider: ["Jeg har blitt syk", "Jeg har blitt permittert"],
+      featured: true,
     },
     {
       title: "EØS-saken",
       ikon: <Eøs />,
       beskrivelse: "Informasjon og status",
       sider: ["Jeg har mistet rettighetene mine"],
+      featured: true,
     },
     {
       title: "Arbeidssøker eller permittert",
@@ -125,6 +127,7 @@ export const menuData: MenuData = {
       beskrivelse:
         "Innloggede tjenester, dialog med nav, personlig oppfølging, mine søknader, mine utbetalinger",
       sider: ["Min innboks", "Mine utbetalinger", "Mine søknader"],
+      featured: true,
     },
     {
       title: "Til eller fra Norge",

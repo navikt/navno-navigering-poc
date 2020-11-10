@@ -5,19 +5,16 @@ function KlageIkon(props: any) {
     <svg viewBox="0 0 24 24" fill="none" {...props}>
       <path
         d="M10 17.47c-1.041-.058-2.147-.21-3-.47l-5.5 2.5 2-4.5c-1.93-1.543-3-3.623-3-6C.5 4.306 5.164.5 10.918.5S21.5 4.306 21.5 9c0 .523-.059 1.034-.171 1.53"
-        stroke="#000"
         strokeLinejoin="round"
       />
       <path
         clipRule="evenodd"
         d="M23.5 23.5h-12l6-12 6 12v0z"
-        stroke="#000"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M17.5 16.41v3.271"
-        stroke="#000"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

@@ -123,6 +123,15 @@ function DemoControlls() {
               label="Vis undersider på forside"
               checked={context.undersiderPaForside}
             />
+            <CheckBox
+              onClick={() =>
+                dispatch(
+                  context.featuredContent ? "skjulFeatured" : "visFeatured"
+                )
+              }
+              label="Vis topp tre på forside"
+              checked={context.featuredContent}
+            />
           </Grid>
         </PopDown>
       )}

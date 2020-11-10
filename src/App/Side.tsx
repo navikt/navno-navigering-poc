@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useNavigasjon } from "./appContext";
+import { useNavigasjon } from "./useNavigasjon";
 
 const Style = styled.div`
   margin: auto;
