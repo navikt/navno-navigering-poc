@@ -13,11 +13,9 @@ export const LenkepanelGrid = styled.div`
   grid-gap: 1.5rem;
   .lenkepanel {
     margin-bottom: 0;
-    h3 {
-      margin-top: 0.5rem;
-    }
+    h3,
     p {
-      margin-bottom: 0.5rem;
+      margin: 0 0 0.5rem;
     }
   }
 `;
