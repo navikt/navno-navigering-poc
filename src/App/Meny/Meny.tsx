@@ -11,6 +11,8 @@ import Knapp from "nav-frontend-knapper/lib/knapp";
 import Brodsmuler from "./Brodsmuler";
 import PopDown from "./PopDown";
 import { useNavigasjon } from "../useNavigasjon";
+import { runIfEventIsNotInsideRef } from "../../utils/reactRef-utils";
+import { OmrådeI } from "../../data/types";
 
 const Style = styled.div`
   padding: 1rem;
@@ -59,10 +61,15 @@ function Meny() {
   const { navigerTil } = useNavigasjon();
   useClickAway(ref, () => setOpen(false));
 
+  const handleNaviger = (område?: OmrådeI) => {
+    navigerTil(område);
+    setOpen(false);
+  };
+
   return (
     <div ref={ref}>
       <Style>
-        <NavButton onClick={() => navigerTil()}>
+        <NavButton onClick={() => handleNaviger()}>
           <NavLogo height={"2.5rem"} />
         </NavButton>
         {demoContext.visMeny && (
@@ -77,7 +84,7 @@ function Meny() {
         </ShowOnBigScreen>
         <LoggInnKnapp
           onClick={() =>
-            navigerTil(
+            handleNaviger(
               menuData.områder.find((område) =>
                 område.title.includes("Ditt NAV")
               )!
@@ -87,7 +94,7 @@ function Meny() {
           Logg inn
         </LoggInnKnapp>
       </Style>
-      {open && <PopDown lukkMeny={() => setOpen(false)} />}
+      <PopDown lukkMeny={() => setOpen(false)} open={open} />
       <ShowOnSmallScreen>
         <Brodsmuler />
       </ShowOnSmallScreen>

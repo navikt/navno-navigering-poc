@@ -10,14 +10,12 @@ interface Props {
 }
 
 const Style = styled.div`
-  padding: 0.75rem;
+  padding: 0.5rem;
   margin-top: 2rem;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   grid-auto-rows: minmax(12rem, auto);
-  max-width: 80rem;
-  justify-self: center;
 `;
 
 const Panel = styled.button`

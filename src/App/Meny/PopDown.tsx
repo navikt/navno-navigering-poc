@@ -6,14 +6,20 @@ import { OmrådeI } from "../../data/types";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 import { useNavigasjon } from "../useNavigasjon";
 import { HoyreChevron } from "nav-frontend-chevron";
+import { UnmountClosed } from "react-collapse";
 
-const Style = styled.div<{ kortMeny: boolean }>`
-  padding: 2rem 1rem 3rem;
+const Style = styled.div`
   position: absolute;
   left: 0;
+  z-index: 10;
+  box-shadow: 0 1rem 1rem #0004;
+`;
+
+const Grid = styled.div<{ kortMeny: boolean }>`
+  padding: 2rem 1rem 3rem;
   background-color: white;
   width: 100vw;
-  border: 0.2rem solid ${theme.colors.navLysBla};
+  border-bottom: 0.2rem solid ${theme.colors.navLysBla};
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, minmax(10rem, 20rem));
@@ -25,7 +31,6 @@ const Style = styled.div<{ kortMeny: boolean }>`
     css`
       grid-auto-rows: 4rem;
     `};
-  z-index: 10;
 `;
 
 const MenyKnapp = styled.button<{ small?: boolean }>`
@@ -65,6 +70,7 @@ const UndersiderStyle = styled.div`
 
 interface Props {
   lukkMeny: () => void;
+  open: boolean;
 }
 
 export function Undersider(props: {
@@ -99,20 +105,24 @@ function PopDown(props: Props) {
   };
 
   return (
-    <Style kortMeny={!context.undersiderIMeny}>
-      {menuData.områder.map((område) => (
-        <div>
-          <MenyKnapp onClick={() => handleNaviger(område)}>
-            {context.visIkoner && område.ikon}
-            {område.title}
-          </MenyKnapp>
-          {context.undersiderIMeny && (
-            <UndersiderStyle>
-              <Undersider område={område} hanldeNaviger={handleNaviger} />
-            </UndersiderStyle>
-          )}
-        </div>
-      ))}
+    <Style>
+      <UnmountClosed isOpened={props.open}>
+        <Grid kortMeny={!context.undersiderIMeny}>
+          {menuData.områder.map((område) => (
+            <div>
+              <MenyKnapp onClick={() => handleNaviger(område)}>
+                {context.visIkoner && område.ikon}
+                {område.title}
+              </MenyKnapp>
+              {context.undersiderIMeny && (
+                <UndersiderStyle>
+                  <Undersider område={område} hanldeNaviger={handleNaviger} />
+                </UndersiderStyle>
+              )}
+            </div>
+          ))}
+        </Grid>
+      </UnmountClosed>
     </Style>
   );
 }
