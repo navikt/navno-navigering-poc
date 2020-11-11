@@ -34,6 +34,8 @@ const Style = styled.div`
 const Content = styled.div`
   margin-left: auto;
   margin-right: auto;
+  max-width: 60rem;
+  width: 100%;
 `;
 
 function App() {
