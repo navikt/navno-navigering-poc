@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useDemoContext } from "./demoContext";
+import { DemoContextActions, useDemoContext } from "./demoContext";
 import styled from "styled-components/macro";
 import { theme } from "../theme";
 import { useRef, useState } from "react";
@@ -54,9 +54,10 @@ const CheckBoxStyle = styled.div`
 function CheckBox(props: {
   label: string;
   checked: boolean;
-  onClick: () => void;
+  action: DemoContextActions;
 }) {
   const id = useRef(guid()).current;
+  const [, dispatch] = useDemoContext();
 
   return (
     <CheckBoxStyle>
@@ -64,7 +65,7 @@ function CheckBox(props: {
         id={id}
         type="checkbox"
         checked={props.checked}
-        onClick={props.onClick}
+        onClick={() => dispatch(props.action)}
       />
       <label htmlFor={id}>{props.label}</label>
     </CheckBoxStyle>
@@ -72,7 +73,7 @@ function CheckBox(props: {
 }
 
 function DemoControlls() {
-  const [context, dispatch] = useDemoContext();
+  const [context] = useDemoContext();
   const [show, setShow] = useState(true);
   const ref = useRef(null);
   useClickAway(ref, () => setShow(false));
@@ -85,58 +86,59 @@ function DemoControlls() {
           <h2>Demo-controlls:</h2>
           <Grid>
             <CheckBox
-              onClick={() =>
-                dispatch(context.visMeny ? "skjulMeny" : "visMeny")
-              }
-              label="Vis meny"
+              action={context.visMeny ? "skjulMeny" : "visMeny"}
+              label="Meny"
               checked={context.visMeny}
             />
             <CheckBox
-              onClick={() =>
-                dispatch(context.visIkoner ? "skjulIkoner" : "visIkoner")
-              }
-              label="Vis ikoner"
+              action={context.visIkoner ? "skjulIkoner" : "visIkoner"}
+              label="Ikoner"
               checked={context.visIkoner}
             />
             <CheckBox
-              onClick={() => {
-                dispatch(
-                  context.undersiderIMeny
-                    ? "ikkeVisUndersiderIMeny"
-                    : "visUndersiderIMeny"
-                );
-              }}
-              label="Vis underpunkter i meny"
+              action={
+                context.undersiderIMeny
+                  ? "ikkeVisUndersiderIMeny"
+                  : "visUndersiderIMeny"
+              }
+              label="Underpunkter i meny"
               checked={context.undersiderIMeny}
             />
             <CheckBox
-              onClick={() =>
-                dispatch(
-                  context.visBrødsmuler ? "skjulBrødsmuler" : "visBrødsmuler"
-                )
+              action={
+                context.visBrødsmuler ? "skjulBrødsmuler" : "visBrødsmuler"
               }
-              label="Vis brødsmuler"
+              label="Brødsmuler"
               checked={context.visBrødsmuler}
             />
             <CheckBox
-              onClick={() =>
-                dispatch(
-                  context.undersiderPaForside
-                    ? "skjulUndersiderPaForside"
-                    : "visUndersiderPaForside"
-                )
+              action={
+                context.undersiderPaForside
+                  ? "skjulUndersiderPaForside"
+                  : "visUndersiderPaForside"
               }
-              label="Vis undersider på forside"
+              label="Lenke til undersider på forside"
               checked={context.undersiderPaForside}
             />
             <CheckBox
-              onClick={() =>
-                dispatch(
-                  context.featuredContent ? "skjulFeatured" : "visFeatured"
-                )
-              }
-              label="Vis topp tre på forside"
+              action={"toggleOmrådebeskrivelse"}
+              label="Beskrivelse av område"
+              checked={context.områdeBeskrivelse}
+            />
+            <CheckBox
+              action={context.featuredContent ? "skjulFeatured" : "visFeatured"}
+              label="Topp tre på forside"
               checked={context.featuredContent}
+            />
+            <CheckBox
+              action={"toggleBorder"}
+              label="Strek rundt knapper"
+              checked={context.border}
+            />
+            <CheckBox
+              action={"toggleChevron"}
+              label="Pil på knapper"
+              checked={context.chevron}
             />
           </Grid>
         </PopDown>

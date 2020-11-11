@@ -39,7 +39,7 @@ function Område() {
           <Lenkepanel
             key={side}
             href="#"
-            border
+            border={demoContext.border}
             tittelProps="normaltekst"
             onClick={() => navigerTil(område, side)}
           >

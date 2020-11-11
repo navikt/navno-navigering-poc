@@ -1,6 +1,6 @@
 import { createReducerContext } from "react-use";
 
-type Action =
+export type DemoContextActions =
   | "skjulMeny"
   | "visMeny"
   | "visIkoner"
@@ -12,7 +12,10 @@ type Action =
   | "visUndersiderPaForside"
   | "skjulUndersiderPaForside"
   | "visFeatured"
-  | "skjulFeatured";
+  | "skjulFeatured"
+  | "toggleBorder"
+  | "toggleChevron"
+  | "toggleOmrådebeskrivelse";
 
 const initialState = {
   visMeny: true,
@@ -21,11 +24,14 @@ const initialState = {
   undersiderPaForside: false,
   visBrødsmuler: true,
   featuredContent: false,
+  border: true,
+  chevron: true,
+  områdeBeskrivelse: true,
 };
 
 type State = typeof initialState;
 
-const reducer = (state: State, action: Action) => {
+const reducer = (state: State, action: DemoContextActions) => {
   switch (action) {
     case "skjulMeny":
       return {
@@ -88,6 +94,21 @@ const reducer = (state: State, action: Action) => {
       return {
         ...state,
         featuredContent: false,
+      };
+    case "toggleBorder":
+      return {
+        ...state,
+        border: !state.border,
+      };
+    case "toggleChevron":
+      return {
+        ...state,
+        chevron: !state.chevron,
+      };
+    case "toggleOmrådebeskrivelse":
+      return {
+        ...state,
+        områdeBeskrivelse: !state.områdeBeskrivelse,
       };
   }
 };

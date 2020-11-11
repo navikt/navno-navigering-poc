@@ -35,13 +35,13 @@ function Område(props: { område: OmrådeI }) {
       key={props.område.title}
       href="#"
       tittelProps="normaltekst"
-      border
+      border={demoContext.border}
       onClick={runIfEventIsNotInsideRef(ref, () => navigerTil(props.område))}
     >
       {demoContext.visIkoner && props.område.ikon}
       <div>
         <h3>{props.område.title}</h3>
-        {!demoContext.undersiderPaForside && <p>{props.område.beskrivelse}</p>}
+        {demoContext.områdeBeskrivelse && <p>{props.område.beskrivelse}</p>}
         {demoContext.undersiderPaForside && (
           <div ref={ref}>
             <Undersider

@@ -7,6 +7,7 @@ import Område from "./Område";
 import Side from "./Side";
 import Meny from "./Meny/Meny";
 import Footer from "./Footer";
+import { useDemoContext } from "../DemoControlls/demoContext";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -15,6 +16,12 @@ const GlobalStyles = createGlobalStyle`
   svg {
     stroke: currentColor;
   }
+`;
+
+const SkjulChevronPaKnapper = createGlobalStyle`
+.lenkepanel__indikator {
+  display: none;
+}
 `;
 
 const Style = styled.div`
@@ -31,9 +38,11 @@ const Content = styled.div`
 
 function App() {
   const { state } = useNavigasjon();
+  const [demoContext] = useDemoContext();
 
   return (
     <>
+      {!demoContext.chevron && <SkjulChevronPaKnapper />}
       <GlobalStyles />
       <DemoControlls />
       <Style>
