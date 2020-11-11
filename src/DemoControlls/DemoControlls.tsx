@@ -7,7 +7,7 @@ import { useClickAway } from "react-use";
 import { guid } from "nav-frontend-js-utils";
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   right: 0;
   margin-top: 1rem;
   padding: 1rem;
@@ -139,6 +139,11 @@ function DemoControlls() {
               action={"toggleChevron"}
               label="Pil på knapper"
               checked={context.chevron}
+            />
+            <CheckBox
+              action={"toggleToppnivåNavigering"}
+              label="Toppnivånavigering"
+              checked={context.toppnivåNavigering}
             />
           </Grid>
         </PopDown>

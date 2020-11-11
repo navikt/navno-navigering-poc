@@ -15,7 +15,8 @@ export type DemoContextActions =
   | "skjulFeatured"
   | "toggleBorder"
   | "toggleChevron"
-  | "toggleOmrådebeskrivelse";
+  | "toggleOmrådebeskrivelse"
+  | "toggleToppnivåNavigering";
 
 const initialState = {
   visMeny: true,
@@ -27,6 +28,7 @@ const initialState = {
   border: true,
   chevron: true,
   områdeBeskrivelse: true,
+  toppnivåNavigering: false,
 };
 
 type State = typeof initialState;
@@ -109,6 +111,11 @@ const reducer = (state: State, action: DemoContextActions) => {
       return {
         ...state,
         områdeBeskrivelse: !state.områdeBeskrivelse,
+      };
+    case "toggleToppnivåNavigering":
+      return {
+        ...state,
+        toppnivåNavigering: !state.toppnivåNavigering,
       };
   }
 };

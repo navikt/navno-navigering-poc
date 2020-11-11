@@ -143,6 +143,7 @@ export const menuData: MenuData = {
       ikon: <ArbeidsgiverIkon />,
       beskrivelse:
         "Permittere ansatte, ansatt er syk, tilrettelegge, kontakt med NAV",
+      toppNivå: true,
       sider: [
         "Ansatt er sykemeldt",
         "Tilrettelegge for ansatt",
@@ -153,6 +154,7 @@ export const menuData: MenuData = {
       title: "Sammarbeidspartnere",
       ikon: <SammarbeidspartnerIkon />,
       beskrivelse: "Leger, bostyrer, tiltaksarrangør, kommune, aldershjem",
+      toppNivå: true,
       sider: [
         "Lege eller annen behandler",
         "Bostyrer",

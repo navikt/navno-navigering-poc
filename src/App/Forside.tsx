@@ -61,8 +61,9 @@ function Forside() {
   const områder = menuData.områder;
 
   const featured = områder.filter((område) => område.featured);
-  const notFeatured = områder.filter((område) => !område.featured);
-  const lenkeListe = demoContext.featuredContent ? notFeatured : områder;
+  const lenkeListe = områder
+    .filter((område) => !demoContext.featuredContent || !område.featured)
+    .filter((område) => !demoContext.toppnivåNavigering || !område.toppNivå);
 
   return (
     <>

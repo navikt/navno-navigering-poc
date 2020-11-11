@@ -12,6 +12,7 @@ import Brodsmuler from "./Brodsmuler";
 import PopDown from "./PopDown";
 import { useNavigasjon } from "../useNavigasjon";
 import { OmrådeI } from "../../data/types";
+import ToppNivåNavigering from "./ToppNivåNavigering";
 
 const Style = styled.div`
   padding: 1rem;
@@ -67,6 +68,7 @@ function Meny() {
 
   return (
     <div ref={ref}>
+      {demoContext.toppnivåNavigering && <ToppNivåNavigering />}
       <Style>
         <NavButton onClick={() => handleNaviger()}>
           <NavLogo height={"2.5rem"} />

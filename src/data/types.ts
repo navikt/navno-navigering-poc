@@ -11,4 +11,5 @@ export interface OmrådeI {
   ikon?: ReactNode;
   sider: string[];
   featured?: boolean;
+  toppNivå?: boolean;
 }
