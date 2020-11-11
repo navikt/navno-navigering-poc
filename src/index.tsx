@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App/App";
 import "./index.css";
 import { DemoProvider } from "./DemoControlls/demoContext";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components/macro";
 import { theme } from "./theme";
 import { BrowserRouter, Route } from "react-router-dom";
 

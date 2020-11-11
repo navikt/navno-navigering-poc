@@ -3,7 +3,7 @@ import { menuData } from "../data/menuData";
 import { useNavigasjon } from "./useNavigasjon";
 import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { useDemoContext } from "../DemoControlls/demoContext";
 import { Undersider } from "./Meny/PopDown";
 import { useRef } from "react";

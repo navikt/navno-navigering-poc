@@ -1,6 +1,6 @@
 import * as React from "react";
 import { menuData } from "../../data/menuData";
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/macro";
 import { theme } from "../../theme";
 import { OmrådeI } from "../../data/types";
 import { useDemoContext } from "../../DemoControlls/demoContext";

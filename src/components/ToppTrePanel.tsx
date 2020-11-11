@@ -1,6 +1,6 @@
 import * as React from "react";
 import { OmrådeI } from "../data/types";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { useNavigasjon } from "../App/useNavigasjon";
 import { theme } from "../theme";
 import { useDemoContext } from "../DemoControlls/demoContext";

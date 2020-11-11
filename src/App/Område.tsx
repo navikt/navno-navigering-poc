@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigasjon } from "./useNavigasjon";
 import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { useDemoContext } from "../DemoControlls/demoContext";
 
 const Style = styled.div`

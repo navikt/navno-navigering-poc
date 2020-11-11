@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useNavigasjon } from "../useNavigasjon";
 import NavFrontendChevron from "nav-frontend-chevron";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 
 const Style = styled.div`

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useDemoContext } from "./demoContext";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { theme } from "../theme";
 import { useRef, useState } from "react";
 import { useClickAway } from "react-use";
