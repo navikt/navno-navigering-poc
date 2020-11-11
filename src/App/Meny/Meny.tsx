@@ -11,7 +11,6 @@ import Knapp from "nav-frontend-knapper/lib/knapp";
 import Brodsmuler from "./Brodsmuler";
 import PopDown from "./PopDown";
 import { useNavigasjon } from "../useNavigasjon";
-import { runIfEventIsNotInsideRef } from "../../utils/reactRef-utils";
 import { OmrådeI } from "../../data/types";
 
 const Style = styled.div`
