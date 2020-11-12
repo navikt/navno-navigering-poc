@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../theme";
+import { useNavigasjon } from "../useNavigasjon";
+import { menuData } from "../../data/menuData";
 
 const Style = styled.div`
   padding: 0.5rem;
@@ -21,11 +23,31 @@ const Knapp = styled.button`
 `;
 
 function ToppNivåNavigering() {
+  const { navigerTil } = useNavigasjon();
+
   return (
     <Style>
-      <Knapp>Person</Knapp>
-      <Knapp>Arbeidsgiver</Knapp>
-      <Knapp>Sammarbeidspartner</Knapp>
+      <Knapp onClick={() => navigerTil()}>Person</Knapp>
+      <Knapp
+        onClick={() =>
+          navigerTil(
+            menuData.områder.find((it) => it.title.includes("Arbeidsgiver"))
+          )
+        }
+      >
+        Arbeidsgiver
+      </Knapp>
+      <Knapp
+        onClick={() =>
+          navigerTil(
+            menuData.områder.find((it) =>
+              it.title.includes("Sammarbeidspartner")
+            )
+          )
+        }
+      >
+        Sammarbeidspartner
+      </Knapp>
     </Style>
   );
 }
