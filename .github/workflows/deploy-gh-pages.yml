@@ -6,15 +6,21 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: Deploy to gh-pages
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v1
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
         with:
-          node-version: "12.8.1"
-      - uses: actions/checkout@v2
-      - name: npm install
-        run: npm ci
-      - name: build and deploy
-        run: npm run deploy
+          persist-credentials: false
+      - name: npm install 🚛
+        run: npm install
+      - name: Build 🔧
+        run: npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          CLEAN: true
