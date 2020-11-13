@@ -14,6 +14,4 @@ npm start
 
 ## Deploy til gihub-pages
 
-```
-npm run deploy
-```
+Deployes automatisk ved push til main
