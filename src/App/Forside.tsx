@@ -5,7 +5,7 @@ import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components/macro";
 import { useDemoContext } from "../DemoControlls/demoContext";
-import { Undersider } from "./Meny/PopDown";
+import { Undersider } from "./Meny/Undersider";
 import { useRef } from "react";
 import { runIfEventIsNotInsideRef } from "../utils/reactRef-utils";
 import { OmrådeI } from "../data/types";
@@ -44,11 +44,7 @@ function Område(props: { område: OmrådeI }) {
         {demoContext.områdeBeskrivelse && <p>{props.område.beskrivelse}</p>}
         {demoContext.undersiderPaForside && (
           <div ref={ref}>
-            <Undersider
-              område={props.område}
-              hanldeNaviger={navigerTil}
-              chevron={true}
-            />
+            <Undersider område={props.område} chevron={true} />
           </div>
         )}
       </div>
@@ -63,7 +59,12 @@ function Forside() {
   const featured = områder.filter((område) => område.featured);
   const lenkeListe = områder
     .filter((område) => !demoContext.featuredContent || !område.featured)
-    .filter((område) => !demoContext.toppnivåNavigering || !område.toppNivå);
+    .filter(
+      (område) => !demoContext.toppnivåNavigering || !område.toppNivåKandidat
+    )
+    .filter(
+      (område) => !demoContext.footerNavigering || !område.footerKandidat
+    );
 
   return (
     <>

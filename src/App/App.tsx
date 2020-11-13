@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components/macro";
 import DemoControlls from "../DemoControlls/DemoControlls";
 import Forside from "./Forside";
@@ -39,8 +39,12 @@ const Content = styled.div`
 `;
 
 function App() {
-  const { state } = useNavigasjon();
+  const { state, side, område } = useNavigasjon();
   const [demoContext] = useDemoContext();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [state, side, område]);
 
   return (
     <>

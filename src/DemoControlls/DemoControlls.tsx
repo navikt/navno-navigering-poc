@@ -9,7 +9,6 @@ import { guid } from "nav-frontend-js-utils";
 const Wrapper = styled.div`
   position: fixed;
   right: 0;
-  margin-top: 1rem;
   padding: 1rem;
   display: inline-flex;
   justify-content: flex-end;
@@ -23,6 +22,8 @@ const PopDown = styled.div`
   min-width: 18rem;
   border: 0.2rem ${theme.colors.navLimeGronnLighten80} solid;
   filter: drop-shadow(0.2rem 0.2rem 3rem black);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
 `;
 
 const MenuButton = styled.button`
@@ -91,11 +92,6 @@ function DemoControlls() {
               checked={context.visMeny}
             />
             <CheckBox
-              action={context.visIkoner ? "skjulIkoner" : "visIkoner"}
-              label="Ikoner"
-              checked={context.visIkoner}
-            />
-            <CheckBox
               action={
                 context.undersiderIMeny
                   ? "ikkeVisUndersiderIMeny"
@@ -106,29 +102,34 @@ function DemoControlls() {
             />
             <CheckBox
               action={
+                context.undersiderPaForside
+                  ? "skjulUndersiderPaForside"
+                  : "visUndersiderPaForside"
+              }
+              label="Underpunkter forside"
+              checked={context.undersiderPaForside}
+            />
+            <CheckBox
+              action={
                 context.visBrødsmuler ? "skjulBrødsmuler" : "visBrødsmuler"
               }
               label="Brødsmuler"
               checked={context.visBrødsmuler}
             />
             <CheckBox
-              action={
-                context.undersiderPaForside
-                  ? "skjulUndersiderPaForside"
-                  : "visUndersiderPaForside"
-              }
-              label="Lenke til undersider på forside"
-              checked={context.undersiderPaForside}
-            />
-            <CheckBox
-              action={"toggleOmrådebeskrivelse"}
-              label="Beskrivelse av område"
-              checked={context.områdeBeskrivelse}
-            />
-            <CheckBox
               action={context.featuredContent ? "skjulFeatured" : "visFeatured"}
               label="Topp tre på forside"
               checked={context.featuredContent}
+            />
+            <CheckBox
+              action={context.visIkoner ? "skjulIkoner" : "visIkoner"}
+              label="Ikoner"
+              checked={context.visIkoner}
+            />
+            <CheckBox
+              action={"toggleOmrådebeskrivelse"}
+              label="Områdebeskrivelse på forside"
+              checked={context.områdeBeskrivelse}
             />
             <CheckBox
               action={"toggleBorder"}
@@ -144,6 +145,11 @@ function DemoControlls() {
               action={"toggleToppnivåNavigering"}
               label="Toppnivånavigering"
               checked={context.toppnivåNavigering}
+            />
+            <CheckBox
+              action={"toggleFooterNavigering"}
+              label="Nyheter og statistikk i footer"
+              checked={context.footerNavigering}
             />
           </Grid>
         </PopDown>

@@ -143,7 +143,7 @@ export const menuData: MenuData = {
       ikon: <ArbeidsgiverIkon />,
       beskrivelse:
         "Permittere ansatte, ansatt er syk, tilrettelegge, kontakt med NAV",
-      toppNivå: true,
+      toppNivåKandidat: true,
       sider: [
         "Ansatt er sykemeldt",
         "Tilrettelegge for ansatt",
@@ -154,7 +154,7 @@ export const menuData: MenuData = {
       title: "Sammarbeidspartnere",
       ikon: <SammarbeidspartnerIkon />,
       beskrivelse: "Leger, bostyrer, tiltaksarrangør, kommune, aldershjem",
-      toppNivå: true,
+      toppNivåKandidat: true,
       sider: [
         "Lege eller annen behandler",
         "Bostyrer",
@@ -172,6 +172,7 @@ export const menuData: MenuData = {
       title: "Nyheter",
       ikon: <NyhetsIkon />,
       beskrivelse: "Nyheter, endringer, for journalister, EØS-saken",
+      footerKandidat: true,
       sider: [
         "Grunnbelløpet endres i dag",
         "Ny NAV-direktør",
@@ -182,6 +183,7 @@ export const menuData: MenuData = {
       title: "Statistikk",
       ikon: <StatistikkIkon />,
       beskrivelse: "Nyheter, tall",
+      footerKandidat: true,
       sider: [
         "Ny undersøkelse",
         "Flere er arbeidsledige",

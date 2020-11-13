@@ -5,8 +5,8 @@ import { theme } from "../../theme";
 import { OmrådeI } from "../../data/types";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 import { useNavigasjon } from "../useNavigasjon";
-import { HoyreChevron } from "nav-frontend-chevron";
 import { UnmountClosed } from "react-collapse";
+import Undersider from "./Undersider";
 
 const Style = styled.div`
   position: absolute;
@@ -54,16 +54,6 @@ const MenyKnapp = styled.button<{ small?: boolean }>`
   }
 `;
 
-const ChevronKnapp = styled(MenyKnapp)`
-  transition: 0.3s;
-  > * {
-    margin-right: 0.5rem;
-  }
-  &:hover {
-    margin-left: 0.5rem;
-  }
-`;
-
 const UndersiderStyle = styled.div`
   margin: 0.5rem 0 0.5rem 5rem;
 `;
@@ -71,28 +61,6 @@ const UndersiderStyle = styled.div`
 interface Props {
   lukkMeny: () => void;
   open: boolean;
-}
-
-export function Undersider(props: {
-  område: OmrådeI;
-  hanldeNaviger: (område: OmrådeI, side?: string) => void;
-  chevron?: boolean;
-}) {
-  return (
-    <div>
-      {props.område.sider.slice(0, 2).map((side) => (
-        <ChevronKnapp
-          small={true}
-          onClick={() => props.hanldeNaviger(props.område, side)}
-        >
-          {props.chevron && <HoyreChevron />} {side}
-        </ChevronKnapp>
-      ))}
-      <MenyKnapp small={true} onClick={() => props.hanldeNaviger(props.område)}>
-        Mer..
-      </MenyKnapp>
-    </div>
-  );
 }
 
 function PopDown(props: Props) {
@@ -116,7 +84,7 @@ function PopDown(props: Props) {
               </MenyKnapp>
               {context.undersiderIMeny && (
                 <UndersiderStyle>
-                  <Undersider område={område} hanldeNaviger={handleNaviger} />
+                  <Undersider område={område} onNaviger={props.lukkMeny} />
                 </UndersiderStyle>
               )}
             </div>
