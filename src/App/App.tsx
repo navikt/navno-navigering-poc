@@ -59,6 +59,7 @@ function App() {
           {state === "side" && <Side />}
         </Content>
         <Footer />
+        Deployed by github
       </Style>
     </>
   );

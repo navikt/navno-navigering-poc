@@ -1,0 +1,20 @@
+name: Deploy to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.8.1"
+      - uses: actions/checkout@v2
+      - name: npm install
+        run: npm ci
+      - name: build and deploy
+        run: npm run deploy
