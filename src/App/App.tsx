@@ -55,7 +55,7 @@ function App() {
         <Meny />
         <Content>
           {state === "forside" && <Forside />}
-          {state === "område" && <Område />}
+          {state === "område" && <Område område={område!} />}
           {state === "side" && <Side />}
         </Content>
         <Footer />

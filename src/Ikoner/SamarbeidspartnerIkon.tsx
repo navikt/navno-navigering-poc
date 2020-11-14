@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SammarbeidspartnerIkon(props: any) {
+function SamarbeidspartnerIkon(props: any) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>
       <path
@@ -21,4 +21,4 @@ function SammarbeidspartnerIkon(props: any) {
   );
 }
 
-export default SammarbeidspartnerIkon;
+export default SamarbeidspartnerIkon;

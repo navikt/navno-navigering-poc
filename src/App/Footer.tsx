@@ -42,7 +42,7 @@ function Footer() {
     <Style>
       {demoContext.footerNavigering &&
         footerContent.map((område) => (
-          <Område>
+          <Område key={område.title}>
             <Button onClick={() => navigerTil(område)}>{område.title}</Button>
             <Undersider område={område} />
           </Område>

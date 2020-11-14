@@ -41,12 +41,12 @@ function ToppNivåNavigering() {
         onClick={() =>
           navigerTil(
             menuData.områder.find((it) =>
-              it.title.includes("Sammarbeidspartner")
+              it.title.includes("Samarbeidspartner")
             )
           )
         }
       >
-        Sammarbeidspartner
+        Samarbeidspartner
       </Knapp>
     </Style>
   );

@@ -66,7 +66,7 @@ function CheckBox(props: {
         id={id}
         type="checkbox"
         checked={props.checked}
-        onClick={() => dispatch(props.action)}
+        onChange={() => dispatch(props.action)}
       />
       <label htmlFor={id}>{props.label}</label>
     </CheckBoxStyle>
@@ -150,6 +150,11 @@ function DemoControlls() {
               action={"toggleFooterNavigering"}
               label="Nyheter og statistikk i footer"
               checked={context.footerNavigering}
+            />
+            <CheckBox
+              action={"toggleContextTabs"}
+              label="Context som tabs"
+              checked={context.contextTabs}
             />
           </Grid>
         </PopDown>

@@ -17,7 +17,8 @@ export type DemoContextActions =
   | "toggleChevron"
   | "toggleOmrådebeskrivelse"
   | "toggleToppnivåNavigering"
-  | "toggleFooterNavigering";
+  | "toggleFooterNavigering"
+  | "toggleContextTabs";
 
 const initialState = {
   visMeny: true,
@@ -31,6 +32,7 @@ const initialState = {
   områdeBeskrivelse: true,
   toppnivåNavigering: false,
   footerNavigering: false,
+  contextTabs: false,
 };
 
 type State = typeof initialState;
@@ -123,6 +125,11 @@ const reducer = (state: State, action: DemoContextActions) => {
       return {
         ...state,
         footerNavigering: !state.footerNavigering,
+      };
+    case "toggleContextTabs":
+      return {
+        ...state,
+        contextTabs: !state.contextTabs,
       };
   }
 };

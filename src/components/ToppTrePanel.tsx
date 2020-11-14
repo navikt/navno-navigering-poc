@@ -61,7 +61,7 @@ function ToppTrePanel(props: Props) {
   return (
     <Style>
       {props.områder.map((område) => (
-        <Panel onClick={() => navigasjon.navigerTil(område)}>
+        <Panel key={område.title} onClick={() => navigasjon.navigerTil(område)}>
           {demoContext.visIkoner && område.ikon}
           <PanelContent>
             <h3>{område.title}</h3>

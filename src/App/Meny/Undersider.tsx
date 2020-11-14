@@ -54,6 +54,7 @@ export function Undersider(props: {
         <ChevronKnapp
           small={true}
           onClick={() => handleNaviger(props.område, side)}
+          key={side}
         >
           {props.chevron && <HoyreChevron />} {side}
         </ChevronKnapp>

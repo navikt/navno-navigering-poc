@@ -7,7 +7,7 @@ import FamilieIkon from "../Ikoner/FamilieIkon";
 import DittNavIkon from "../Ikoner/DittNavIkon";
 import SykdomIkon from "../Ikoner/SykdomIkon";
 import ArbeidsgiverIkon from "../Ikoner/Arbeidsgiver";
-import SammarbeidspartnerIkon from "../Ikoner/SammarbeidspartnerIkon";
+import SamarbeidspartnerIkon from "../Ikoner/SamarbeidspartnerIkon";
 import NyhetsIkon from "../Ikoner/NyhetsIkon";
 import StatistikkIkon from "../Ikoner/StatistikkIkon";
 import Korona from "../Ikoner/Korona";
@@ -151,8 +151,8 @@ export const menuData: MenuData = {
       ],
     },
     {
-      title: "Sammarbeidspartnere",
-      ikon: <SammarbeidspartnerIkon />,
+      title: "Samarbeidspartner",
+      ikon: <SamarbeidspartnerIkon />,
       beskrivelse: "Leger, bostyrer, tiltaksarrangør, kommune, aldershjem",
       toppNivåKandidat: true,
       sider: [

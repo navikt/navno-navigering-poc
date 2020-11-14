@@ -8,6 +8,7 @@ import { useNavigasjon } from "../useNavigasjon";
 import { UnmountClosed } from "react-collapse";
 import Undersider from "./Undersider";
 
+
 const Style = styled.div`
   position: absolute;
   left: 0;
@@ -77,7 +78,7 @@ function PopDown(props: Props) {
       <UnmountClosed isOpened={props.open}>
         <Grid kortMeny={!context.undersiderIMeny}>
           {menuData.områder.map((område) => (
-            <div>
+            <div key={område.title}>
               <MenyKnapp onClick={() => handleNaviger(område)}>
                 {context.visIkoner && område.ikon}
                 {område.title}

@@ -4,6 +4,7 @@ import Lenkepanel from "nav-frontend-lenkepanel";
 import { LenkepanelGrid } from "../components/LenkepanelGrid";
 import styled from "styled-components/macro";
 import { useDemoContext } from "../DemoControlls/demoContext";
+import { OmrådeI } from "../data/types";
 
 const Style = styled.div`
   h2 {
@@ -24,8 +25,9 @@ const Style = styled.div`
   align-items: center;
 `;
 
-function Område() {
-  const { område, navigerTil } = useNavigasjon();
+function Område(props: {område: OmrådeI}) {
+  const område = props.område;
+  const { navigerTil } = useNavigasjon();
   const [demoContext] = useDemoContext();
 
   return (
