@@ -50,6 +50,7 @@ const CheckBoxStyle = styled.div`
     width: 1.3rem;
     height: 1.3rem;
     margin-right: 0.5rem;
+    flex-shrink: 0;
   }
 `;
 
@@ -166,7 +167,7 @@ function DemoControlls() {
             />
             <CheckBox
               action={"toggleFooterNavigering"}
-              label="Nyheter og statistikk i footer"
+              label="Nyheter, statistikk og kontakt oss i footer"
               checked={context.footerNavigering}
             />
             <CheckBox

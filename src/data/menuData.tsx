@@ -16,6 +16,7 @@ import KlageIkon from "../Ikoner/KlageIkon";
 import TilOgFraIkon from "../Ikoner/TilOgFraIkon";
 import NedsattFunksjonIkon from "../Ikoner/NedsattFunksjonIkon";
 import FlereTemaIkon from "../Ikoner/FlereTemaIkon";
+import KontaktIkon from "../Ikoner/KontaktIkon";
 
 export const menuData: MenuData = {
   title: "nav.no",
@@ -188,6 +189,17 @@ export const menuData: MenuData = {
         "Ny undersøkelse",
         "Flere er arbeidsledige",
         "Rekkordstor pågang",
+      ],
+    },
+    {
+      title: "Kontakt oss",
+      ikon: <KontaktIkon />,
+      beskrivelse: "Ring, send melding eller finn oss i ditt nærmiljø",
+      footerKandidat: true,
+      sider: [
+        "Ring til NAV kontaktsenter",
+        "Send en melding",
+        "Finn ditt lokalkontor",
       ],
     },
     {
