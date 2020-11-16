@@ -11,7 +11,7 @@ interface Props {
 
 const Style = styled.div`
   padding: 0.5rem;
-  margin-top: 2rem;
+  margin: 1rem 0 2rem;
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));

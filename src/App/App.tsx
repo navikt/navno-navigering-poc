@@ -5,7 +5,7 @@ import Forside from "./Forside";
 import { useNavigasjon } from "./useNavigasjon";
 import Område from "./Område";
 import Side from "./Side";
-import Meny from "./Meny/Meny";
+import Header from "./Meny/Header";
 import Footer from "./Footer";
 import { useDemoContext } from "../DemoControlls/demoContext";
 
@@ -52,7 +52,7 @@ function App() {
       <GlobalStyles />
       <DemoControlls />
       <Style>
-        <Meny />
+        <Header />
         <Content>
           {state === "forside" && <Forside />}
           {state === "område" && <Område område={område!} />}

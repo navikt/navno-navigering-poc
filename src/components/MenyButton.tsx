@@ -1,23 +1,12 @@
 import * as React from "react";
-import styled, { css } from "styled-components/macro";
+import styled from "styled-components/macro";
 import { theme } from "../theme";
 
-const removeButtonStyle = css`
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-`;
-
-const IkonButtonStyle = styled.button`
+export const IkonButtonStyle = styled.button`
   margin-left: 1rem;
-  ${removeButtonStyle};
+  ${theme.removeButtonStyle};
   font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 50%;
   opacity: 0.9;
   display: flex;
   justify-content: center;

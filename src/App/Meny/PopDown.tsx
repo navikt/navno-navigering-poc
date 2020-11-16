@@ -7,10 +7,12 @@ import { useDemoContext } from "../../DemoControlls/demoContext";
 import { useNavigasjon } from "../useNavigasjon";
 import { UnmountClosed } from "react-collapse";
 import Undersider from "./Undersider";
-
+import Søk from "../../components/Søk";
 
 const Style = styled.div`
   position: absolute;
+  background-color: white;
+  width: 100vw;
   left: 0;
   z-index: 10;
   box-shadow: 0 1rem 1rem #0004;
@@ -18,8 +20,6 @@ const Style = styled.div`
 
 const Grid = styled.div<{ kortMeny: boolean }>`
   padding: 2rem 1rem 3rem;
-  background-color: white;
-  width: 100vw;
   border-bottom: 0.2rem solid ${theme.colors.navLysBla};
   display: grid;
   justify-content: center;
@@ -59,6 +59,13 @@ const UndersiderStyle = styled.div`
   margin: 0.5rem 0 0.5rem 5rem;
 `;
 
+const StyledSøk = styled(Søk)`
+  margin: 2rem auto;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+  border: solid 0.2rem currentColor;
+`;
+
 interface Props {
   lukkMeny: () => void;
   open: boolean;
@@ -76,6 +83,7 @@ function PopDown(props: Props) {
   return (
     <Style>
       <UnmountClosed isOpened={props.open}>
+        {context.søkIMeny && <StyledSøk />}
         <Grid kortMeny={!context.undersiderIMeny}>
           {menuData.områder.map((område) => (
             <div key={område.title}>

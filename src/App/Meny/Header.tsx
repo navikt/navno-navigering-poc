@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../theme";
 import NavLogo from "./NavLogo";
@@ -13,6 +13,8 @@ import PopDown from "./PopDown";
 import { useNavigasjon } from "../useNavigasjon";
 import { OmrådeI } from "../../data/types";
 import ToppNivåNavigering from "./ToppNivåNavigering";
+import Søk from "../../components/Søk";
+import { useHeaderContext } from "./HeaderContext";
 
 const Style = styled.div`
   padding: 1rem;
@@ -54,16 +56,16 @@ const ShowOnBigScreen = styled.div`
   }
 `;
 
-function Meny() {
-  const [open, setOpen] = useState(false);
+function Header() {
+  const [headerState, dispatch] = useHeaderContext();
   const ref = useRef(null);
   const [demoContext] = useDemoContext();
   const { navigerTil } = useNavigasjon();
-  useClickAway(ref, () => setOpen(false));
+  useClickAway(ref, () => dispatch("closeMenu"));
 
   const handleNaviger = (område?: OmrådeI) => {
     navigerTil(område);
-    setOpen(false);
+    dispatch("closeMenu");
   };
 
   return (
@@ -75,11 +77,12 @@ function Meny() {
         </NavButton>
         {demoContext.visMeny && (
           <MenyButton
-            isOpen={open}
-            onClick={() => setOpen(!open)}
+            isOpen={headerState.menuOpen}
+            onClick={() => dispatch("toggleMenu")}
             label={"Meny"}
           />
         )}
+        {demoContext.søkIHeader && <Søk />}
         <ShowOnBigScreen>
           <Brodsmuler />
         </ShowOnBigScreen>
@@ -95,7 +98,10 @@ function Meny() {
           Logg inn
         </LoggInnKnapp>
       </Style>
-      <PopDown lukkMeny={() => setOpen(false)} open={open} />
+      <PopDown
+        lukkMeny={() => dispatch("closeMenu")}
+        open={headerState.menuOpen}
+      />
       <ShowOnSmallScreen>
         <Brodsmuler />
       </ShowOnSmallScreen>
@@ -103,4 +109,4 @@ function Meny() {
   );
 }
 
-export default Meny;
+export default Header;

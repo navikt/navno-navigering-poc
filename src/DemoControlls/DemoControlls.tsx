@@ -5,6 +5,7 @@ import { theme } from "../theme";
 import { useRef, useState } from "react";
 import { useClickAway } from "react-use";
 import { guid } from "nav-frontend-js-utils";
+import { useHeaderContext } from "../App/Meny/HeaderContext";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -56,6 +57,7 @@ function CheckBox(props: {
   label: string;
   checked: boolean;
   action: DemoContextActions;
+  onClick?: Function;
 }) {
   const id = useRef(guid()).current;
   const [, dispatch] = useDemoContext();
@@ -66,7 +68,10 @@ function CheckBox(props: {
         id={id}
         type="checkbox"
         checked={props.checked}
-        onChange={() => dispatch(props.action)}
+        onChange={() => {
+          dispatch(props.action);
+          props.onClick?.();
+        }}
       />
       <label htmlFor={id}>{props.label}</label>
     </CheckBoxStyle>
@@ -75,6 +80,7 @@ function CheckBox(props: {
 
 function DemoControlls() {
   const [context] = useDemoContext();
+  const [, headerDispatch] = useHeaderContext();
   const [show, setShow] = useState(true);
   const ref = useRef(null);
   useClickAway(ref, () => setShow(false));
@@ -92,11 +98,23 @@ function DemoControlls() {
               checked={context.visMeny}
             />
             <CheckBox
+              action={"toggleSøkIMeny"}
+              onClick={() => headerDispatch("openMenu")}
+              label="Søk i meny"
+              checked={context.søkIMeny}
+            />
+            <CheckBox
+              action={"toggleSøkIHeader"}
+              label="Søk i header"
+              checked={context.søkIHeader}
+            />
+            <CheckBox
               action={
                 context.undersiderIMeny
                   ? "ikkeVisUndersiderIMeny"
                   : "visUndersiderIMeny"
               }
+              onClick={() => headerDispatch("openMenu")}
               label="Underpunkter i meny"
               checked={context.undersiderIMeny}
             />

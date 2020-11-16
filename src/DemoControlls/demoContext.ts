@@ -18,7 +18,9 @@ export type DemoContextActions =
   | "toggleOmrådebeskrivelse"
   | "toggleToppnivåNavigering"
   | "toggleFooterNavigering"
-  | "toggleContextTabs";
+  | "toggleContextTabs"
+  | "toggleSøkIHeader"
+  | "toggleSøkIMeny";
 
 const initialState = {
   visMeny: true,
@@ -33,6 +35,8 @@ const initialState = {
   toppnivåNavigering: false,
   footerNavigering: false,
   contextTabs: false,
+  søkIHeader: false,
+  søkIMeny: false,
 };
 
 type State = typeof initialState;
@@ -130,6 +134,16 @@ const reducer = (state: State, action: DemoContextActions) => {
       return {
         ...state,
         contextTabs: !state.contextTabs,
+      };
+    case "toggleSøkIMeny":
+      return {
+        ...state,
+        søkIMeny: !state.søkIMeny,
+      };
+    case "toggleSøkIHeader":
+      return {
+        ...state,
+        søkIHeader: !state.søkIHeader,
       };
   }
 };

@@ -14,7 +14,7 @@ import Tabs from "nav-frontend-tabs";
 import Panel from "nav-frontend-paneler";
 import { useState } from "react";
 import Område from "./Område";
-
+import { theme } from "../theme";
 
 const StyledLenkepanel = styled(Lenkepanel)`
   .lenkepanel__heading {
@@ -29,27 +29,29 @@ const StyledLenkepanel = styled(Lenkepanel)`
     flex-shrink: 0;
   }
 `;
+
+const TabWrapper = styled.div`
+  .nav-frontend-tabs {
+    border-bottom: none;
+  }
+  margin-bottom: 5rem;
+`;
+
 const StyledTabs = styled(Tabs)`
   margin-top: 1rem;
-  
   .nav-frontend-tabs__tab-inner--aktiv {
-    background: rgba(0,103,197,0.32);
-    border-bottom-color: rgba(0,103,197,0.32);
+    background: rgba(0, 103, 197, 0.32);
+    border-bottom-color: ${theme.colors.navLysBla};
   }
-  
 `;
 
 const StyledPanel = styled(Panel)`
   .lenkepanel {
-    border:none;
+    border: none;
   }
   padding: 0 1rem;
-  background:rgba(0,103,197,0.32) ;
-   borderTop:0;
-   borderTopLeftRadius: 0;
-   borderTopRightRadius: 0;
+  background: rgba(0, 103, 197, 0.32);
   margin-bottom: 1rem;
-  
 `;
 
 function OmrådeKnapp(props: { område: OmrådeI }) {
@@ -88,9 +90,7 @@ function Innhold() {
     .filter(
       (område) => !demoContext.toppnivåNavigering || !område.toppNivåKandidat
     )
-    .filter(
-      (område) => !demoContext.contextTabs || !område.toppNivåKandidat
-    )
+    .filter((område) => !demoContext.contextTabs || !område.toppNivåKandidat)
     .filter(
       (område) => !demoContext.footerNavigering || !område.footerKandidat
     );
@@ -103,7 +103,7 @@ function Innhold() {
         ))}
       </LenkepanelGrid>
     </>
-  )
+  );
 }
 function Forside() {
   const [demoContext] = useDemoContext();
@@ -111,31 +111,36 @@ function Forside() {
   const featured = områder.filter((område) => område.featured);
 
   const [selectedTab, setSelectedTab] = useState("Privatperson");
-
   const onTabChange = (e: any) => {
-    console.log(e)
     setSelectedTab(e.target.textContent);
-  }
+  };
+
   return (
     <>
       {demoContext.featuredContent && <ToppTrePanel områder={featured} />}
-      {demoContext.contextTabs ?
-        <>
+      {demoContext.contextTabs ? (
+        <TabWrapper>
           <StyledTabs
-            tabs={[{ label: "Privatperson" }, { label: "Arbeidsgiver" }, { label: "Samarbeidspartner" }]}
+            tabs={[
+              { label: "Privatperson" },
+              { label: "Arbeidsgiver" },
+              { label: "Samarbeidspartner" },
+            ]}
             onChange={onTabChange}
           />
           <StyledPanel border>
-            {selectedTab === "Privatperson" ?
-              <Innhold  /> :
-              <Område område={områder.find(område => område.title === selectedTab)!} />
-
-            }
+            {selectedTab === "Privatperson" ? (
+              <Innhold />
+            ) : (
+              <Område
+                område={områder.find((område) => område.title === selectedTab)!}
+              />
+            )}
           </StyledPanel>
-        </> :
-        <Innhold  />
-      }
-
+        </TabWrapper>
+      ) : (
+        <Innhold />
+      )}
     </>
   );
 }

@@ -6,6 +6,7 @@ import { DemoProvider } from "./DemoControlls/demoContext";
 import { createGlobalStyle } from "styled-components/macro";
 import { theme } from "./theme";
 import { BrowserRouter, Route } from "react-router-dom";
+import { HeaderContextProvider } from "./App/Meny/HeaderContext";
 
 const GlobalStyling = createGlobalStyle`
     *:focus {
@@ -19,9 +20,11 @@ ReactDOM.render(
   <React.StrictMode>
     <DemoProvider>
       <GlobalStyling />
-      <BrowserRouter>
-        <Route path="/:domain?/:omrade?/:side?" children={<App />} />
-      </BrowserRouter>
+      <HeaderContextProvider>
+        <BrowserRouter>
+          <Route path="/:domain?/:omrade?/:side?" children={<App />} />
+        </BrowserRouter>
+      </HeaderContextProvider>
     </DemoProvider>
   </React.StrictMode>,
   document.getElementById("root")
