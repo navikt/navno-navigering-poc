@@ -175,6 +175,11 @@ function DemoControlls() {
               label="Context som tabs"
               checked={context.contextTabs}
             />
+            <CheckBox
+              action={"toggleTillatTreIBredden"}
+              label="Tillat tre knapper i bredden"
+              checked={context.tillatTreLenkerIBredden}
+            />
           </Grid>
         </PopDown>
       )}

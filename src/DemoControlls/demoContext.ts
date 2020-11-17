@@ -20,7 +20,8 @@ export type DemoContextActions =
   | "toggleFooterNavigering"
   | "toggleContextTabs"
   | "toggleSøkIHeader"
-  | "toggleSøkIMeny";
+  | "toggleSøkIMeny"
+  | "toggleTillatTreIBredden";
 
 const initialState = {
   visMeny: true,
@@ -37,6 +38,7 @@ const initialState = {
   contextTabs: false,
   søkIHeader: false,
   søkIMeny: false,
+  tillatTreLenkerIBredden: true,
 };
 
 type State = typeof initialState;
@@ -144,6 +146,11 @@ const reducer = (state: State, action: DemoContextActions) => {
       return {
         ...state,
         søkIHeader: !state.søkIHeader,
+      };
+    case "toggleTillatTreIBredden":
+      return {
+        ...state,
+        tillatTreLenkerIBredden: !state.tillatTreLenkerIBredden,
       };
   }
 };

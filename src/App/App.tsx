@@ -31,10 +31,10 @@ const Style = styled.div`
   min-height: 100vh;
 `;
 
-const Content = styled.div`
+const Content = styled.div<{ bredLayout: boolean }>`
   margin-left: auto;
   margin-right: auto;
-  max-width: 60rem;
+  max-width: ${(props) => (props.bredLayout ? "80rem" : "60rem")};
   width: 100%;
 `;
 
@@ -53,7 +53,7 @@ function App() {
       <DemoControlls />
       <Style>
         <Header />
-        <Content>
+        <Content bredLayout={demoContext.tillatTreLenkerIBredden}>
           {state === "forside" && <Forside />}
           {state === "område" && <Område område={område!} />}
           {state === "side" && <Side />}

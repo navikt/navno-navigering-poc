@@ -96,15 +96,14 @@ function Innhold() {
     );
 
   return (
-    <>
-      <LenkepanelGrid>
-        {lenkeListe.map((område) => (
-          <OmrådeKnapp key={område.title} område={område} />
-        ))}
-      </LenkepanelGrid>
-    </>
+    <LenkepanelGrid>
+      {lenkeListe.map((område) => (
+        <OmrådeKnapp key={område.title} område={område} />
+      ))}
+    </LenkepanelGrid>
   );
 }
+
 function Forside() {
   const [demoContext] = useDemoContext();
   const områder = menuData.områder;
