@@ -7,9 +7,12 @@ import { Undersider } from "./Meny/Undersider";
 import { useNavigasjon } from "./useNavigasjon";
 
 const Style = styled.div`
+  padding: 1.5rem;
   min-height: 6rem;
   border-top: 0.2rem solid ${theme.colors.navLysBla};
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+  grid-gap: 1rem;
   justify-content: center;
 `;
 
@@ -26,10 +29,6 @@ const Button = styled.div`
   }
 `;
 
-const Område = styled.div`
-  margin: 1.5rem 2rem 3rem;
-`;
-
 function Footer() {
   const [demoContext] = useDemoContext();
   const { navigerTil } = useNavigasjon();
@@ -42,10 +41,10 @@ function Footer() {
     <Style>
       {demoContext.footerNavigering &&
         footerContent.map((område) => (
-          <Område key={område.title}>
+          <div key={område.title}>
             <Button onClick={() => navigerTil(område)}>{område.title}</Button>
             <Undersider område={område} />
-          </Område>
+          </div>
         ))}
     </Style>
   );
