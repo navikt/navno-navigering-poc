@@ -38,7 +38,7 @@ const initialState = {
   contextTabs: false,
   søkIHeader: false,
   søkIMeny: false,
-  tillatTreLenkerIBredden: true,
+  tillatTreLenkerIBredden: false,
 };
 
 type State = typeof initialState;
