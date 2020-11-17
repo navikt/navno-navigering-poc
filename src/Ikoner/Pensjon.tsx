@@ -2,28 +2,35 @@ import * as React from "react";
 
 function PensjonIkon(props: any) {
   return (
-    <svg viewBox="0 0 24 23" fill="none" {...props}>
+    <svg
+      viewBox="0 0 25 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
-        clipRule="evenodd"
-        d="M21.5 5.56a5 5 0 11-10.001 0 5 5 0 0110.001 0v0z"
+        d="M11.513 5.018a7.477 7.477 0 015 1.482M23.513 8.5a2 2 0 01-2 2"
+        stroke="#3E3832"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        fillRule="evenodd"
         clipRule="evenodd"
-        d="M23.5 4.56a.5.5 0 100 1 .5.5 0 000-1z"
-        fill="#000"
-      />
-      <path d="M23.5 22.5v-16" strokeLinecap="round" strokeLinejoin="round" />
-      <path
-        clipRule="evenodd"
-        d="M16.689 20.516a2.56 2.56 0 01-2.56-2.56c0-2.643-3.107-3.211-4.478-1.73-1.368-1.481-4.479-.913-4.479 1.73A2.559 2.559 0 01.5 19.396c1.92 4.314 7.297 3.515 9.151.665 1.853 2.85 7.23 3.649 9.154-.665a2.554 2.554 0 01-2.116 1.12v0z"
+        d="M12.013 2.5c-.85 0-1.67.104-2.454.281a3.494 3.494 0 00-4.796-1.309 3.503 3.503 0 011.715 2.537C4.383 5.276 2.923 7.24 2.587 9.5H.513v4H3.21c1.41 2.931 4.818 5 8.803 5 5.247 0 9.5-3.581 9.5-8 0-4.417-4.253-8-9.5-8v0z"
+        stroke="#3E3832"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M19.5 5.56a3 3 0 01-3 3"
+        clipRule="evenodd"
+        d="M6.513 9a.5.5 0 11-1 0 .5.5 0 011 0v0z"
+        stroke="#3E3832"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.513 17.766V21M16.513 17.734V21"
+        stroke="#3E3832"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
