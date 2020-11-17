@@ -22,10 +22,9 @@ const Style = styled.div`
   }
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
-function Område(props: {område: OmrådeI}) {
+function Område(props: { område: OmrådeI }) {
   const område = props.område;
   const { navigerTil } = useNavigasjon();
   const [demoContext] = useDemoContext();
@@ -46,10 +45,6 @@ function Område(props: {område: OmrådeI}) {
             onClick={() => navigerTil(område, side)}
           >
             <h3>{side}</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo,
-              quisquam.
-            </p>
           </Lenkepanel>
         ))}
       </LenkepanelGrid>

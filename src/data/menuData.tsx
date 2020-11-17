@@ -15,7 +15,6 @@ import Eøs from "../Ikoner/EØS";
 import KlageIkon from "../Ikoner/KlageIkon";
 import TilOgFraIkon from "../Ikoner/TilOgFraIkon";
 import NedsattFunksjonIkon from "../Ikoner/NedsattFunksjonIkon";
-import FlereTemaIkon from "../Ikoner/FlereTemaIkon";
 import KontaktIkon from "../Ikoner/KontaktIkon";
 
 export const menuData: MenuData = {
@@ -57,6 +56,9 @@ export const menuData: MenuData = {
         "Om alderspensjon",
         "Om andre pensjonsordninger",
         "Om omsorgsarbeid og pensjonsopptjening",
+        "Skjema",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
       ],
     },
     {
@@ -68,12 +70,14 @@ export const menuData: MenuData = {
         "Ring til NAV kontaktsenter",
         "Send en melding",
         "Finn ditt lokalkontor",
+        "Send skjema",
       ],
     },
     {
       title: "Arbeidssøker eller permittert",
       ikon: <ArbeidIkon />,
-      beskrivelse: "Jobb, registrering, dagpenger og oppfølging",
+      beskrivelse:
+        "Jobb, registrering, dagpenger og oppfølging, ledige stillinger",
       sider: [
         "Har mistet jobben",
         "Er permittert",
@@ -82,6 +86,9 @@ export const menuData: MenuData = {
         "Har vært utenfor arbeidslivet lenge",
         "Ung og lite jobberfaring",
         "Ledige stillinger",
+        "Skjema",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
       ],
     },
     {
@@ -95,6 +102,8 @@ export const menuData: MenuData = {
         "Skal søke eller har uføretrygd",
         "Sykdom i familien",
         "Har yrkesskade eller yrkessykdom",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
       ],
     },
     {
@@ -109,6 +118,9 @@ export const menuData: MenuData = {
         "Har mistet et familiemedlem",
         "Betaler eller mottar barnebidrag",
         "Har foreldreansvar (farskap og morskap)",
+        "Skjema/søknad",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
       ],
     },
     {
@@ -122,6 +134,9 @@ export const menuData: MenuData = {
         "Trenger hjelp til bolig",
         "Er i en nødssituasjon",
         "Trenger råd og veiledning",
+        "Søk økonomsik sosialhjelp",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
       ],
     },
     {
@@ -139,6 +154,9 @@ export const menuData: MenuData = {
         "Vansker med tale og språk",
         "Vansker med å huske, planlegge og organisere",
         "Vansker med bevegelse og forflytning",
+        "Skjema",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
       ],
     },
     {
@@ -148,6 +166,9 @@ export const menuData: MenuData = {
       sider: [
         "Skal jobbe eller oppholde meg i utlandet",
         "Ønsker jobb eller opphold i Norge",
+        "Skjema",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
       ],
     },
     {
@@ -179,7 +200,13 @@ export const menuData: MenuData = {
       ikon: <KlageIkon />,
       footerKandidat: true,
       beskrivelse: "Klage, feil, hjelp, har blitt behandlet dårlig",
-      sider: ["Jeg har blitt behandlet dårlig", "Jeg vil klage på vedtak"],
+      sider: [
+        "Jeg har blitt behandlet dårlig",
+        "Jeg vil klage på vedtak",
+        "Skjema",
+        "Saksbehandlingstider",
+        "Utbetalingsdatoer",
+      ],
     },
     {
       title: "Nyheter",
