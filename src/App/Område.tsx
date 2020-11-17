@@ -24,6 +24,11 @@ const Style = styled.div`
   flex-direction: column;
 `;
 
+const Beskrivelse = styled.div`
+  text-align: center;
+  font-size: 1.2rem;
+`;
+
 function Område(props: { område: OmrådeI }) {
   const område = props.område;
   const { navigerTil } = useNavigasjon();
@@ -35,6 +40,7 @@ function Område(props: { område: OmrådeI }) {
         {demoContext.visIkoner && område!.ikon}
         {område!.title}
       </h2>
+      <Beskrivelse>{område.beskrivelse}</Beskrivelse>
       <LenkepanelGrid>
         {område!.sider.map((side) => (
           <Lenkepanel
