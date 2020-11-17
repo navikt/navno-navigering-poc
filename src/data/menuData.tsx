@@ -22,6 +22,14 @@ export const menuData: MenuData = {
   title: "nav.no",
   områder: [
     {
+      title: "Ditt NAV",
+      ikon: <DittNavIkon />,
+      beskrivelse:
+        "Innloggede tjenester, dialog med nav, personlig oppfølging, mine søknader, mine utbetalinger",
+      sider: ["Min innboks", "Mine utbetalinger", "Mine søknader"],
+      featured: true,
+    },
+    {
       title: "Koronavirus",
       ikon: <Korona />,
       beskrivelse: "Hva gjelder i min situasjon?",
@@ -34,6 +42,33 @@ export const menuData: MenuData = {
       beskrivelse: "Informasjon og status",
       sider: ["Jeg har mistet rettighetene mine"],
       featured: true,
+    },
+    {
+      title: "Pensjon",
+      ikon: <PensjonIkon />,
+      beskrivelse:
+        "Beregne og søke pensjon, avtalefestetpensjon, andre pensjonsordninger, alderspensjon og utland ",
+      sider: [
+        "Vil beregne fremtidig pensjon",
+        "Skal søke om alderspensjon",
+        "Skal søke om avtalefestet pensjon",
+        "Bor i Norge og skal søke pensjon fra utlandet",
+        "Vil ta med alderspensjon til utlandet",
+        "Om alderspensjon",
+        "Om andre pensjonsordninger",
+        "Om omsorgsarbeid og pensjonsopptjening",
+      ],
+    },
+    {
+      title: "Kontakt oss",
+      ikon: <KontaktIkon />,
+      beskrivelse: "Ring, send melding eller finn oss i ditt nærmiljø",
+      footerKandidat: true,
+      sider: [
+        "Ring til NAV kontaktsenter",
+        "Send en melding",
+        "Finn ditt lokalkontor",
+      ],
     },
     {
       title: "Arbeidssøker eller permittert",
@@ -77,22 +112,6 @@ export const menuData: MenuData = {
       ],
     },
     {
-      title: "Pensjon",
-      ikon: <PensjonIkon />,
-      beskrivelse:
-        "Beregne og søke pensjon, avtalefestetpensjon, andre pensjonsordninger, alderspensjon og utland ",
-      sider: [
-        "Vil beregne fremtidig pensjon",
-        "Skal søke om alderspensjon",
-        "Skal søke om avtalefestet pensjon",
-        "Bor i Norge og skal søke pensjon fra utlandet",
-        "Vil ta med alderspensjon til utlandet",
-        "Om alderspensjon",
-        "Om andre pensjonsordninger",
-        "Om omsorgsarbeid og pensjonsopptjening",
-      ],
-    },
-    {
       title: "Økonomisk sosialhjelp og rådgivning",
       ikon: <ØkonomiIkon />,
       beskrivelse:
@@ -121,14 +140,6 @@ export const menuData: MenuData = {
         "Vansker med å huske, planlegge og organisere",
         "Vansker med bevegelse og forflytning",
       ],
-    },
-    {
-      title: "Ditt NAV",
-      ikon: <DittNavIkon />,
-      beskrivelse:
-        "Innloggede tjenester, dialog med nav, personlig oppfølging, mine søknader, mine utbetalinger",
-      sider: ["Min innboks", "Mine utbetalinger", "Mine søknader"],
-      featured: true,
     },
     {
       title: "Til eller fra Norge",
@@ -166,6 +177,7 @@ export const menuData: MenuData = {
     {
       title: "Klage",
       ikon: <KlageIkon />,
+      footerKandidat: true,
       beskrivelse: "Klage, feil, hjelp, har blitt behandlet dårlig",
       sider: ["Jeg har blitt behandlet dårlig", "Jeg vil klage på vedtak"],
     },
@@ -191,17 +203,7 @@ export const menuData: MenuData = {
         "Rekkordstor pågang",
       ],
     },
-    {
-      title: "Kontakt oss",
-      ikon: <KontaktIkon />,
-      beskrivelse: "Ring, send melding eller finn oss i ditt nærmiljø",
-      footerKandidat: true,
-      sider: [
-        "Ring til NAV kontaktsenter",
-        "Send en melding",
-        "Finn ditt lokalkontor",
-      ],
-    },
+    /*
     {
       title: "Flere temaer",
       ikon: <FlereTemaIkon />,
@@ -217,5 +219,6 @@ export const menuData: MenuData = {
         "Om innbetaling til NAV",
       ],
     },
+   */
   ],
 };
