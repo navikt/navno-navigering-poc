@@ -8,6 +8,7 @@ const Style = styled.div`
   padding: 0.5rem;
   border-bottom: 0.1rem solid ${theme.colors.navLysBla};
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 

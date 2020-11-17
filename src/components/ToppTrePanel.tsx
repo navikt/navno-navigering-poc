@@ -14,7 +14,7 @@ const Style = styled.div`
   margin: 1rem 0 2rem;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   grid-auto-rows: minmax(12rem, auto);
 `;
 
