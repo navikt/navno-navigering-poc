@@ -21,12 +21,15 @@ export type DemoContextActions =
   | "toggleContextTabs"
   | "toggleSøkIHeader"
   | "toggleSøkIMeny"
-  | "toggleTillatTreIBredden";
+  | "toggleTillatTreIBredden"
+  | "brukertestMinimalist"
+  | "brukertestMaksimalist"
+  | "brukertestFavoritt";
 
 const initialState = {
   visMeny: true,
   visIkoner: true,
-  undersiderIMeny: true,
+  undersiderIMeny: false,
   undersiderPaForside: false,
   visBrødsmuler: true,
   featuredContent: false,
@@ -151,6 +154,30 @@ const reducer = (state: State, action: DemoContextActions) => {
       return {
         ...state,
         tillatTreLenkerIBredden: !state.tillatTreLenkerIBredden,
+      };
+    case "brukertestMinimalist":
+      return {
+        ...initialState,
+        områdeBeskrivelse: false,
+      };
+    case "brukertestMaksimalist":
+      return {
+        ...initialState,
+        undersiderPaForside: true,
+        søkIHeader: true,
+        søkIMeny: true,
+        toppnivåNavigering: true,
+        footerNavigering: true,
+        featuredContent: true,
+      };
+    case "brukertestFavoritt":
+      return {
+        ...initialState,
+        tillatTreLenkerIBredden: true,
+        chevron: false,
+        border: false,
+        footerNavigering: true,
+        toppnivåNavigering: true,
       };
   }
 };

@@ -54,6 +54,13 @@ const CheckBoxStyle = styled.div`
   }
 `;
 
+const Button = styled.button`
+  border: 0.2rem solid ${theme.colors.navBla};
+  background-color: transparent;
+  border-radius: 0.3rem;
+  padding: 0.5rem 2rem;
+`;
+
 function CheckBox(props: {
   label: string;
   checked: boolean;
@@ -82,6 +89,7 @@ function CheckBox(props: {
 function DemoControlls() {
   const [context] = useDemoContext();
   const [, headerDispatch] = useHeaderContext();
+  const [, demoContextDispatch] = useDemoContext();
   const [show, setShow] = useState(true);
   const ref = useRef(null);
   useClickAway(ref, () => setShow(false));
@@ -180,6 +188,17 @@ function DemoControlls() {
               label="Tillat tre knapper i bredden"
               checked={context.tillatTreLenkerIBredden}
             />
+            <Button onClick={() => demoContextDispatch("brukertestMinimalist")}>
+              Brukertest minimalist
+            </Button>
+            <Button
+              onClick={() => demoContextDispatch("brukertestMaksimalist")}
+            >
+              Brukertest maksimalist
+            </Button>
+            <Button onClick={() => demoContextDispatch("brukertestFavoritt")}>
+              Brukertest favoritt
+            </Button>
           </Grid>
         </PopDown>
       )}
