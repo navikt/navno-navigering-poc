@@ -4,7 +4,7 @@ export const LenkepanelGrid = styled.div`
   justify-self: center;
   padding: 3rem 0.5rem 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   @media (max-width: 60em) {
     grid-template-columns: 1fr;
   }

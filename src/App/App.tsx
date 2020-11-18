@@ -34,8 +34,8 @@ const Style = styled.div`
 const Content = styled.div<{ bredLayout: boolean }>`
   margin-left: auto;
   margin-right: auto;
-  padding: 0 2rem;
-  max-width: ${(props) => (props.bredLayout ? "80rem" : "60rem")};
+  padding: 0 2vmin;
+  max-width: ${(props) => (props.bredLayout ? "65rem" : "55rem")};
   width: 100%;
 `;
 

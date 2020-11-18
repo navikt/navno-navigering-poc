@@ -20,6 +20,7 @@ const Style = styled.div`
   padding: 1rem;
   border-bottom: 0.2rem solid ${theme.colors.navLysBla};
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 `;
 
