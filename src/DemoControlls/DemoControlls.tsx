@@ -90,7 +90,7 @@ function DemoControlls() {
   const [context] = useDemoContext();
   const [, headerDispatch] = useHeaderContext();
   const [, demoContextDispatch] = useDemoContext();
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const ref = useRef(null);
   useClickAway(ref, () => setShow(false));
 

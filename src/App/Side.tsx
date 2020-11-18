@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from "styled-components/macro";
 import { useNavigasjon } from "./useNavigasjon";
+import { useBrukertestContext } from "../brukertest/brukertestState";
+import Gratulerer from "../brukertest/Gratulerer";
 
 const Style = styled.div`
   margin: auto;
@@ -19,12 +21,16 @@ const Style = styled.div`
 `;
 
 function Side() {
-  const { side } = useNavigasjon();
+  const { side, område } = useNavigasjon();
+  const [state] = useBrukertestContext();
+
+  const mål = state.oppgave?.side === side && state.oppgave?.område === område;
 
   return (
     <>
       <Style>
         <h2>{side}</h2>
+        {mål && <Gratulerer />}
         {[...new Array(10)].map(() => (
           <>
             <h3>Tittel</h3>

@@ -7,6 +7,7 @@ import { createGlobalStyle } from "styled-components/macro";
 import { theme } from "./theme";
 import { BrowserRouter, Route } from "react-router-dom";
 import { HeaderContextProvider } from "./App/Meny/HeaderContext";
+import { BrukertestContextProvider } from "./brukertest/brukertestState";
 
 const GlobalStyling = createGlobalStyle`
     *:focus {
@@ -19,12 +20,14 @@ const GlobalStyling = createGlobalStyle`
 ReactDOM.render(
   <React.StrictMode>
     <DemoProvider>
-      <GlobalStyling />
-      <HeaderContextProvider>
-        <BrowserRouter>
-          <Route path="/:domain?/:omrade?/:side?" children={<App />} />
-        </BrowserRouter>
-      </HeaderContextProvider>
+      <BrukertestContextProvider>
+        <GlobalStyling />
+        <HeaderContextProvider>
+          <BrowserRouter>
+            <Route path="/:domain?/:omrade?/:side?" children={<App />} />
+          </BrowserRouter>
+        </HeaderContextProvider>
+      </BrukertestContextProvider>
     </DemoProvider>
   </React.StrictMode>,
   document.getElementById("root")

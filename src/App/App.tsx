@@ -8,6 +8,9 @@ import Side from "./Side";
 import Header from "./Meny/Header";
 import Footer from "./Footer";
 import { useDemoContext } from "../DemoControlls/demoContext";
+import { useBrukertestContext } from "../brukertest/brukertestState";
+import { useSearchParam } from "react-use";
+import Velkommen from "../brukertest/Velkommen";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -42,10 +45,15 @@ const Content = styled.div<{ bredLayout: boolean }>`
 function App() {
   const { state, side, område } = useNavigasjon();
   const [demoContext] = useDemoContext();
+  const [brukertest] = useBrukertestContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [state, side, område]);
+
+  if (!brukertest.startTime) {
+    return <Velkommen />;
+  }
 
   return (
     <>
