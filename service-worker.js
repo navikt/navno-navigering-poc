@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/navno-navigering-poc/precache-manifest.a5953894d490335d65ae902ac2eb8a99.js"
+  "/navno-navigering-poc/precache-manifest.ff145a74b06a0b7ffaad159098c19e7a.js"
 );
 
 self.addEventListener('message', (event) => {
