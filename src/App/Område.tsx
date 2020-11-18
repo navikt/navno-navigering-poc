@@ -41,7 +41,7 @@ function Område(props: { område: OmrådeI }) {
         {område!.title}
       </h2>
       <Beskrivelse>{område.beskrivelse}</Beskrivelse>
-      <LenkepanelGrid>
+      <LenkepanelGrid alignStart={!demoContext.border && !demoContext.chevron}>
         {område!.sider.map((side) => (
           <Lenkepanel
             key={side}

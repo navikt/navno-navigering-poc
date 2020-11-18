@@ -65,7 +65,7 @@ function ForsideInnhold() {
     );
 
   return (
-    <LenkepanelGrid>
+    <LenkepanelGrid alignStart={!demoContext.border && !demoContext.chevron}>
       {lenkeListe.map((område) => (
         <OmrådeKnapp key={område.title} område={område} />
       ))}
