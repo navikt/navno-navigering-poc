@@ -9,7 +9,6 @@ import Header from "./Meny/Header";
 import Footer from "./Footer";
 import { useDemoContext } from "../DemoControlls/demoContext";
 import { useBrukertestContext } from "../brukertest/brukertestState";
-import { useSearchParam } from "react-use";
 import Velkommen from "../brukertest/Velkommen";
 
 const GlobalStyles = createGlobalStyle`
@@ -59,7 +58,7 @@ function App() {
     };
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
-  }, []);
+  }, [dispatchBrukertest]);
 
   if (brukertest.state === "velkommen") {
     return <Velkommen />;
