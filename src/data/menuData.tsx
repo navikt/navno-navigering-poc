@@ -26,21 +26,21 @@ export const menuData: MenuData = {
       beskrivelse:
         "Innloggede tjenester, dialog med nav, personlig oppfølging, mine søknader, mine utbetalinger",
       sider: ["Min innboks", "Mine utbetalinger", "Mine søknader"],
-      featured: true,
+      toppTreKandidat: true,
     },
     {
       title: "Koronavirus",
       ikon: <Korona />,
       beskrivelse: "Hva gjelder i min situasjon?",
       sider: ["Jeg har blitt syk", "Jeg har blitt permittert"],
-      featured: true,
+      toppTreKandidat: true,
     },
     {
       title: "EØS-saken",
       ikon: <Eøs />,
       beskrivelse: "Informasjon og status",
       sider: ["Jeg har mistet rettighetene mine"],
-      featured: true,
+      toppTreKandidat: true,
     },
     {
       title: "Pensjon",
@@ -176,7 +176,7 @@ export const menuData: MenuData = {
       ikon: <ArbeidsgiverIkon />,
       beskrivelse:
         "Permittere ansatte, ansatt er syk, tilrettelegge, kontakt med NAV",
-      toppNivåKandidat: true,
+      contextKandidat: true,
       sider: [
         "Ansatt er sykemeldt",
         "Tilrettelegge for ansatt",
@@ -187,7 +187,7 @@ export const menuData: MenuData = {
       title: "Samarbeidspartner",
       ikon: <SamarbeidspartnerIkon />,
       beskrivelse: "Leger, bostyrer, tiltaksarrangør, kommune, aldershjem",
-      toppNivåKandidat: true,
+      contextKandidat: true,
       sider: [
         "Lege eller annen behandler",
         "Bostyrer",

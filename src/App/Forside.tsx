@@ -8,11 +8,11 @@ import ForsideInnhold from "./ForsideInnhold";
 function Forside() {
   const [demoContext] = useDemoContext();
   const områder = menuData.områder;
-  const featured = områder.filter((område) => område.featured);
+  const toppTre = områder.filter((område) => område.toppTreKandidat);
 
   return (
     <>
-      {demoContext.featuredContent && <ToppTrePanel områder={featured} />}
+      {demoContext.toppTre && <ToppTrePanel områder={toppTre} />}
       {demoContext.contextTabs ? <ContextTabs /> : <ForsideInnhold />}
     </>
   );

@@ -10,7 +10,7 @@ export interface OmrådeI {
   beskrivelse: string;
   ikon?: ReactNode;
   sider: string[];
-  featured?: boolean;
-  toppNivåKandidat?: boolean;
+  toppTreKandidat?: boolean;
+  contextKandidat?: boolean;
   footerKandidat?: boolean;
 }

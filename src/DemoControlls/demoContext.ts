@@ -11,12 +11,11 @@ export type DemoContextActions =
   | "skjulBrødsmuler"
   | "visUndersiderPaForside"
   | "skjulUndersiderPaForside"
-  | "visFeatured"
-  | "skjulFeatured"
+  | "toggleToppTre"
   | "toggleBorder"
   | "toggleChevron"
   | "toggleOmrådebeskrivelse"
-  | "toggleToppnivåNavigering"
+  | "toggleContextNavigering"
   | "toggleFooterNavigering"
   | "toggleContextTabs"
   | "toggleSøkIHeader"
@@ -32,11 +31,11 @@ const initialState = {
   undersiderIMeny: false,
   undersiderPaForside: false,
   visBrødsmuler: true,
-  featuredContent: false,
+  toppTre: false,
   border: true,
   chevron: true,
   områdeBeskrivelse: true,
-  toppnivåNavigering: false,
+  contextNavigering: false,
   footerNavigering: false,
   contextTabs: false,
   søkIHeader: false,
@@ -100,15 +99,10 @@ const reducer = (state: State, action: DemoContextActions) => {
         ...state,
         undersiderPaForside: true,
       };
-    case "visFeatured":
+    case "toggleToppTre":
       return {
         ...state,
-        featuredContent: true,
-      };
-    case "skjulFeatured":
-      return {
-        ...state,
-        featuredContent: false,
+        toppTre: !state.toppTre,
       };
     case "toggleBorder":
       return {
@@ -125,10 +119,10 @@ const reducer = (state: State, action: DemoContextActions) => {
         ...state,
         områdeBeskrivelse: !state.områdeBeskrivelse,
       };
-    case "toggleToppnivåNavigering":
+    case "toggleContextNavigering":
       return {
         ...state,
-        toppnivåNavigering: !state.toppnivåNavigering,
+        contextNavigering: !state.contextNavigering,
       };
     case "toggleFooterNavigering":
       return {
@@ -166,9 +160,9 @@ const reducer = (state: State, action: DemoContextActions) => {
         undersiderPaForside: true,
         søkIHeader: true,
         søkIMeny: true,
-        toppnivåNavigering: true,
+        contextNavigering: true,
         footerNavigering: true,
-        featuredContent: true,
+        toppTre: true,
       };
     case "brukertestFavoritt":
       return {
@@ -177,7 +171,7 @@ const reducer = (state: State, action: DemoContextActions) => {
         chevron: false,
         border: false,
         footerNavigering: true,
-        toppnivåNavigering: true,
+        contextNavigering: true,
       };
   }
 };

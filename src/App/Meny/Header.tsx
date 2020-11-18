@@ -11,7 +11,7 @@ import Brodsmuler from "./Brodsmuler";
 import PopDown from "./PopDown";
 import { useNavigasjon } from "../useNavigasjon";
 import { OmrådeI } from "../../data/types";
-import ToppNivåNavigering from "./ToppNivåNavigering";
+import ContextNavigering from "./ContextNavigering";
 import Søk from "../../components/Søk";
 import { useHeaderContext } from "./HeaderContext";
 import { getOmrådeFraTittel } from "../../data/menuDataUtils";
@@ -71,7 +71,7 @@ function Header() {
 
   return (
     <div ref={ref}>
-      {demoContext.toppnivåNavigering && <ToppNivåNavigering />}
+      {demoContext.contextNavigering && <ContextNavigering />}
       <Style>
         <NavButton onClick={() => handleNaviger()}>
           <NavLogo height={"2.5rem"} />

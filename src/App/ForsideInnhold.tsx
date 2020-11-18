@@ -55,11 +55,11 @@ function ForsideInnhold() {
   const områder = menuData.områder;
 
   const lenkeListe = områder
-    .filter((område) => !demoContext.featuredContent || !område.featured)
+    .filter((område) => !demoContext.toppTre || !område.toppTreKandidat)
     .filter(
-      (område) => !demoContext.toppnivåNavigering || !område.toppNivåKandidat
+      (område) => !demoContext.contextNavigering || !område.contextKandidat
     )
-    .filter((område) => !demoContext.contextTabs || !område.toppNivåKandidat)
+    .filter((område) => !demoContext.contextTabs || !område.contextKandidat)
     .filter(
       (område) => !demoContext.footerNavigering || !område.footerKandidat
     );

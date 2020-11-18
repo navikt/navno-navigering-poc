@@ -144,9 +144,9 @@ function DemoControlls() {
               checked={context.visBrødsmuler}
             />
             <CheckBox
-              action={context.featuredContent ? "skjulFeatured" : "visFeatured"}
+              action={"toggleToppTre"}
               label="Topp tre på forside"
-              checked={context.featuredContent}
+              checked={context.toppTre}
             />
             <CheckBox
               action={context.visIkoner ? "skjulIkoner" : "visIkoner"}
@@ -155,7 +155,7 @@ function DemoControlls() {
             />
             <CheckBox
               action={"toggleOmrådebeskrivelse"}
-              label="Områdebeskrivelse på forside"
+              label="Områdebeskrivelse"
               checked={context.områdeBeskrivelse}
             />
             <CheckBox
@@ -169,9 +169,9 @@ function DemoControlls() {
               checked={context.chevron}
             />
             <CheckBox
-              action={"toggleToppnivåNavigering"}
-              label="Toppnivånavigering"
-              checked={context.toppnivåNavigering}
+              action={"toggleContextNavigering"}
+              label="Contextnavigering"
+              checked={context.contextNavigering}
             />
             <CheckBox
               action={"toggleFooterNavigering"}

@@ -23,7 +23,7 @@ const Knapp = styled.button`
   }
 `;
 
-function ToppNivåNavigering() {
+function ContextNavigering() {
   const { navigerTil } = useNavigasjon();
 
   return (
@@ -41,4 +41,4 @@ function ToppNivåNavigering() {
   );
 }
 
-export default ToppNivåNavigering;
+export default ContextNavigering;
