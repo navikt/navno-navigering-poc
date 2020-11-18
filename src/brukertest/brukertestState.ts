@@ -14,22 +14,24 @@ type Actions =
   | { type: "ferdig" }
   | { type: "nesteOppgave" }
   | { type: "startTest" }
-  | { type: "steg"; steg: "string" };
+  | { type: "event"; name: "string" };
 
 interface Oppgave extends Partial<OppgaveConfig> {
   startTime?: number;
-  history: string[];
-  endTime?: number;
+  klikkHistorikk: string[];
+  tidsbruk?: number;
 }
 
 type State = {
   oppgave?: Oppgave;
   gjennståendeOppgaver: OppgaveConfig[];
+  utførteTester: Oppgave[];
   state: "velkommen" | "test" | "gratulerer" | "nyOppgave";
 };
 
 const initialState: State = {
   gjennståendeOppgaver: getRandomOppgaver(),
+  utførteTester: [],
   state: "velkommen",
 };
 
@@ -37,12 +39,12 @@ function reducer(state: State, action: Actions): State {
   const oppgave = state.oppgave;
 
   switch (action.type) {
-    case "steg":
+    case "event":
       return {
         ...state,
         oppgave: oppgave && {
           ...oppgave,
-          history: [...oppgave.history, action.steg],
+          klikkHistorikk: [...oppgave.klikkHistorikk, action.name],
         },
       };
     case "nesteOppgave":
@@ -51,13 +53,16 @@ function reducer(state: State, action: Actions): State {
         state: "velkommen",
       };
     case "ferdig":
+      const utførtOppgave: Oppgave = {
+        ...oppgave!,
+        tidsbruk:
+          Math.round((performance.now() - oppgave!.startTime!) / 100) / 10,
+      };
       return {
         ...state,
         state: "gratulerer",
-        oppgave: oppgave && {
-          ...oppgave,
-          endTime: performance.now(),
-        },
+        oppgave: utførtOppgave,
+        utførteTester: [...state.utførteTester, utførtOppgave],
       };
     case "startTest":
       const nesteOppgave = state.gjennståendeOppgaver[0];
@@ -68,7 +73,7 @@ function reducer(state: State, action: Actions): State {
         oppgave: {
           ...nesteOppgave,
           startTime: performance.now(),
-          history: [],
+          klikkHistorikk: [],
         },
         gjennståendeOppgaver: resterendeOppgaver,
       };

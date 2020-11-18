@@ -45,11 +45,21 @@ const Content = styled.div<{ bredLayout: boolean }>`
 function App() {
   const { state, side, område } = useNavigasjon();
   const [demoContext] = useDemoContext();
-  const [brukertest] = useBrukertestContext();
+  const [brukertest, dispatchBrukertest] = useBrukertestContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [state, side, område]);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      // @ts-ignore
+      const innerText = e.target?.innerText;
+      dispatchBrukertest({ type: "event", name: innerText || "" });
+    };
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, []);
 
   if (brukertest.state === "velkommen") {
     return <Velkommen />;

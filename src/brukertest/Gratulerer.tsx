@@ -29,12 +29,12 @@ function Gratulerer() {
 
   const ferdig = state.state === "gratulerer";
 
+  console.log(state.utførteTester);
+
   const stats = ferdig && (
     <div>
       <p>
-        <b>Du brukte:</b>{" "}
-        {Math.round((oppgave.endTime! - oppgave.startTime!) / 100) / 10}{" "}
-        sekunder på å løse oppgaven
+        <b>Du brukte:</b> {oppgave.tidsbruk} sekunder på å løse oppgaven
       </p>
       <p>
         <b>Oppgave:</b> "{oppgave.oppgaveTekst}"
