@@ -51,7 +51,7 @@ function App() {
     window.scrollTo({ top: 0 });
   }, [state, side, område]);
 
-  if (!brukertest.startTime) {
+  if (brukertest.state === "velkommen") {
     return <Velkommen />;
   }
 

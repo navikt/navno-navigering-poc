@@ -5,8 +5,7 @@ import { useBrukertestContext } from "../brukertest/brukertestState";
 import Gratulerer from "../brukertest/Gratulerer";
 
 const Style = styled.div`
-  margin: auto;
-  margin-top: 2rem;
+  margin: 2rem auto 8rem;
   padding: 1rem;
   max-width: 45rem;
   h2 {
@@ -31,7 +30,7 @@ function Side() {
       <Style>
         <h2>{side}</h2>
         {mål && <Gratulerer />}
-        {[...new Array(10)].map(() => (
+        {[...new Array(Math.ceil(Math.random() * 8))].map(() => (
           <>
             <h3>Tittel</h3>
             <p>

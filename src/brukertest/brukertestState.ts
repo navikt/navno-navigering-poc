@@ -1,49 +1,76 @@
 import { createReducerContext } from "react-use";
 import { OmrådeI } from "../data/types";
+import { getRandomOppgaver } from "./oppgaver";
+import { DemoContextActions } from "../DemoControlls/demoContext";
+
+export interface OppgaveConfig {
+  område: OmrådeI;
+  side: string;
+  oppgaveTekst: string;
+  design: DemoContextActions;
+}
 
 type Actions =
   | { type: "ferdig" }
-  | { type: "nyOppgave"; område: OmrådeI; side: string; beskrivelse: string }
+  | { type: "nesteOppgave" }
+  | { type: "startTest" }
   | { type: "steg"; steg: "string" };
 
-interface Oppgave {
+interface Oppgave extends Partial<OppgaveConfig> {
   startTime?: number;
-  oppgave?: {
-    område: OmrådeI;
-    side: string;
-  };
-  oppgaveTekst?: string;
   history: string[];
   endTime?: number;
 }
 
-const initialState: Oppgave = {
-  history: [],
+type State = {
+  oppgave?: Oppgave;
+  gjennståendeOppgaver: OppgaveConfig[];
+  state: "velkommen" | "test" | "gratulerer" | "nyOppgave";
 };
 
-type State = Oppgave;
+const initialState: State = {
+  gjennståendeOppgaver: getRandomOppgaver(),
+  state: "velkommen",
+};
 
 function reducer(state: State, action: Actions): State {
+  const oppgave = state.oppgave;
+
   switch (action.type) {
     case "steg":
       return {
         ...state,
-        history: [...state.history, action.steg],
+        oppgave: oppgave && {
+          ...oppgave,
+          history: [...oppgave.history, action.steg],
+        },
+      };
+    case "nesteOppgave":
+      return {
+        ...state,
+        state: "velkommen",
       };
     case "ferdig":
       return {
         ...state,
-        endTime: performance.now(),
-      };
-    case "nyOppgave":
-      return {
-        startTime: performance.now(),
-        oppgave: {
-          område: action.område,
-          side: action.side,
+        state: "gratulerer",
+        oppgave: oppgave && {
+          ...oppgave,
+          endTime: performance.now(),
         },
-        history: [],
-        oppgaveTekst: action.beskrivelse,
+      };
+    case "startTest":
+      const nesteOppgave = state.gjennståendeOppgaver[0];
+      const resterendeOppgaver = state.gjennståendeOppgaver.slice(1);
+      return {
+        ...state,
+        state: "test",
+        oppgave: {
+          ...nesteOppgave,
+          startTime: performance.now(),
+          history: [],
+        },
+        gjennståendeOppgaver: resterendeOppgaver,
       };
   }
 }

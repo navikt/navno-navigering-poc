@@ -176,7 +176,10 @@ const reducer = (state: State, action: DemoContextActions) => {
   }
 };
 
-export const [useDemoContext, DemoProvider] = createReducerContext(
+export const [useContext, Provider] = createReducerContext(
   reducer,
   initialState
 );
+
+export const useDemoContext = useContext;
+export const DemoProvider = Provider;

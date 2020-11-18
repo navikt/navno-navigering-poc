@@ -215,6 +215,7 @@ export const menuData: MenuData = {
       footerKandidat: true,
       sider: [
         "Grunnbelløpet endres i dag",
+        "Endring i pensjonsoppgjøret 2020",
         "Ny NAV-direktør",
         "Koronasituasjonen fortsetter",
       ],

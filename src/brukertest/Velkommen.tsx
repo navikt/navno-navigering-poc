@@ -2,7 +2,8 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { theme } from "../theme";
 import { useBrukertestContext } from "./brukertestState";
-import { getOmrådeFraTittel } from "../data/menuDataUtils";
+import { useDemoContext } from "../DemoControlls/demoContext";
+import { useNavigasjon } from "../App/useNavigasjon";
 
 const Style = styled.div`
   margin: auto;
@@ -27,24 +28,23 @@ export const Knapp = styled.button`
 `;
 
 function Velkommen() {
-  const [state, dispatch] = useBrukertestContext();
+  const [state, dispatchBrukerTest] = useBrukertestContext();
+  const [, dispatchDesign] = useDemoContext();
+  const { navigerTil } = useNavigasjon();
 
-  const tekst =
-    "Se for deg at du snart skal pensjonere deg og lurer på hvor mye du vil få i pensjon";
+  const nesteOppgave = state.gjennståendeOppgaver[0];
 
-  const start = () =>
-    dispatch({
-      type: "nyOppgave",
-      område: getOmrådeFraTittel("Pensjon")!,
-      side: "Vil beregne fremtidig pensjon",
-      beskrivelse: tekst,
-    });
+  const start = () => {
+    dispatchBrukerTest({ type: "startTest" });
+    dispatchDesign(nesteOppgave.design);
+    navigerTil();
+  };
 
   return (
     <Style>
       <h2>Hei og velkommen til brukertest</h2>
-      <p>{tekst}</p>
-      <Knapp onClick={start}>Ok</Knapp>
+      <p>{nesteOppgave.oppgaveTekst}</p>
+      <Knapp onClick={start}>Start</Knapp>
     </Style>
   );
 }
