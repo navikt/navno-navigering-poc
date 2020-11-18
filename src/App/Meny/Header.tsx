@@ -3,7 +3,6 @@ import { useRef } from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../theme";
 import NavLogo from "./NavLogo";
-import { menuData } from "../../data/menuData";
 import { useClickAway } from "react-use";
 import { useDemoContext } from "../../DemoControlls/demoContext";
 import MenyButton from "../../components/MenyButton";
@@ -15,6 +14,7 @@ import { OmrådeI } from "../../data/types";
 import ToppNivåNavigering from "./ToppNivåNavigering";
 import Søk from "../../components/Søk";
 import { useHeaderContext } from "./HeaderContext";
+import { getOmrådeFraTittel } from "../../data/menuDataUtils";
 
 const Style = styled.div`
   padding: 1rem;
@@ -88,13 +88,7 @@ function Header() {
           <Brodsmuler />
         </ShowOnBigScreen>
         <LoggInnKnapp
-          onClick={() =>
-            handleNaviger(
-              menuData.områder.find((område) =>
-                område.title.includes("Ditt NAV")
-              )!
-            )
-          }
+          onClick={() => handleNaviger(getOmrådeFraTittel("Ditt NAV"))}
         >
           Logg inn
         </LoggInnKnapp>

@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../theme";
 import { useNavigasjon } from "../useNavigasjon";
-import { menuData } from "../../data/menuData";
+import { getOmrådeFraTittel } from "../../data/menuDataUtils";
 
 const Style = styled.div`
   padding: 0.5rem;
@@ -29,23 +29,11 @@ function ToppNivåNavigering() {
   return (
     <Style>
       <Knapp onClick={() => navigerTil()}>Person</Knapp>
-      <Knapp
-        onClick={() =>
-          navigerTil(
-            menuData.områder.find((it) => it.title.includes("Arbeidsgiver"))
-          )
-        }
-      >
+      <Knapp onClick={() => navigerTil(getOmrådeFraTittel("Arbeidsgiver"))}>
         Arbeidsgiver
       </Knapp>
       <Knapp
-        onClick={() =>
-          navigerTil(
-            menuData.områder.find((it) =>
-              it.title.includes("Samarbeidspartner")
-            )
-          )
-        }
+        onClick={() => navigerTil(getOmrådeFraTittel("Samarbeidspartner"))}
       >
         Samarbeidspartner
       </Knapp>
