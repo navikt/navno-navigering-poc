@@ -1,62 +1,34 @@
 import * as React from "react";
-import styled from "styled-components/macro";
-import { theme } from "../theme";
 import { useBrukertestContext } from "./brukertestState";
-import { useDemoContext } from "../DemoControlls/demoContext";
-import { useNavigasjon } from "../App/useNavigasjon";
-
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  padding: 1rem;
-`;
-
-const Style = styled.div`
-  margin: auto;
-  padding: 2rem;
-  max-width: 25rem;
-  border: ${theme.colors.navBla} 0.3rem solid;
-  border-radius: 0.3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-`;
-
-export const Knapp = styled.button`
-  border: solid 0.2rem ${theme.colors.navBla};
-  border-radius: 0.3rem;
-  background: transparent;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  margin-top: 2rem;
-`;
+import InstruksjonspanelStyle from "./InstruksjonspanelStyle";
 
 function Velkommen() {
-  const [state, dispatchBrukerTest] = useBrukertestContext();
-  const [, dispatchDesign] = useDemoContext();
-  const { navigerTil } = useNavigasjon();
-
-  const nesteOppgave = state.gjennståendeOppgaver[0];
+  const [, dispatchBrukerTest] = useBrukertestContext();
 
   const start = () => {
-    dispatchBrukerTest({ type: "startTest" });
-    dispatchDesign(nesteOppgave.design);
-    navigerTil();
+    dispatchBrukerTest({ type: "nesteOppgave" });
   };
 
   return (
-    <Center>
-      <Style>
-        <h2>Hei og velkommen til brukertest</h2>
-        <p>{nesteOppgave.oppgaveTekst}</p>
-        <Knapp onClick={start}>Start</Knapp>
-      </Style>
-    </Center>
+    <InstruksjonspanelStyle>
+      <h2>Hei og velkommen til brukertest!</h2>
+      <p>
+        Du vil nå få et par oppgaver, også ser vi hvor lett det er for deg å
+        finne frem. Alt vi samler inn blir behandlet annonymt, og du kan
+        avslutte testen når du vil ved å lukke siden.
+      </p>
+      <p>
+        Hvis noen oppgaver er vanskelige betyre det at vi har gjort en for
+        dårlig jobb med å lage god navigasjon. Da skal vi prøve å lage den
+        bedre.
+      </p>
+      <p>
+        Alt du finner på disse sidene er laget for denne testen, dersom du
+        trenger ekte informasjon kan du gå til{" "}
+        <a href="https://www.nav.no">nav.no</a>.
+      </p>
+      <button onClick={start}>Start</button>
+    </InstruksjonspanelStyle>
   );
 }
 

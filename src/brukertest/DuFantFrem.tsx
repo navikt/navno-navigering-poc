@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components/macro";
 import { theme } from "../theme";
-import { Knapp } from "./Velkommen";
 import { useBrukertestContext } from "./brukertestState";
+import Emoji from "../utils/Emoji";
 
 const Style = styled.div`
   border: 0.4rem solid ${theme.colors.navGronn};
@@ -10,9 +10,15 @@ const Style = styled.div`
   text-align: center;
   border-radius: 0.3rem;
   font-size: 1.2rem;
-  span[role="img"] {
-    font-size: 2rem;
-  }
+`;
+
+const Knapp = styled.button`
+  border: solid 0.2rem ${theme.colors.navBla};
+  border-radius: 0.3rem;
+  background: transparent;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  margin-top: 2rem;
 `;
 
 function DuFantFrem() {
@@ -23,10 +29,7 @@ function DuFantFrem() {
   return (
     <Style>
       <h2>
-        Gratulerer, du fant frem{" "}
-        <span role="img" aria-label="Konfetti">
-          🎉
-        </span>
+        Gratulerer, du fant frem <Emoji label="Konfetti" emoji="🎉" />
       </h2>
       <Knapp onClick={avslutt}>Trykk for å fullføre</Knapp>
     </Style>

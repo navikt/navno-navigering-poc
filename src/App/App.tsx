@@ -11,6 +11,7 @@ import { useDemoContext } from "../DemoControlls/demoContext";
 import { useBrukertestContext } from "../brukertest/brukertestState";
 import Velkommen from "../brukertest/Velkommen";
 import Gratulerer from "../brukertest/Gratulerer";
+import NyOppgave from "../brukertest/NyOppgave";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -63,6 +64,10 @@ function App() {
 
   if (brukertest.state === "velkommen") {
     return <Velkommen />;
+  }
+
+  if (brukertest.state === "nyOppgave") {
+    return <NyOppgave />;
   }
 
   if (brukertest.state === "gratulerer") {

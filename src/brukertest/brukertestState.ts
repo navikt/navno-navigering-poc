@@ -57,7 +57,7 @@ function reducer(state: State, action: Actions): State {
     case "nesteOppgave":
       return {
         ...state,
-        state: "velkommen",
+        state: "nyOppgave",
       };
     case "ferdig":
       const utførtOppgave: Oppgave = {

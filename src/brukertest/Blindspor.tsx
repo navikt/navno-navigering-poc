@@ -2,15 +2,14 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { theme } from "../theme";
 import { useBrukertestContext } from "./brukertestState";
+import Emoji from "../utils/Emoji";
 
 const Style = styled.div`
   border: 0.3rem solid ${theme.colors.navBla};
   padding: 2rem;
   text-align: center;
   border-radius: 0.3rem;
-  span[role="img"] {
-    font-size: 2rem;
-  }
+  font-weight: bold;
 `;
 
 function Blindspor() {
@@ -18,12 +17,11 @@ function Blindspor() {
   return (
     <Style>
       <p>
-        Hm, dette var nok et blindspor..{" "}
-        <span role="img" aria-label="Tenkefjes">
-          🤔
-        </span>
+        Hm, dette var nok et blindspor.. <Emoji label="Tenkefjes" emoji="🤔" />
       </p>
-      <p>Oppgaven var: {state.oppgave?.oppgaveTekst}</p>
+      <p>
+        Oppgaven var: <em>{state.oppgave?.oppgaveTekst}</em>
+      </p>
     </Style>
   );
 }
