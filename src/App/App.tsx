@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import { useDemoContext } from "../DemoControlls/demoContext";
 import { useBrukertestContext } from "../brukertest/brukertestState";
 import Velkommen from "../brukertest/Velkommen";
+import Gratulerer from "../brukertest/Gratulerer";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -62,6 +63,10 @@ function App() {
 
   if (brukertest.state === "velkommen") {
     return <Velkommen />;
+  }
+
+  if (brukertest.state === "gratulerer") {
+    return <Gratulerer />;
   }
 
   return (

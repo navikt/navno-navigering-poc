@@ -5,11 +5,19 @@ import { useBrukertestContext } from "./brukertestState";
 import { useDemoContext } from "../DemoControlls/demoContext";
 import { useNavigasjon } from "../App/useNavigasjon";
 
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 1rem;
+`;
+
 const Style = styled.div`
   margin: auto;
   padding: 2rem;
-  margin-top: 20vmin;
-  max-width: 20rem;
+  max-width: 25rem;
   border: ${theme.colors.navBla} 0.3rem solid;
   border-radius: 0.3rem;
   display: flex;
@@ -25,6 +33,7 @@ export const Knapp = styled.button`
   background: transparent;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
+  margin-top: 2rem;
 `;
 
 function Velkommen() {
@@ -41,11 +50,13 @@ function Velkommen() {
   };
 
   return (
-    <Style>
-      <h2>Hei og velkommen til brukertest</h2>
-      <p>{nesteOppgave.oppgaveTekst}</p>
-      <Knapp onClick={start}>Start</Knapp>
-    </Style>
+    <Center>
+      <Style>
+        <h2>Hei og velkommen til brukertest</h2>
+        <p>{nesteOppgave.oppgaveTekst}</p>
+        <Knapp onClick={start}>Start</Knapp>
+      </Style>
+    </Center>
   );
 }
 

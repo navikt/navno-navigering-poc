@@ -1,20 +1,27 @@
 import * as React from "react";
-import styled, { css } from "styled-components/macro";
+import styled from "styled-components/macro";
 import { theme } from "../theme";
 import { Knapp } from "./Velkommen";
 import { useBrukertestContext } from "./brukertestState";
 
-const Style = styled.div<{ ferdig: boolean }>`
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 1rem;
+`;
+
+const Style = styled.div`
   border: 0.4rem solid ${theme.colors.navGronn};
   padding: 2rem;
   text-align: center;
   border-radius: 0.3rem;
   font-size: 1.2rem;
-  ${(props) =>
-    props.ferdig &&
-    css`
-      box-shadow: 0 0 60rem black;
-    `};
+  span[role="img"] {
+    font-size: 2rem;
+  }
 `;
 
 function Gratulerer() {
@@ -23,52 +30,48 @@ function Gratulerer() {
   const oppgave = state.oppgave!;
   const flereOppgaver = state.gjennståendeOppgaver.length > 0;
 
-  const avslutt = () => dispatch({ type: "ferdig" });
-
   const handleNyOppgave = () => dispatch({ type: "nesteOppgave" });
-
-  const ferdig = state.state === "gratulerer";
 
   console.log(state.utførteTester);
 
-  const stats = ferdig && (
-    <div>
-      <p>
-        <b>Du brukte:</b> {oppgave.tidsbruk} sekunder på å løse oppgaven
-      </p>
-      <p>
-        <b>Oppgave:</b> "{oppgave.oppgaveTekst}"
-      </p>
-      <p>
-        <b>Design:</b> "{oppgave.design}"
-      </p>
-      <p>
-        <b>
-          Bra jobba! Dette er verdifull informasjon for oss i vårt videre arbeid
-        </b>
-      </p>
-    </div>
-  );
-
   return (
-    <Style ferdig={ferdig}>
-      <h2>Gratulerer, du fant frem! </h2>
-      {stats}
-      {!ferdig && <Knapp onClick={avslutt}>Trykk for å fullføre</Knapp>}
-      {ferdig && flereOppgaver && (
-        <Knapp onClick={handleNyOppgave}>Gjør en oppgave til</Knapp>
-      )}
-      {ferdig && !flereOppgaver && (
+    <Center>
+      <Style>
+        <h2>
+          Gratulerer, du fant frem <span role="img">🎉</span>
+        </h2>
         <div>
-          <b>
-            Det var alle testene vi hadde for nå, men tusen takk for innsatsen
-          </b>{" "}
           <p>
-            Lukk siden eller gå til <a href="https://www.nav.no">nav.no</a>
+            <b>Du brukte:</b> {oppgave.tidsbruk} sekunder på å løse oppgaven
+          </p>
+          <p>
+            <b>Oppgave:</b> "{oppgave.oppgaveTekst}"
+          </p>
+          <p>
+            <b>Design:</b> "{oppgave.design}"
+          </p>
+          <p>
+            <b>
+              Bra jobba! Dette er verdifull informasjon for oss i vårt videre
+              arbeid
+            </b>
           </p>
         </div>
-      )}
-    </Style>
+        {flereOppgaver && (
+          <Knapp onClick={handleNyOppgave}>Gjør en oppgave til</Knapp>
+        )}
+        {!flereOppgaver && (
+          <div>
+            <b>
+              Det var alle testene vi hadde for nå, men tusen takk for innsatsen
+            </b>{" "}
+            <p>
+              Lukk siden eller gå til <a href="https://www.nav.no">nav.no</a>
+            </p>
+          </div>
+        )}
+      </Style>
+    </Center>
   );
 }
 

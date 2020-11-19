@@ -2,7 +2,8 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { useNavigasjon } from "./useNavigasjon";
 import { useBrukertestContext } from "../brukertest/brukertestState";
-import Gratulerer from "../brukertest/Gratulerer";
+import DuFantFrem from "../brukertest/DuFantFrem";
+import Blindspor from "../brukertest/Blindspor";
 
 const Style = styled.div`
   margin: 2rem auto 8rem;
@@ -29,7 +30,7 @@ function Side() {
     <>
       <Style>
         <h2>{side}</h2>
-        {mål && <Gratulerer />}
+        {mål ? <DuFantFrem /> : <Blindspor />}
         {[...new Array(Math.ceil(Math.random() * 8))].map(() => (
           <>
             <h3>Tittel</h3>
