@@ -38,13 +38,20 @@ const initialState: State = {
 function reducer(state: State, action: Actions): State {
   const oppgave = state.oppgave;
 
+  const tidsbruk = oppgave
+    ? Math.round((performance.now() - oppgave.startTime!) / 100) / 10
+    : NaN;
+
   switch (action.type) {
     case "event":
       return {
         ...state,
         oppgave: oppgave && {
           ...oppgave,
-          klikkHistorikk: [...oppgave.klikkHistorikk, action.name],
+          klikkHistorikk: [
+            ...oppgave.klikkHistorikk,
+            `${tidsbruk}s - ${action.name}`,
+          ],
         },
       };
     case "nesteOppgave":
@@ -55,8 +62,7 @@ function reducer(state: State, action: Actions): State {
     case "ferdig":
       const utførtOppgave: Oppgave = {
         ...oppgave!,
-        tidsbruk:
-          Math.round((performance.now() - oppgave!.startTime!) / 100) / 10,
+        tidsbruk: tidsbruk,
       };
       return {
         ...state,

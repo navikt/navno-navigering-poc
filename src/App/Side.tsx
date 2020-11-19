@@ -31,8 +31,8 @@ function Side() {
       <Style>
         <h2>{side}</h2>
         {mål ? <DuFantFrem /> : <Blindspor />}
-        {[...new Array(Math.ceil(Math.random() * 8))].map(() => (
-          <>
+        {[...new Array(Math.ceil(Math.random() * 8))].map((it, index) => (
+          <React.Fragment key={index}>
             <h3>Tittel</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad,
@@ -42,7 +42,7 @@ function Side() {
               suscipit tempore vel vero vitae voluptatibus? Alias autem laborum
               quaerat suscipit!
             </p>
-          </>
+          </React.Fragment>
         ))}
       </Style>
     </>

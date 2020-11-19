@@ -8,6 +8,7 @@ import { theme } from "./theme";
 import { BrowserRouter, Route } from "react-router-dom";
 import { HeaderContextProvider } from "./App/Meny/HeaderContext";
 import { BrukertestContextProvider } from "./brukertest/brukertestState";
+import ErrorBoundary from "./utils/ErrorBoundary";
 
 const GlobalStyling = createGlobalStyle`
     *:focus {
@@ -19,16 +20,18 @@ const GlobalStyling = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <DemoProvider>
-      <BrukertestContextProvider>
-        <GlobalStyling />
-        <HeaderContextProvider>
-          <BrowserRouter>
-            <Route path="/:domain?/:omrade?/:side?" children={<App />} />
-          </BrowserRouter>
-        </HeaderContextProvider>
-      </BrukertestContextProvider>
-    </DemoProvider>
+    <ErrorBoundary>
+      <DemoProvider>
+        <BrukertestContextProvider>
+          <GlobalStyling />
+          <HeaderContextProvider>
+            <BrowserRouter>
+              <Route path="/:domain?/:omrade?/:side?" children={<App />} />
+            </BrowserRouter>
+          </HeaderContextProvider>
+        </BrukertestContextProvider>
+      </DemoProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
 );
