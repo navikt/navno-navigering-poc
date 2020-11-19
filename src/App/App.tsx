@@ -55,7 +55,7 @@ function App() {
     const handleClick = (e: MouseEvent) => {
       // @ts-ignore
       const innerText = e.target?.innerText;
-      dispatchBrukertest({ type: "event", name: innerText || "" });
+      dispatchBrukertest({ type: "event", clickedText: innerText || "" });
     };
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);

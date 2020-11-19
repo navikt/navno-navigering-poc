@@ -14,7 +14,7 @@ type Actions =
   | { type: "ferdig" }
   | { type: "nesteOppgave" }
   | { type: "startTest" }
-  | { type: "event"; name: "string" };
+  | { type: "event"; clickedText: "string" };
 
 interface Oppgave extends Partial<OppgaveConfig> {
   startTime?: number;
@@ -50,7 +50,7 @@ function reducer(state: State, action: Actions): State {
           ...oppgave,
           klikkHistorikk: [
             ...oppgave.klikkHistorikk,
-            `${tidsbruk}s - ${action.name}`,
+            `${tidsbruk}s - ${action.clickedText.slice(0, 60)}`,
           ],
         },
       };
