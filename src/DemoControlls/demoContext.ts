@@ -170,6 +170,7 @@ const reducer = (state: State, action: DemoContextActions) => {
         tillatTreLenkerIBredden: true,
         chevron: false,
         border: false,
+        toppTre: true,
         footerNavigering: true,
         contextNavigering: true,
       };

@@ -16,6 +16,7 @@ import KlageIkon from "../Ikoner/KlageIkon";
 import TilOgFraIkon from "../Ikoner/TilOgFraIkon";
 import NedsattFunksjonIkon from "../Ikoner/NedsattFunksjonIkon";
 import KontaktIkon from "../Ikoner/KontaktIkon";
+import FlereTemaIkon from "../Ikoner/FlereTemaIkon";
 
 export const menuData: MenuData = {
   title: "nav.no",
@@ -231,7 +232,6 @@ export const menuData: MenuData = {
         "Rekkordstor pågang",
       ],
     },
-    /*
     {
       title: "Flere temaer",
       ikon: <FlereTemaIkon />,
@@ -247,6 +247,5 @@ export const menuData: MenuData = {
         "Om innbetaling til NAV",
       ],
     },
-   */
   ],
 };
