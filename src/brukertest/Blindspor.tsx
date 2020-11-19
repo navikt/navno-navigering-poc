@@ -18,7 +18,10 @@ function Blindspor() {
   return (
     <Style>
       <p>
-        Hm, dette var nok et blindspor.. <span role="img">🤔</span>
+        Hm, dette var nok et blindspor..{" "}
+        <span role="img" aria-label="Tenkefjes">
+          🤔
+        </span>
       </p>
       <p>Oppgaven var: {state.oppgave?.oppgaveTekst}</p>
     </Style>

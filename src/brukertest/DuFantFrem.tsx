@@ -23,7 +23,10 @@ function DuFantFrem() {
   return (
     <Style>
       <h2>
-        Gratulerer, du fant frem <span role="img">🎉</span>
+        Gratulerer, du fant frem{" "}
+        <span role="img" aria-label="Konfetti">
+          🎉
+        </span>
       </h2>
       <Knapp onClick={avslutt}>Trykk for å fullføre</Knapp>
     </Style>

@@ -38,7 +38,10 @@ function Gratulerer() {
     <Center>
       <Style>
         <h2>
-          Gratulerer, du fant frem <span role="img">🎉</span>
+          Gratulerer, du fant frem{" "}
+          <span role="img" aria-label="Konfetti">
+            🎉
+          </span>
         </h2>
         <div>
           <p>
