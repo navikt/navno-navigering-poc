@@ -14,6 +14,7 @@
     "@types/react-dom": "^16.9.9",
     "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^5.1.4",
+    "amplitude-js": "^7.3.3",
     "classnames": "^2.2.6",
     "craco-less": "^1.17.0",
     "husky": "^4.3.0",
@@ -74,5 +75,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/amplitude-js": "^6.0.0"
   }
 }

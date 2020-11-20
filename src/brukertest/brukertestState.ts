@@ -2,6 +2,7 @@ import { createReducerContext } from "react-use";
 import { OmrådeI } from "../data/types";
 import { getRandomOppgaver } from "./oppgaver";
 import { DemoContextActions } from "../DemoControlls/demoContext";
+import { logEvent } from "../utils/logging-config";
 
 export interface OppgaveConfig {
   område: OmrådeI;
@@ -35,6 +36,15 @@ const initialState: State = {
   state: "velkommen",
 };
 
+const logUtførtOppgave = (utførtOppgave: Oppgave) => {
+  logEvent("utført-oppgave", {
+    oppgaveTekst: utførtOppgave.oppgaveTekst,
+    tidsbruk: utførtOppgave.tidsbruk,
+    design: utførtOppgave.design,
+    antallKlikk: utførtOppgave.klikkHistorikk.length,
+  });
+};
+
 function reducer(state: State, action: Actions): State {
   const oppgave = state.oppgave;
 
@@ -64,6 +74,7 @@ function reducer(state: State, action: Actions): State {
         ...oppgave!,
         tidsbruk: tidsbruk,
       };
+      logUtførtOppgave(utførtOppgave);
       return {
         ...state,
         state: "gratulerer",
