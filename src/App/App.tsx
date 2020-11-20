@@ -12,6 +12,7 @@ import { useBrukertestContext } from "../brukertest/brukertestState";
 import Velkommen from "../brukertest/Velkommen";
 import Gratulerer from "../brukertest/Gratulerer";
 import NyOppgave from "../brukertest/NyOppgave";
+import { logEvent } from "../utils/logging-config";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -51,6 +52,10 @@ function App() {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [state, side, område]);
+
+  useEffect(() => {
+    logEvent("sidevisning");
+  }, []);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {

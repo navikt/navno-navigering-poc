@@ -17,7 +17,7 @@ loggInstance.init(getApiKey(), "", {
   includeReferrer: true,
 });
 
-export const logEvent = (eventName: string, ekstraData: any) => {
+export const logEvent = (eventName: string, ekstraData?: object) => {
   console.log(`Sending ${ekstraData}`);
   loggInstance.logEvent(eventName, {
     appName: "nano-navigering-poc",
