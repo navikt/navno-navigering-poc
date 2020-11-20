@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components/macro";
+import Emoji from "../components/Emoji";
 import { theme } from "../theme";
 import { useBrukertestContext } from "./brukertestState";
-import Emoji from "../utils/Emoji";
 
 const Style = styled.div`
   border: 0.4rem solid ${theme.colors.navGronn};

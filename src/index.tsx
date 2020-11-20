@@ -23,8 +23,8 @@ ReactDOM.render(
     <ErrorBoundary>
       <DemoProvider>
         <BrukertestContextProvider>
-          <GlobalStyling />
           <HeaderContextProvider>
+            <GlobalStyling />
             <BrowserRouter>
               <Route path="/:domain?/:omrade?/:side?" children={<App />} />
             </BrowserRouter>

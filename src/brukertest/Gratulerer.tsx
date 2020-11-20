@@ -1,7 +1,7 @@
 import * as React from "react";
+import Emoji from "../components/Emoji";
 import { useBrukertestContext } from "./brukertestState";
 import InstruksjonspanelStyle from "./InstruksjonspanelStyle";
-import Emoji from "../utils/Emoji";
 
 function Gratulerer() {
   const [state, dispatch] = useBrukertestContext();
