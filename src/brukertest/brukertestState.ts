@@ -37,6 +37,7 @@ export type BrukertestState = {
     | "velkommen"
     | "test"
     | "gratulerer"
+    | "testAvbrutt"
     | "nyOppgave"
     | "ugyldigLenke"
     | "titteUtenTest";
@@ -109,7 +110,7 @@ function reducer(state: BrukertestState, action: Actions): BrukertestState {
       logAvbruttOppgave(utførtOppgave, state.testId!);
       return {
         ...state,
-        state: "nyOppgave",
+        state: "testAvbrutt",
         oppgave: utførtOppgave,
         utførteTester: [...state.utførteTester, utførtOppgave],
       };

@@ -21,6 +21,7 @@ const Flex = styled.div`
   display: flex;
   justify-content: space-around;
   max-width: 80rem;
+  flex-wrap: wrap;
   h4 {
     margin-bottom: 0.3rem;
   }
@@ -34,8 +35,6 @@ const Flex = styled.div`
 
 function TestPanel() {
   const [state, dispatch] = useBrukertestContext();
-
-  const gjenståendeOppgaver = !!state.gjennståendeOppgaver.length;
 
   if (state.state === "titteUtenTest") {
     return null;
@@ -57,16 +56,7 @@ function TestPanel() {
           </p>
         </div>
       </Flex>
-      {gjenståendeOppgaver ? (
-        <Knapp onClick={() => dispatch({ type: "avbryt" })}>
-          Avbryt oppgave
-        </Knapp>
-      ) : (
-        <p>
-          Dette er siste oppgave. Du kan lukke siden dersom du ønsker å
-          avslutte.
-        </p>
-      )}
+      <Knapp onClick={() => dispatch({ type: "avbryt" })}>Avbryt oppgave</Knapp>
     </Style>
   );
 }

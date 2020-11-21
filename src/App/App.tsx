@@ -16,6 +16,7 @@ import { logEvent } from "../utils/logging-config";
 import useSetupTest from "./useSetupTest";
 import UgyldigId from "../brukertest/UgyldigId";
 import TestPanel from "../brukertest/TestPanel";
+import AvbruttTest from "../brukertest/AvbruttTest";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -65,6 +66,8 @@ function Content() {
       return <NyOppgave />;
     case "gratulerer":
       return <Gratulerer />;
+    case "testAvbrutt":
+      return <AvbruttTest />;
     default:
       return (
         <>
