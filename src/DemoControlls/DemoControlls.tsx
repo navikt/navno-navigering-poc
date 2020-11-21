@@ -149,6 +149,11 @@ function DemoControlls() {
               checked={context.toppTre}
             />
             <CheckBox
+              action={"toggleIkonerToppTre"}
+              label="Ikoner på topp tre"
+              checked={context.ikonerToppTre}
+            />
+            <CheckBox
               action={context.visIkoner ? "skjulIkoner" : "visIkoner"}
               label="Ikoner"
               checked={context.visIkoner}

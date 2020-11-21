@@ -15,7 +15,7 @@ const Style = styled.div`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-auto-rows: minmax(12rem, auto);
+  grid-auto-rows: minmax(11rem, auto);
 `;
 
 const Panel = styled.button`
@@ -62,7 +62,7 @@ function ToppTrePanel(props: Props) {
     <Style>
       {props.områder.map((område) => (
         <Panel key={område.title} onClick={() => navigasjon.navigerTil(område)}>
-          {demoContext.visIkoner && område.ikon}
+          {demoContext.ikonerToppTre && område.ikon}
           <PanelContent>
             <h3>{område.title}</h3>
             <p>{område.beskrivelse}</p>

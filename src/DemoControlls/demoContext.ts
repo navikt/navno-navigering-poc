@@ -23,7 +23,8 @@ export type DemoContextActions =
   | "toggleTillatTreIBredden"
   | "brukertestMinimalist"
   | "brukertestMaksimalist"
-  | "brukertestFavoritt";
+  | "brukertestFavoritt"
+  | "toggleIkonerToppTre";
 
 const initialState = {
   visMeny: true,
@@ -32,6 +33,7 @@ const initialState = {
   undersiderPaForside: false,
   visBrødsmuler: true,
   toppTre: false,
+  ikonerToppTre: true,
   border: true,
   chevron: true,
   områdeBeskrivelse: true,
@@ -171,8 +173,15 @@ const reducer = (state: State, action: DemoContextActions) => {
         chevron: false,
         border: false,
         toppTre: true,
+        ikonerToppTre: false,
         footerNavigering: true,
         contextNavigering: true,
+      };
+    case "toggleIkonerToppTre":
+      return {
+        ...state,
+        ikonerToppTre: !state.ikonerToppTre,
+        toppTre: true,
       };
   }
 };

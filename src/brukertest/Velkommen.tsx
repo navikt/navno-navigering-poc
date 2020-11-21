@@ -18,9 +18,8 @@ function Velkommen() {
         avslutte testen når du vil ved å lukke siden.
       </p>
       <p>
-        Hvis noen oppgaver er vanskelige betyre det at vi har gjort en for
-        dårlig jobb med å lage god navigasjon. Da skal vi prøve å lage den
-        bedre.
+        Hvis noen oppgaver er vanskelige betyr det at vi har gjort en for dårlig
+        jobb med å lage god navigasjon. Da skal vi prøve å lage den bedre.
       </p>
       <p>
         Alt du finner på disse sidene er laget for denne testen, dersom du
