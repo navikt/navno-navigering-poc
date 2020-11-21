@@ -14,6 +14,7 @@ const Style = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
   grid-gap: 1rem;
   justify-content: center;
+  box-shadow: 0 1rem 1rem #888;
 `;
 
 const Button = styled.div`

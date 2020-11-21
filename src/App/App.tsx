@@ -15,6 +15,7 @@ import NyOppgave from "../brukertest/NyOppgave";
 import { logEvent } from "../utils/logging-config";
 import useSetupTest from "./useSetupTest";
 import UgyldigId from "../brukertest/UgyldigId";
+import TestPanel from "../brukertest/TestPanel";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -78,6 +79,7 @@ function Content() {
               {state === "side" && <Side />}
             </ContentStyle>
             <Footer />
+            <TestPanel />
           </Style>
         </>
       );

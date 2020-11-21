@@ -13,6 +13,7 @@ export interface OppgaveConfig {
 
 type Actions =
   | { type: "ferdig" }
+  | { type: "avbryt" }
   | { type: "ugyldigTestId" }
   | { type: "gyldigTestId"; testId: string }
   | { type: "tittRundtUtenTest" }
@@ -57,12 +58,27 @@ const logUtførtOppgave = (utførtOppgave: Oppgave, testId: string) => {
   });
 };
 
+const logAvbruttOppgave = (utførtOppgave: Oppgave, testId: string) => {
+  logEvent("avbrutt-oppgave", {
+    oppgaveTekst: utførtOppgave.oppgaveTekst,
+    tidsbruk: utførtOppgave.tidsbruk,
+    design: utførtOppgave.design,
+    antallKlikk: utførtOppgave.klikkHistorikk.length,
+    testGruppe: testId,
+  });
+};
+
 function reducer(state: BrukertestState, action: Actions): BrukertestState {
   const oppgave = state.oppgave;
 
   const tidsbruk = oppgave
     ? Math.round((performance.now() - oppgave.startTime!) / 100) / 10
     : NaN;
+
+  const utførtOppgave: Oppgave = {
+    ...oppgave!,
+    tidsbruk: tidsbruk,
+  };
 
   switch (action.type) {
     case "klikk":
@@ -82,14 +98,18 @@ function reducer(state: BrukertestState, action: Actions): BrukertestState {
         state: "nyOppgave",
       };
     case "ferdig":
-      const utførtOppgave: Oppgave = {
-        ...oppgave!,
-        tidsbruk: tidsbruk,
-      };
       logUtførtOppgave(utførtOppgave, state.testId!);
       return {
         ...state,
         state: "gratulerer",
+        oppgave: utførtOppgave,
+        utførteTester: [...state.utførteTester, utførtOppgave],
+      };
+    case "avbryt":
+      logAvbruttOppgave(utførtOppgave, state.testId!);
+      return {
+        ...state,
+        state: "nyOppgave",
         oppgave: utførtOppgave,
         utførteTester: [...state.utførteTester, utførtOppgave],
       };
