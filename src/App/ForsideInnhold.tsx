@@ -23,6 +23,12 @@ const StyledLenkepanel = styled(Lenkepanel)`
   }
 `;
 
+const HvaErDinSituasjonStyle = styled.h2`
+  text-align: center;
+  margin: 4rem 0 2rem;
+  font-size: 2rem;
+`;
+
 function OmrådeKnapp(props: { område: OmrådeI }) {
   const [demoContext] = useDemoContext();
   const { navigerTil } = useNavigasjon();
@@ -61,15 +67,27 @@ function ForsideInnhold() {
     )
     .filter((område) => !demoContext.contextTabs || !område.contextKandidat)
     .filter(
+      (område) => !demoContext.coronaBanner || område.title !== "Koronavirus"
+    )
+    .filter(
       (område) => !demoContext.footerNavigering || !område.footerKandidat
     );
 
+  const alfabetiskListe = lenkeListe.sort((a, b) =>
+    a.title > b.title ? 1 : -1
+  );
+
   return (
-    <LenkepanelGrid alignStart={!demoContext.border && !demoContext.chevron}>
-      {lenkeListe.map((område) => (
-        <OmrådeKnapp key={område.title} område={område} />
-      ))}
-    </LenkepanelGrid>
+    <>
+      {demoContext.situasjonTekst && (
+        <HvaErDinSituasjonStyle>Hva er din situasjon?</HvaErDinSituasjonStyle>
+      )}
+      <LenkepanelGrid alignStart={!demoContext.border && !demoContext.chevron}>
+        {alfabetiskListe.map((område) => (
+          <OmrådeKnapp key={område.title} område={område} />
+        ))}
+      </LenkepanelGrid>
+    </>
   );
 }
 

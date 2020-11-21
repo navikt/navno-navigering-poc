@@ -24,7 +24,9 @@ export type DemoContextActions =
   | "brukertestMinimalist"
   | "brukertestMaksimalist"
   | "brukertestFavoritt"
-  | "toggleIkonerToppTre";
+  | "toggleIkonerToppTre"
+  | "toggleSituasjonTekst"
+  | "toggeleKoronabanner";
 
 const initialState = {
   visMeny: true,
@@ -43,6 +45,8 @@ const initialState = {
   søkIHeader: false,
   søkIMeny: false,
   tillatTreLenkerIBredden: false,
+  coronaBanner: false,
+  situasjonTekst: false,
 };
 
 type State = typeof initialState;
@@ -165,6 +169,9 @@ const reducer = (state: State, action: DemoContextActions) => {
         contextNavigering: true,
         footerNavigering: true,
         toppTre: true,
+        coronaBanner: true,
+        situasjonTekst: true,
+        undersiderIMeny: true,
       };
     case "brukertestFavoritt":
       return {
@@ -172,16 +179,28 @@ const reducer = (state: State, action: DemoContextActions) => {
         tillatTreLenkerIBredden: true,
         chevron: false,
         border: false,
-        toppTre: true,
+        toppTre: false,
         ikonerToppTre: false,
         footerNavigering: true,
         contextNavigering: true,
+        coronaBanner: true,
+        situasjonTekst: true,
       };
     case "toggleIkonerToppTre":
       return {
         ...state,
         ikonerToppTre: !state.ikonerToppTre,
         toppTre: true,
+      };
+    case "toggeleKoronabanner":
+      return {
+        ...state,
+        coronaBanner: !state.coronaBanner,
+      };
+    case "toggleSituasjonTekst":
+      return {
+        ...state,
+        situasjonTekst: !state.situasjonTekst,
       };
   }
 };

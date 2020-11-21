@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/macro";
 
 export const LenkepanelGrid = styled.div<{ alignStart: boolean }>`
   justify-self: center;
-  padding: 3rem 0.5rem 4rem;
+  padding: 3rem 0.5rem 8rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   ${(props) =>

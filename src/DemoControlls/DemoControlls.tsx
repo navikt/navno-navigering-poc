@@ -202,6 +202,16 @@ function DemoControlls() {
               label="Tillat tre knapper i bredden"
               checked={context.tillatTreLenkerIBredden}
             />
+            <CheckBox
+              action={"toggeleKoronabanner"}
+              label="Koronabanner"
+              checked={context.coronaBanner}
+            />
+            <CheckBox
+              action={"toggleSituasjonTekst"}
+              label="Hva er din situasjon?"
+              checked={context.situasjonTekst}
+            />
             <Button onClick={() => demoContextDispatch("brukertestMinimalist")}>
               Brukertest minimalist
             </Button>

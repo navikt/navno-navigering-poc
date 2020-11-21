@@ -34,7 +34,6 @@ export const menuData: MenuData = {
       ikon: <Korona />,
       beskrivelse: "Hva gjelder i min situasjon?",
       sider: ["Jeg har blitt syk", "Jeg har blitt permittert"],
-      toppTreKandidat: true,
     },
     {
       title: "EØS-saken",
@@ -213,7 +212,7 @@ export const menuData: MenuData = {
       title: "Nyheter",
       ikon: <NyhetsIkon />,
       beskrivelse: "Nyheter, endringer, for journalister, EØS-saken",
-      footerKandidat: true,
+      toppTreKandidat: true,
       sider: [
         "Grunnbelløpet endres i dag",
         "Endring i pensjonsoppgjøret 2020",
@@ -232,6 +231,7 @@ export const menuData: MenuData = {
         "Rekkordstor pågang",
       ],
     },
+    /*
     {
       title: "Flere temaer",
       ikon: <FlereTemaIkon />,
@@ -247,5 +247,6 @@ export const menuData: MenuData = {
         "Om innbetaling til NAV",
       ],
     },
+     */
   ],
 };
