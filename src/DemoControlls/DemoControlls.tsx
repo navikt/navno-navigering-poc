@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { useClickAway } from "react-use";
 import { guid } from "nav-frontend-js-utils";
 import { useHeaderContext } from "../App/Meny/HeaderContext";
+import { useBrukertestContext } from "../brukertest/brukertestState";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -59,6 +60,10 @@ const Button = styled.button`
   background-color: transparent;
   border-radius: 0.3rem;
   padding: 0.5rem 2rem;
+  text-decoration: none;
+  color: currentColor;
+  text-align: center;
+  cursor: pointer;
 `;
 
 function CheckBox(props: {
@@ -87,12 +92,16 @@ function CheckBox(props: {
 }
 
 function DemoControlls() {
-  const [context] = useDemoContext();
+  const [context, demoContextDispatch] = useDemoContext();
+  const [brukertestState] = useBrukertestContext();
   const [, headerDispatch] = useHeaderContext();
-  const [, demoContextDispatch] = useDemoContext();
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const ref = useRef(null);
   useClickAway(ref, () => setShow(false));
+
+  if (brukertestState.state !== "titteUtenTest") {
+    return null;
+  }
 
   return (
     <Wrapper ref={ref}>
@@ -203,6 +212,9 @@ function DemoControlls() {
             </Button>
             <Button onClick={() => demoContextDispatch("brukertestFavoritt")}>
               Brukertest favoritt
+            </Button>
+            <Button as="a" href="/navno-navigering-poc?testId=test">
+              Prøv test-modus
             </Button>
           </Grid>
         </PopDown>

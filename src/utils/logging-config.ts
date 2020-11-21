@@ -18,7 +18,7 @@ loggInstance.init(getApiKey(), "", {
 });
 
 export const logEvent = (eventName: string, ekstraData?: object) => {
-  console.log(`Sending ${ekstraData}`);
+  console.log(`Sending ${eventName}`, ekstraData);
   loggInstance.logEvent(eventName, {
     appName: "nano-navigering-poc",
     ...ekstraData,

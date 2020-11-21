@@ -13,6 +13,8 @@ import Velkommen from "../brukertest/Velkommen";
 import Gratulerer from "../brukertest/Gratulerer";
 import NyOppgave from "../brukertest/NyOppgave";
 import { logEvent } from "../utils/logging-config";
+import useSetupTest from "./useSetupTest";
+import UgyldigId from "../brukertest/UgyldigId";
 
 const GlobalStyles = createGlobalStyle`
     .ReactCollapse--collapse {
@@ -36,7 +38,7 @@ const Style = styled.div`
   min-height: 100vh;
 `;
 
-const Content = styled.div<{ bredLayout: boolean }>`
+const ContentStyle = styled.div<{ bredLayout: boolean }>`
   margin-left: auto;
   margin-right: auto;
   padding: 0 2vmin;
@@ -44,10 +46,49 @@ const Content = styled.div<{ bredLayout: boolean }>`
   width: 100%;
 `;
 
+function Content() {
+  const [demoContext] = useDemoContext();
+  const [brukertest] = useBrukertestContext();
+  const { state, område } = useNavigasjon();
+
+  const brukertestState = brukertest.state;
+
+  switch (brukertestState) {
+    case "setup":
+      return null;
+    case "velkommen":
+      return <Velkommen />;
+    case "ugyldigLenke":
+      return <UgyldigId />;
+    case "nyOppgave":
+      return <NyOppgave />;
+    case "gratulerer":
+      return <Gratulerer />;
+    default:
+      return (
+        <>
+          {!demoContext.chevron && <SkjulChevronPaKnapper />}
+          <GlobalStyles />
+          <DemoControlls />
+          <Style>
+            <Header />
+            <ContentStyle bredLayout={demoContext.tillatTreLenkerIBredden}>
+              {state === "forside" && <Forside />}
+              {state === "område" && <Område område={område!} />}
+              {state === "side" && <Side />}
+            </ContentStyle>
+            <Footer />
+          </Style>
+        </>
+      );
+  }
+}
+
 function App() {
   const { state, side, område } = useNavigasjon();
-  const [demoContext] = useDemoContext();
-  const [brukertest, dispatchBrukertest] = useBrukertestContext();
+  const [, dispatchBrukertest] = useBrukertestContext();
+
+  useSetupTest();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -61,40 +102,13 @@ function App() {
     const handleClick = (e: MouseEvent) => {
       // @ts-ignore
       const innerText = e.target?.innerText;
-      dispatchBrukertest({ type: "event", clickedText: innerText || "" });
+      dispatchBrukertest({ type: "klikk", clickedText: innerText || "" });
     };
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
   }, [dispatchBrukertest]);
 
-  if (brukertest.state === "velkommen") {
-    return <Velkommen />;
-  }
-
-  if (brukertest.state === "nyOppgave") {
-    return <NyOppgave />;
-  }
-
-  if (brukertest.state === "gratulerer") {
-    return <Gratulerer />;
-  }
-
-  return (
-    <>
-      {!demoContext.chevron && <SkjulChevronPaKnapper />}
-      <GlobalStyles />
-      <DemoControlls />
-      <Style>
-        <Header />
-        <Content bredLayout={demoContext.tillatTreLenkerIBredden}>
-          {state === "forside" && <Forside />}
-          {state === "område" && <Område område={område!} />}
-          {state === "side" && <Side />}
-        </Content>
-        <Footer />
-      </Style>
-    </>
-  );
+  return <Content />;
 }
 
 export default App;

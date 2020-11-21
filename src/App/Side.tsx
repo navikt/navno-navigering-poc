@@ -24,13 +24,14 @@ function Side() {
   const { side, område } = useNavigasjon();
   const [state] = useBrukertestContext();
 
+  const erTest = state.state !== "titteUtenTest";
   const mål = state.oppgave?.side === side && state.oppgave?.område === område;
 
   return (
     <>
       <Style>
         <h2>{side}</h2>
-        {mål ? <DuFantFrem /> : <Blindspor />}
+        {erTest ? mål ? <DuFantFrem /> : <Blindspor /> : null}
         {[...new Array(Math.ceil(Math.random() * 8))].map((it, index) => (
           <React.Fragment key={index}>
             <h3>Tittel</h3>

@@ -13,9 +13,12 @@ export interface OppgaveConfig {
 
 type Actions =
   | { type: "ferdig" }
+  | { type: "ugyldigTestId" }
+  | { type: "gyldigTestId"; testId: string }
+  | { type: "tittRundtUtenTest" }
   | { type: "nesteOppgave" }
   | { type: "startTest" }
-  | { type: "event"; clickedText: "string" };
+  | { type: "klikk"; clickedText: string };
 
 interface Oppgave extends Partial<OppgaveConfig> {
   startTime?: number;
@@ -23,29 +26,38 @@ interface Oppgave extends Partial<OppgaveConfig> {
   tidsbruk?: number;
 }
 
-type State = {
+export type BrukertestState = {
   oppgave?: Oppgave;
   gjennståendeOppgaver: OppgaveConfig[];
   utførteTester: Oppgave[];
-  state: "velkommen" | "test" | "gratulerer" | "nyOppgave";
+  testId?: string;
+  state:
+    | "setup"
+    | "velkommen"
+    | "test"
+    | "gratulerer"
+    | "nyOppgave"
+    | "ugyldigLenke"
+    | "titteUtenTest";
 };
 
-const initialState: State = {
+const initialState: BrukertestState = {
   gjennståendeOppgaver: getRandomOppgaver(),
   utførteTester: [],
-  state: "velkommen",
+  state: "setup",
 };
 
-const logUtførtOppgave = (utførtOppgave: Oppgave) => {
+const logUtførtOppgave = (utførtOppgave: Oppgave, testId: string) => {
   logEvent("utført-oppgave", {
     oppgaveTekst: utførtOppgave.oppgaveTekst,
     tidsbruk: utførtOppgave.tidsbruk,
     design: utførtOppgave.design,
     antallKlikk: utførtOppgave.klikkHistorikk.length,
+    testGruppe: testId,
   });
 };
 
-function reducer(state: State, action: Actions): State {
+function reducer(state: BrukertestState, action: Actions): BrukertestState {
   const oppgave = state.oppgave;
 
   const tidsbruk = oppgave
@@ -53,7 +65,7 @@ function reducer(state: State, action: Actions): State {
     : NaN;
 
   switch (action.type) {
-    case "event":
+    case "klikk":
       return {
         ...state,
         oppgave: oppgave && {
@@ -74,7 +86,7 @@ function reducer(state: State, action: Actions): State {
         ...oppgave!,
         tidsbruk: tidsbruk,
       };
-      logUtførtOppgave(utførtOppgave);
+      logUtførtOppgave(utførtOppgave, state.testId!);
       return {
         ...state,
         state: "gratulerer",
@@ -93,6 +105,22 @@ function reducer(state: State, action: Actions): State {
           klikkHistorikk: [],
         },
         gjennståendeOppgaver: resterendeOppgaver,
+      };
+    case "gyldigTestId":
+      return {
+        ...state,
+        testId: action.testId,
+        state: "velkommen",
+      };
+    case "ugyldigTestId":
+      return {
+        ...state,
+        state: "ugyldigLenke",
+      };
+    case "tittRundtUtenTest":
+      return {
+        ...state,
+        state: "titteUtenTest",
       };
   }
 }
