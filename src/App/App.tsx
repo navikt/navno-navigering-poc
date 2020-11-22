@@ -13,7 +13,7 @@ import Velkommen from "../brukertest/Velkommen";
 import Gratulerer from "../brukertest/Gratulerer";
 import NyOppgave from "../brukertest/NyOppgave";
 import { logEvent } from "../utils/logging-config";
-import useSetupTest from "./useSetupTest";
+import useSetupBrukertest from "./useSetupBrukertest";
 import UgyldigId from "../brukertest/UgyldigId";
 import TestPanel from "../brukertest/TestPanel";
 import AvbruttTest from "../brukertest/AvbruttTest";
@@ -93,7 +93,7 @@ function App() {
   const { state, side, område } = useNavigasjon();
   const [, dispatchBrukertest] = useBrukertestContext();
 
-  useSetupTest();
+  useSetupBrukertest();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

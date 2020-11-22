@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useSearchParam } from "react-use";
 import { useBrukertestContext } from "../brukertest/brukertestState";
 
-const gyldigeBrukertestLenker = ["slack_ud", "test"];
+const gyldigeBrukertestLenker = ["utvikling&data", "test"];
 
-function useSetupTest() {
+function useSetupBrukertest() {
   const testId = useSearchParam("testId") || "N/A";
   const [state, dispatch] = useBrukertestContext();
 
@@ -22,4 +22,4 @@ function useSetupTest() {
   }, [state, dispatch, testId]);
 }
 
-export default useSetupTest;
+export default useSetupBrukertest;
