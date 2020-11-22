@@ -40,7 +40,10 @@ function OmrådeKnapp(props: { område: OmrådeI }) {
       href="#"
       tittelProps="normaltekst"
       border={demoContext.border}
-      onClick={runIfEventIsNotInsideRef(ref, () => navigerTil(props.område))}
+      onClick={runIfEventIsNotInsideRef(ref, (e) => {
+        e.preventDefault();
+        navigerTil(props.område);
+      })}
     >
       {demoContext.visIkoner && props.område.ikon}
       <div>

@@ -14,11 +14,14 @@ export const useNavigasjon = () => {
   const params = useParams<{ omrade?: string; side?: string }>();
   const history = useHistory();
 
+  const lenkeTil = (område?: OmrådeI, side?: string) => {
+    if (område && side) return `/navno-navigering-poc/${område.title}/${side}`;
+    else if (område) return `/navno-navigering-poc/${område.title}`;
+    else return "/navno-navigering-poc";
+  };
+
   const navigerTil = (område?: OmrådeI, side?: string) => {
-    if (område && side)
-      history.push(`/navno-navigering-poc/${område.title}/${side}`);
-    else if (område) history.push(`/navno-navigering-poc/${område.title}`);
-    else history.push("/navno-navigering-poc");
+    history.push(lenkeTil(område, side));
   };
 
   return {
@@ -26,5 +29,6 @@ export const useNavigasjon = () => {
     side: params.side,
     state: getState(params.omrade, params.side),
     navigerTil,
+    lenkeTil,
   };
 };

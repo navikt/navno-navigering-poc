@@ -50,7 +50,10 @@ function Område(props: { område: OmrådeI }) {
             href="#"
             border={demoContext.border}
             tittelProps="normaltekst"
-            onClick={() => navigerTil(område, side)}
+            onClick={(e) => {
+              e.preventDefault();
+              navigerTil(område, side);
+            }}
           >
             <h3>{side}</h3>
           </Lenkepanel>
