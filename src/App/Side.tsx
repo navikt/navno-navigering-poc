@@ -25,7 +25,9 @@ function Side() {
   const [state] = useBrukertestContext();
 
   const erTest = state.state !== "titteUtenTest";
-  const mål = state.oppgave?.side === side && state.oppgave?.område === område;
+  const mål = state.oppgave?.løsninger?.some(
+    (løsning) => løsning.side === side && løsning.område === område
+  );
 
   return (
     <>

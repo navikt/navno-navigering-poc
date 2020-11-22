@@ -5,8 +5,10 @@ import { DemoContextActions } from "../DemoControlls/demoContext";
 import { logEvent } from "../utils/logging-config";
 
 export interface OppgaveConfig {
-  område: OmrådeI;
-  side: string;
+  løsninger: {
+    område: OmrådeI;
+    side: string;
+  }[];
   oppgaveTekst: string;
   design: DemoContextActions;
 }

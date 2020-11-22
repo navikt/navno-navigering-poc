@@ -216,7 +216,10 @@ export const menuData: MenuData = {
         "Grunnbelløpet endres i dag",
         "Endring i pensjonsoppgjøret 2020",
         "Ny NAV-direktør",
+        "Ny statistikk over arbeidsledighet i Norge",
         "Koronasituasjonen fortsetter",
+        "Nav har blitt hipt",
+        "Navkontor gjør tiltak for å bedre situasjonen",
       ],
     },
     {
@@ -226,8 +229,14 @@ export const menuData: MenuData = {
       footerKandidat: true,
       sider: [
         "Ny undersøkelse",
-        "Flere er arbeidsledige",
+        "Flere ser etter ny jobb",
         "Rekkordstor pågang",
+        "Sammarbeid med SSB",
+        "Studenter skriver masteroppgave om NAV sine store mengder data",
+        "Statistikk over arbeidsledige",
+        "Statistikk over dagpengesøkere",
+        "Statistikk for alle penga",
+        "Store mørketall",
       ],
     },
     /*

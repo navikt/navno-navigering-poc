@@ -10,13 +10,8 @@ function Gratulerer() {
 
   const handleNyOppgave = () => dispatch({ type: "nesteOppgave" });
 
-  console.log(state.utførteTester);
-
   return (
     <InstruksjonspanelStyle>
-      <h2>
-        Gratulerer, du fant frem <Emoji label="Konfetti" emoji="🎉" />
-      </h2>
       <div>
         <p>
           <b>

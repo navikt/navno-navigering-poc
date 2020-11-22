@@ -3,18 +3,16 @@ import Emoji from "../components/Emoji";
 import { useBrukertestContext } from "./brukertestState";
 import InstruksjonspanelStyle from "./InstruksjonspanelStyle";
 
-function AvbruttTest() {
+function AvbruttOppgave() {
   const [state, dispatch] = useBrukertestContext();
 
   const flereOppgaver = state.gjennståendeOppgaver.length > 0;
 
   const handleNyOppgave = () => dispatch({ type: "nesteOppgave" });
 
-  console.log(state.utførteTester);
-
   return (
     <InstruksjonspanelStyle>
-      <h2>Testen ble avbrutt</h2>
+      <h2>Oppgaven ble avbrutt</h2>
       <div>
         <p>
           Hvis oppgaven var vanskelig å løse betyr det at vi har gjort en for
@@ -40,4 +38,4 @@ function AvbruttTest() {
   );
 }
 
-export default AvbruttTest;
+export default AvbruttOppgave;

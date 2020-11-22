@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSearchParam } from "react-use";
 import { useBrukertestContext } from "../brukertest/brukertestState";
 
-const gyldigeBrukertestLenker = ["utvikling&data", "test"];
+const gyldigeBrukertestLenker = ["utviklingOgData", "test"];
 
 function useSetupBrukertest() {
   const testId = useSearchParam("testId") || "N/A";
