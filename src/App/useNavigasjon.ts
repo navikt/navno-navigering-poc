@@ -1,6 +1,7 @@
 import { useHistory, useParams } from "react-router-dom";
 import { OmrådeI } from "../data/types";
-import { getOmrådeFraTittel } from "../data/menuDataUtils";
+import { getOmrådeFraTittel, getSideFraOmråde } from "../data/menuDataUtils";
+import { idFromString } from "../utils/idFromString";
 
 type Route = "forside" | "område" | "side";
 
@@ -15,8 +16,12 @@ export const useNavigasjon = () => {
   const history = useHistory();
 
   const lenkeTil = (område?: OmrådeI, side?: string) => {
-    if (område && side) return `/navno-navigering-poc/${område.title}/${side}`;
-    else if (område) return `/navno-navigering-poc/${område.title}`;
+    if (område && side)
+      return `/navno-navigering-poc/${idFromString(
+        område.title
+      )}/${idFromString(side)}`;
+    else if (område)
+      return `/navno-navigering-poc/${idFromString(område.title)}`;
     else return "/navno-navigering-poc";
   };
 
@@ -24,9 +29,10 @@ export const useNavigasjon = () => {
     history.push(lenkeTil(område, side));
   };
 
+  const område = getOmrådeFraTittel(params.omrade);
   return {
-    område: getOmrådeFraTittel(params.omrade),
-    side: params.side,
+    område,
+    side: område ? getSideFraOmråde(område, params.side) : undefined,
     state: getState(params.omrade, params.side),
     navigerTil,
     lenkeTil,
