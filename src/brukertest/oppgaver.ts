@@ -89,6 +89,19 @@ export const oppgaver: OppgaveConfig[] = [
   },
 ];
 
+oppgaver.forEach((oppgave) =>
+  oppgave.løsninger.forEach((løsning) => {
+    const område = getOmrådeFraTittel(løsning.område.title);
+    const sideFinnes = område?.sider.includes(løsning.side);
+
+    if (!område || !sideFinnes) {
+      throw new Error(
+        `Løsning er ikke mulig: ${løsning.område.title} ${løsning.side}`
+      );
+    }
+  })
+);
+
 export function getRandomOppgaver(): OppgaveConfig[] {
   return oppgaver.sort(() => 0.5 - Math.random());
 }
