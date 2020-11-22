@@ -16,6 +16,7 @@ export type DemoContextActions =
   | "toggleBorder"
   | "toggleChevron"
   | "toggleOmrådebeskrivelse"
+  | "toggleOmrådebeskrivelseNavigasjonsside"
   | "toggleContextNavigering"
   | "toggleFooterNavigering"
   | "toggleUndersiderIFooter"
@@ -51,6 +52,7 @@ const initialState = {
   coronaBanner: false,
   situasjonTekst: false,
   kontaktOssIBanner: false,
+  områdebeskrivelseNavigasjonsside: true,
 };
 
 type State = typeof initialState;
@@ -134,6 +136,11 @@ const reducer = (state: State, action: DemoContextActions) => {
         ...state,
         områdeBeskrivelse: !state.områdeBeskrivelse,
       };
+    case "toggleOmrådebeskrivelseNavigasjonsside":
+      return {
+        ...state,
+        områdebeskrivelseNavigasjonsside: !state.områdebeskrivelseNavigasjonsside,
+      };
     case "toggleContextNavigering":
       return {
         ...state,
@@ -175,6 +182,7 @@ const reducer = (state: State, action: DemoContextActions) => {
         ...initialState,
         områdeBeskrivelse: false,
         visBrødsmuler: false,
+        områdebeskrivelseNavigasjonsside: false,
       };
     case "brukertestMaksimalist":
       return {

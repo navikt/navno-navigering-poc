@@ -178,6 +178,11 @@ function DemoControlls() {
               checked={context.områdeBeskrivelse}
             />
             <CheckBox
+              action={"toggleOmrådebeskrivelseNavigasjonsside"}
+              label="Områdebeskrivelse på navigasjonssider"
+              checked={context.områdebeskrivelseNavigasjonsside}
+            />
+            <CheckBox
               action={"toggleBorder"}
               label="Strek rundt knapper"
               checked={context.border}

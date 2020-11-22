@@ -40,7 +40,9 @@ function Område(props: { område: OmrådeI }) {
         {demoContext.visIkoner && område!.ikon}
         {område!.title}
       </h2>
-      <Beskrivelse>{område.beskrivelse}</Beskrivelse>
+      {demoContext.områdebeskrivelseNavigasjonsside && (
+        <Beskrivelse>{område.beskrivelse}</Beskrivelse>
+      )}
       <LenkepanelGrid alignStart={!demoContext.border && !demoContext.chevron}>
         {område!.sider.map((side) => (
           <Lenkepanel
