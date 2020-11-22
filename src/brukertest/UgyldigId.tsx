@@ -20,7 +20,7 @@ function UgyldigId() {
         <Emoji label="Tenkefjes" emoji="🤔" />
       </h2>
       <p>
-        Hvis du har fått tilsendt en lenke for brukertest må du klikke på denne
+        Hvis du har fått tilsendt en lenke for brukertest må du klikke på lenken
         på nytt for å komme tilbake til testen.
       </p>
       <p>
