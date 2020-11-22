@@ -3,6 +3,7 @@ import { createReducerContext } from "react-use";
 export type DemoContextActions =
   | "skjulMeny"
   | "visMeny"
+  | "toggleKontaktOssIBanner"
   | "visIkoner"
   | "skjulIkoner"
   | "ikkeVisUndersiderIMeny"
@@ -49,6 +50,7 @@ const initialState = {
   tillatTreLenkerIBredden: false,
   coronaBanner: false,
   situasjonTekst: false,
+  kontaktOssIBanner: false,
 };
 
 type State = typeof initialState;
@@ -59,6 +61,11 @@ const reducer = (state: State, action: DemoContextActions) => {
       return {
         ...state,
         visMeny: false,
+      };
+    case "toggleKontaktOssIBanner":
+      return {
+        ...state,
+        kontaktOssIBanner: !state.kontaktOssIBanner,
       };
     case "visMeny":
       return {
@@ -167,6 +174,7 @@ const reducer = (state: State, action: DemoContextActions) => {
       return {
         ...initialState,
         områdeBeskrivelse: false,
+        visBrødsmuler: false,
       };
     case "brukertestMaksimalist":
       return {
@@ -182,6 +190,7 @@ const reducer = (state: State, action: DemoContextActions) => {
         situasjonTekst: true,
         undersiderIMeny: true,
         tillatTreLenkerIBredden: true,
+        kontaktOssIBanner: true,
       };
     case "brukertestFavoritt":
       return {
@@ -196,6 +205,7 @@ const reducer = (state: State, action: DemoContextActions) => {
         contextNavigering: true,
         coronaBanner: true,
         situasjonTekst: true,
+        kontaktOssIBanner: true,
       };
     case "toggleIkonerToppTre":
       return {

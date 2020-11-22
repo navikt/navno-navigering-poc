@@ -36,9 +36,10 @@ const NavButton = styled.button`
   }
 `;
 
-const LoggInnKnapp = styled(Knapp)`
+const StyledKnapp = styled(Knapp)`
   text-transform: none;
   padding: 0.5em 1.2em;
+  margin-left: 0.5rem;
 `;
 
 const ShowOnSmallScreen = styled.div`
@@ -87,11 +88,19 @@ function Header() {
         <ShowOnBigScreen>
           <Brodsmuler />
         </ShowOnBigScreen>
-        <LoggInnKnapp
+        {demoContext.kontaktOssIBanner && (
+          <StyledKnapp
+            type="flat"
+            onClick={() => handleNaviger(getOmrådeFraTittel("Kontakt oss"))}
+          >
+            Kontakt oss
+          </StyledKnapp>
+        )}
+        <StyledKnapp
           onClick={() => handleNaviger(getOmrådeFraTittel("Ditt NAV"))}
         >
           Logg inn
-        </LoggInnKnapp>
+        </StyledKnapp>
       </Style>
       <PopDown
         lukkMeny={() => dispatch("closeMenu")}

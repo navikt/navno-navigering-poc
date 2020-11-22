@@ -127,6 +127,11 @@ function DemoControlls() {
               checked={context.søkIHeader}
             />
             <CheckBox
+              action={"toggleKontaktOssIBanner"}
+              label="Kontakt oss i banner"
+              checked={context.kontaktOssIBanner}
+            />
+            <CheckBox
               action={
                 context.undersiderIMeny
                   ? "ikkeVisUndersiderIMeny"
