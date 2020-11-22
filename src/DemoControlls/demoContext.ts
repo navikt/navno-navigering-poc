@@ -17,6 +17,7 @@ export type DemoContextActions =
   | "toggleOmrådebeskrivelse"
   | "toggleContextNavigering"
   | "toggleFooterNavigering"
+  | "toggleUndersiderIFooter"
   | "toggleContextTabs"
   | "toggleSøkIHeader"
   | "toggleSøkIMeny"
@@ -41,6 +42,7 @@ const initialState = {
   områdeBeskrivelse: true,
   contextNavigering: false,
   footerNavigering: false,
+  undersiderIFooter: true,
   contextTabs: false,
   søkIHeader: false,
   søkIMeny: false,
@@ -135,6 +137,12 @@ const reducer = (state: State, action: DemoContextActions) => {
         ...state,
         footerNavigering: !state.footerNavigering,
       };
+    case "toggleUndersiderIFooter":
+      return {
+        ...state,
+        footerNavigering: true,
+        undersiderIFooter: !state.undersiderIFooter,
+      };
     case "toggleContextTabs":
       return {
         ...state,
@@ -168,10 +176,12 @@ const reducer = (state: State, action: DemoContextActions) => {
         søkIMeny: true,
         contextNavigering: true,
         footerNavigering: true,
+        undersiderIFooter: true,
         toppTre: true,
         coronaBanner: true,
         situasjonTekst: true,
         undersiderIMeny: true,
+        tillatTreLenkerIBredden: true,
       };
     case "brukertestFavoritt":
       return {
@@ -182,6 +192,7 @@ const reducer = (state: State, action: DemoContextActions) => {
         toppTre: false,
         ikonerToppTre: false,
         footerNavigering: true,
+        undersiderIFooter: false,
         contextNavigering: true,
         coronaBanner: true,
         situasjonTekst: true,

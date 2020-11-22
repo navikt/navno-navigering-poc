@@ -40,6 +40,7 @@ export function Undersider(props: {
   område: OmrådeI;
   onNaviger?: () => void;
   chevron?: boolean;
+  className?: string;
 }) {
   const { navigerTil } = useNavigasjon();
 
@@ -49,7 +50,7 @@ export function Undersider(props: {
   };
 
   return (
-    <div>
+    <div className={props.className}>
       {props.område.sider.slice(0, 2).map((side) => (
         <ChevronKnapp
           small={true}

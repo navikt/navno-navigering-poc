@@ -38,7 +38,7 @@ const Panel = styled.button`
     margin-right: 1rem;
     stroke-width: 1.2;
     transform: scale(3.5) translate(1rem, 0.5rem);
-    opacity: 0.3;
+    opacity: 0.15;
   }
 `;
 

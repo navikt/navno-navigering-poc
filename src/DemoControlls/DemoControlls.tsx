@@ -193,6 +193,11 @@ function DemoControlls() {
               checked={context.footerNavigering}
             />
             <CheckBox
+              action={"toggleUndersiderIFooter"}
+              label="Undersider i footer"
+              checked={context.undersiderIFooter}
+            />
+            <CheckBox
               action={"toggleContextTabs"}
               label="Context som tabs"
               checked={context.contextTabs}
