@@ -18,6 +18,10 @@ function Velkommen() {
         avslutte testen når du vil ved å lukke siden.
       </p>
       <p>
+        Om du skulle glemme oppgaven underveis finner du oppgaveteksten på bunn
+        av siden, samt mulighet til å avbryte en oppgave om du ikke får den til.
+      </p>
+      <p>
         Hvis noen oppgaver er vanskelige betyr det at vi har gjort en for dårlig
         jobb med å lage god navigasjon. Da skal vi prøve å lage den bedre.
       </p>
