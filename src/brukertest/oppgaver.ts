@@ -72,6 +72,7 @@ export const oppgaver: OppgaveConfig[] = [
       "Se for deg at du ønsker å finne ut hvor mange som var arbeidsledige i Norge i september 2020",
     design: randomFromArray(testDesign),
   },
+  /*
   {
     løsninger: [
       {
@@ -87,6 +88,7 @@ export const oppgaver: OppgaveConfig[] = [
       "Se for deg at du har søkt om kontantstøtte til barnet ditt, og lurer på hvor lang tid det tar før du får svar på søknaden din",
     design: randomFromArray(testDesign),
   },
+   */
 ];
 
 oppgaver.forEach((oppgave) =>
