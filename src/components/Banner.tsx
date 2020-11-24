@@ -21,6 +21,11 @@ const Style = styled.button`
     margin-right: 2em;
     height: 2rem;
     stroke-width: 0;
+  } 
+  
+  &:focus,
+  &:hover {
+    box-shadow: inset 0 0 0 0.18rem ${theme.colors.fokusFarge}
   }
 `;
 
