@@ -12,6 +12,8 @@ function randomFromArray<T>(array: T[]): T {
   return array[Math.floor(array.length * Math.random())];
 }
 
+const valgtDesign = randomFromArray(testDesign);
+
 export const oppgaver: OppgaveConfig[] = [
   {
     løsninger: [
@@ -22,7 +24,7 @@ export const oppgaver: OppgaveConfig[] = [
     ],
     oppgaveTekst:
       "Se for deg at du snart skal pensjonere deg og lurer på hvor mye du vil få i pensjon",
-    design: randomFromArray(testDesign),
+    design: valgtDesign,
   },
   {
     løsninger: [
@@ -33,7 +35,7 @@ export const oppgaver: OppgaveConfig[] = [
     ],
     oppgaveTekst:
       "Du har fått SMS fra NAV med beskjed om at det ligger en melding til deg på nav.no. Prøv å finne frem til meldingen du har fått fra NAV.",
-    design: randomFromArray(testDesign),
+    design: valgtDesign,
   },
   {
     løsninger: [
@@ -44,7 +46,7 @@ export const oppgaver: OppgaveConfig[] = [
     ],
     oppgaveTekst:
       "Se for deg at du leter etter ny jobb og ønsker å finne ledige stillinger",
-    design: randomFromArray(testDesign),
+    design: valgtDesign,
   },
   {
     løsninger: [
@@ -55,7 +57,7 @@ export const oppgaver: OppgaveConfig[] = [
     ],
     oppgaveTekst:
       "Se for deg at du ønsker å komme i kontakt med NAV og vil finne et telefonnummer du kan ringe",
-    design: randomFromArray(testDesign),
+    design: valgtDesign,
   },
   {
     løsninger: [
@@ -70,7 +72,7 @@ export const oppgaver: OppgaveConfig[] = [
     ],
     oppgaveTekst:
       "Se for deg at du ønsker å finne ut hvor mange som var arbeidsledige i Norge i september 2020",
-    design: randomFromArray(testDesign),
+    design: valgtDesign,
   },
   /*
   {
@@ -86,7 +88,7 @@ export const oppgaver: OppgaveConfig[] = [
     ],
     oppgaveTekst:
       "Se for deg at du har søkt om kontantstøtte til barnet ditt, og lurer på hvor lang tid det tar før du får svar på søknaden din",
-    design: randomFromArray(testDesign),
+    design: valgtDesign,
   },
    */
 ];
