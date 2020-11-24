@@ -3,7 +3,7 @@ name: Deploy to gh-pages
 on:
   push:
     branches:
-      - skruddAvDeployPgaTest
+      - main
 
 jobs:
   build-and-deploy:
